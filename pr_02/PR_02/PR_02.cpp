@@ -26,26 +26,45 @@ int main() {
         cout << "Введите ФИО студента: ";
         cin >> MasOfStudents[i].FIO;
         for (int j = 0; j < LengthOfLessons; j++) {
-            cout << "Введите оценку по " << Lessons[j] << ":";
+			cout << "Введите оценку по " << Lessons[j] << ":";
             cin >> MasOfStudents[i].Marks[j];
         }
     }
 
-    //Проверка сколько студентов имеют неудовлетворительную оценку
-    int KolStudNaHorIOtl = 0;
-    for (int i = 0; i < n; i++) {
-        bool flag = false;
-        for (int j = 0; j < LengthOfLessons; j++) {
-            if (MasOfStudents[i].Marks[j] < 3) {
-                flag = true;
-                break;
+    cout << "Введите Ваш номер варианта: ";
+    int v = 0;
+    cin >> v;
+    if (v==1){
+        //Проверка сколько студентов имеют неудовлетворительную оценку
+        int KolStudNaHorIOtl = 0;
+        for (int i = 0; i < n; i++) {
+            bool flag = false;
+            for (int j = 0; j < LengthOfLessons; j++) {
+			    if (MasOfStudents[i].Marks[j] < 3) {
+                    flag = true;
+                    break;
+                }
             }
+            if (flag)
+                KolStudNaHorIOtl++;
         }
-        if (flag)
-            KolStudNaHorIOtl++;
+        cout << "Cколько студентов имеют неудовлетворительную оценку: " << KolStudNaHorIOtl;
+	}
+    if (v == 6) {
+        //Проверка сколько студентов имеют средний балл от 4 до 5.
+        int KolStud = 0;
+        for (int i = 0; i < n; i++) {
+            double SrBall = 0;
+            for (int j = 0; j < LengthOfLessons; j++) {
+                SrBall += MasOfStudents[i].Marks[j];
+            }
+            SrBall /= LengthOfLessons;
+            cout << SrBall << endl;
+            if (SrBall > 4)
+                KolStud++;
+        }
+        cout << "Cколько студентов имеют средний балл от 4 до 5 " << KolStud;
     }
-    cout << "Cколько студентов имеют неудовлетворительную оценку: " << KolStudNaHorIOtl;
-
 
 
 }

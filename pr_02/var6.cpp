@@ -10,21 +10,22 @@ struct Student {
     int Marks[5];
 };
 
-
 int main() {
+    setlocale(LC_ALL, "Russian");
     Lessons[0] = "математика";
     Lessons[1] = "физика";
     Lessons[2] = "черчение";
     Lessons[3] = "химия";
     Lessons[4] = "сопромат";
+    int LengthOfLessons = 5;
     cout << "ВВедите количество студентов";
     int n;
     cin >> n;
-    Student MasOfStudents[n];
+    Student MasOfStudents[2000];
     for (int i = 0; i < n; i++) {
         cout << "ВВедите ФИО студента";
         cin >> MasOfStudents[i].FIO;
-        for (int j = 0; j < length(Lessons); j++) {
+        for (int j = 0; j < LengthOfLessons; j++) {
             cout << "Введите оценку по " << Lessons[j] << ":";
             cin >> MasOfStudents[i].Marks[j];
         }
@@ -34,7 +35,7 @@ int main() {
     int KolStudNaHorIOtl = 0;
     for (int i = 0; i < n; i++) {
         bool flag = false;
-        for (int j = 0; j < length(Lessons); j++) {
+        for (int j = 0; j < LengthOfLessons; j++) {
             if (MasOfStudents[i].Marks[j] < 3) {
                 flag = true;
                 break;

@@ -19,9 +19,32 @@ int main() {
     Lessons[4] = "сопромат";
     cout << "ВВедите количество студентов";
     int n;
-    cin>>n;
+    cin >> n;
     Student MasOfStudents[n];
+    for (int i = 0; i < n; i++) {
+        cout << "ВВедите ФИО студента";
+        cin >> MasOfStudents[i].FIO;
+        for (int j = 0; j < length(Lessons); j++) {
+            cout << "Введите оценку по " << Lessons[j] << ":";
+            cin >> MasOfStudents[i].Marks[j];
+        }
+    }
 
-    cout << "ВВедите ФИО студента";
+    //Проверка сколько студентов имеют неудовлетворительную оценку
+    int KolStudNaHorIOtl = 0;
+    for (int i = 0; i < n; i++) {
+        bool flag = false;
+        for (int j = 0; j < length(Lessons); j++) {
+            if (MasOfStudents[i].Marks[j] < 3) {
+                flag = true;
+                break;
+            }
+        }
+        if (flag)
+            KolStudNaHorIOtl++;
+    }
+    cout << "Cколько студентов имеют неудовлетворительную оценку: " << KolStudNaHorIOtl;
+
+
 
 }

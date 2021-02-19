@@ -18,7 +18,8 @@ int main() {
     Lessons[3] = "химия";
     Lessons[4] = "сопромат";
     cout << "ВВедите количество студентов";
-
+    int n;
+    cin>>n;
     Student MasOfStudents[n];
 
     cout << "ВВедите ФИО студента";

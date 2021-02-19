@@ -65,6 +65,18 @@ int main() {
         }
         cout << "Cколько студентов имеют средний балл от 4 до 5 " << KolStud;
     }
+    if (v == 7) {
+        //Какое количество неудовлетворительных оценок получено по всем предметам
+        int KolNeudOc = 0;
+        for (int i = 0; i < n; i++) {
+            double SrBall = 0;
+            for (int j = 0; j < LengthOfLessons; j++) {
+                if (MasOfStudents[i].Marks[j] < 3)
+					KolNeudOc++;
+            }
+        }
+        cout << "Какое количество неудовлетворительных оценок получено по всем предметам: " << KolNeudOc;
+    }
 
 
 }

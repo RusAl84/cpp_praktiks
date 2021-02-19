@@ -6,7 +6,7 @@ using namespace std;
 string Lessons[5];
 
 struct Student {
-    char FIO[40];
+	char FIO[40];
     int Marks[5];
 };
 

@@ -5,7 +5,7 @@
 #include <Windows.h>
 using namespace std;
 
-void TinkleBens() {
+void TinkleBels() {
     int x;
     for (x = 0; x < 2; x++)
     {
@@ -201,6 +201,7 @@ void MarioSound() {
 int main()
 {
     MarioSound();
+    TinkleBels();
     return 0;
 }
 

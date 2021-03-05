@@ -9,6 +9,8 @@ struct node
 };
 
 static node* head;
+
+
 static int countn;
 static node* last_node;
 

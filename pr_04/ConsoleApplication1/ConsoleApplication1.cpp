@@ -9,13 +9,13 @@ struct node
 };
 
 static node* head;
-static int count;
+static int countn;
+static node* last_node;
 
 void print_list(){
 	node* curr;
     curr = head;
-    while(curr)
-	{	
+	for(int i=0;i<countn;i++){
 		cout<<curr->value;
 		cout<<endl;
 		curr=curr->next;
@@ -33,16 +33,19 @@ int main()
 	mas[2] = 2;
 	mas[3] = 3;
 	head = NULL;
-	count = 0;
+	countn = 0;
 
 	for(int i=0;i<4;i++){
 		int value = mas[i];
 		if (!head)
 		{
 			head = new node;
+			node* ptmp;
+			ptmp = head;
 			head->value=value;
-			head->next = NULL;
-
+			head->next = ptmp;
+			last_node = head;
+			countn++;
 		}
 		else
 		{    
@@ -50,6 +53,8 @@ int main()
 			tmp->value = value;
 			tmp->next = head;
 			head = tmp;
+			last_node->next = head;
+			countn++;
 		}
 
 
@@ -62,8 +67,7 @@ int main()
 
 	node* curr;
 	curr = head;
-	while (curr)
-	{
+	for (int i = 0; i < countn; i++) {
 		int current_value = curr->value;
 		if (current_value == change_value) {
 			curr->value = set_change_value;
@@ -71,6 +75,15 @@ int main()
 		curr = curr->next;
 	}
 
-
+	cout << endl;
 	print_list();
+
+
+	cout << endl;
+	curr = head;
+	for (int i = 0; i < countn*10; i++) {
+		cout << curr->value;
+		cout << endl;
+		curr = curr->next;
+	}
 }

@@ -467,6 +467,7 @@ static void Seven_Naion_Army()
 int main()
 {
     Seven_Naion_Army();
+    cout << endl;
     graviti_folz();
     MarioSound();
     TinkleBels();

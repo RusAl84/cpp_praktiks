@@ -20,6 +20,7 @@ private:
 		float* pmas[2];
 		pmas[0] = &this->pvar1;
 		pmas[1] = &this->pvar2;
+		
 	}
 	void pf2() {
 		cout << "pf2" << endl;

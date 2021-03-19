@@ -15,6 +15,11 @@ public:
 		this->Age = 18;
 	};
 
+	ClassVar7(int tamila) {
+		this->SetAge(tamila);
+	};
+
+
 	void Display(int jocker) {
 		cout << "Age = " << this->Age << endl;
 	};

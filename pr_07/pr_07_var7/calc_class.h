@@ -8,6 +8,7 @@ private:
 	double x;
 	double y;
 	double z;
+	double beta;
 	double gamma;
 	double result;
 	int variant;
@@ -25,6 +26,12 @@ public:
 	void set() {
 		switch (variant)
 		{
+		case 6: {
+			x = 16.55*pow(10, -3);
+			y = -2.75;
+			z = 0.15;
+			beta = -40.630;
+			break; }
 		case 7: {
 			x = 0.1722;
 			y = 6.33;
@@ -38,6 +45,11 @@ public:
 	void run() {
 		switch (variant)
 		{
+		case 6: {
+			double mnozh1 = sqrt(10*(pow(x,1/3)+pow(x,y+2)));
+			double mnozh2 = asin(z)* asin(z) - abs(x - y);
+			result = mnozh1* mnozh2;
+			break; }
 		case 7:{
 			double chisl = exp(abs(x - y)) * pow(abs(x - y), (x + y));
 			double znam = atan(x) + atan(z);

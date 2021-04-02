@@ -12,6 +12,51 @@ void display(vector <int> ve) {
         cout << item << ", ";
 }
 
+vector<int> cut_vector(vector<int> v, int sz) {
+    vector<int> rv;
+    for (int i = 0; i < sz; i++)
+        rv.insert(rv.begin(), v[i]);
+    return rv;
+}
+
+int m_max(vector<int> v) {
+    int maxa = v.at(0);
+    for (int a : v)
+        if (a > maxa)
+            maxa = a;
+    return  maxa;
+}
+int m_min(vector<int> v) {
+    int mina = v.at(0);
+    for (int a : v)
+        if (a < mina)
+            mina = a;
+    return  mina;
+}
+/// <summary>
+/// Вычислить бегущий размах (разность max и min всех встретившихся элементов): bi = max { a0, a1, …, ai } – min { a0, a1, …, ai 
+/// </summary>
+void func1() {
+    vector<int> a{ 24, 22, 5, 7, 228 };
+    vector<int> b(5);
+
+    for (int i = 1; i < b.size(); i++) 
+    {
+        vector<int> tmpv = cut_vector(a, i);
+        int max = m_max(tmpv);
+        int min = m_min(tmpv);
+        b[i] = max - min;
+    }
+    cout << "Вариант № 1 " << endl;;;;
+    cout << "a = ";
+    display(a);
+    cout << endl;
+    cout << "b = ";
+    display(b);
+    cout << endl;
+}
+
+
 /// <summary>
 /// Вычислить вектор геометрических средних каждой группы соседних k элементов в исходном векторе: bi = (ai * ai+1 * … * ai+k–1)1/k.
 /// </summary>
@@ -75,5 +120,6 @@ int main()
 {
     setlocale(LC_ALL, "");
     //func7(9987);
-    func9();
+    //func9();
+    func1();
 }

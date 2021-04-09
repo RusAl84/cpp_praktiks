@@ -1,6 +1,8 @@
 ﻿#include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
+#include <map>
 
 using namespace std;
 
@@ -30,7 +32,6 @@ static void var7() {
     out.open("D:\\hello.txt"); // окрываем файл для записи
     if (out.is_open())
     {
-
         for (int i = 0; i < count; i++) {
             int random_number = getRandomNumber(100, 700);
             out << random_number << std::endl;
@@ -82,6 +83,60 @@ static void var7() {
             }
             out << number << comment << endl;
         }
+    }
+    out.close();
+    in.close();     // закрываем файл
+    display("D:\\out.txt");
+}
+
+
+static void var1() {
+    int count = 10; // Количество записей
+    std::ofstream out;          // поток для записи
+    out.open("D:\\hello.txt"); // окрываем файл для записи
+    if (out.is_open())
+    {
+        for (int i = 0; i < count; i++) {
+            int random_number = getRandomNumber(0, 10);
+            out << random_number << std::endl;
+        }
+    }
+    out.close();
+    std::cout << "Файл сгенерирован: " << endl;
+    display("D:\\hello.txt");
+    std::cout << "Выполненное задание: " << endl;
+    string line;
+    ifstream in("D:\\hello.txt"); // окрываем файл для чтения
+    //    Записать в файл g комментарий.
+    out.open("D:\\out.txt"); // окрываем файл для записи
+    if (in.is_open())
+    {
+        vector <int> ve;
+        while (getline(in, line))
+        {
+            /* std::cout << line << std::endl;*/
+            int number = atoi(line.c_str());
+            //string comment = " //";
+            //out << number << comment << endl;
+            ve.insert(ve.begin(), number);
+        }
+        map <int, int> m;
+        for (auto const& x : ve) 
+            m[x] = 0;
+        for (auto const&  x : ve)
+            m[x] += 1;
+        for (const auto& kv : m) {
+            std::cout << kv.first << " has value " << kv.second << std::endl;
+        }
+        int index=0;
+        vector <int> ve1;
+        for (int x : ve){
+            int val = m[x];
+            if (val < 2)
+                ve1.insert(ve.begin(), x);
+        }
+        for (int x : ve1)
+            std::cout << x << endl;
     }
     out.close();
     in.close();     // закрываем файл
@@ -158,10 +213,14 @@ static void var2() {
     display("D:\\out.txt");
 }
 
+
+
+
+
 int main()
 {
     srand(static_cast<unsigned int>(time(0))); // устанавливаем значение системных часов в качестве стартового числа
     setlocale(LC_ALL, "");
-    var2();
+    var1();
 }
 

@@ -1,5 +1,5 @@
 ﻿#include "iostream"
-
+#include <vector>
 
 class Human {
 public:
@@ -10,12 +10,10 @@ public:
 
 
 };
-
-class Children : Human {
+class Children :public Human {
 public:
     virtual void saySomething() override {
         std::cout << "I'm Children";
-
     }
 
 };

@@ -3,14 +3,10 @@
 
 #include <iostream>
 
-
-
 class Human {
 public:
-
     // поле класса
     std::string known_phrase = "Hochu v VDV!!!";
-
 
     // метод класса
     void saySomething() {
@@ -22,8 +18,14 @@ public:
 int main()
 {
     // создание объекта
+
     Human human_obj = Human();
-    human_obj.saySomething();
+    for(int i=0;i<2;i++)
+    { 
+        human_obj.saySomething();
+        std::cout << std::endl;
+    }
+    
 
     Human* human_dyn_obj = new Human();
     human_dyn_obj->known_phrase = "Ya devochka";

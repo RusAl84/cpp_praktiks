@@ -16,7 +16,6 @@ public:
     // конструктор поумолчанию
     Human() {
         known_phrase = "";
-
     }
 
     // метод класса
@@ -27,7 +26,6 @@ public:
     // деструктор класса
     ~Human() {
         std::cout << "Bye world";
-
     }
 };
 

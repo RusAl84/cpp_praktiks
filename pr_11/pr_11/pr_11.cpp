@@ -50,6 +50,9 @@ public:
 
 int main()
 {
+    setlocale(LC_ALL,"ru");
+    std::cout << "Ярослав" << std::endl;
+
     std::cout << "A\n";
     A * cA = new A();
     std::cout << "B\n";

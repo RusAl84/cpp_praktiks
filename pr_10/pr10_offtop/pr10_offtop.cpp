@@ -9,7 +9,7 @@ using namespace std;
 /// <summary>
 /// Функция отправки в армию
 /// </summary>
-/// <param name="groupName">Название группы студентов (БАСО-01-20)</param>
+/// <param name="groupName">Наименование группы студентов (БАСО-01-20)</param>
 /// <returns>Число годных новобранцев</returns>
 int goArmy(string groupName) {
     return 10;

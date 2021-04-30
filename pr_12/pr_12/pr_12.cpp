@@ -3,14 +3,49 @@
 
 #include "windows.h"
 #include <iostream>
+#include <string.h>
+using namespace std;
 
+class menu {
+public:
+    string items[5][20];
+    int selectedItem;
+
+
+    menu() {
+        selectedItem = 0;
+        items[0]->assign("Pasha");
+        items[1]->assign("Serega");
+        items[2]->assign("Mersov");
+        items[3]->assign("Rusakov");
+        items[4]->assign("Filatov");
+
+    }
+
+    void draw() {
+        system("cls");
+        for (int i = 0;i<5;i++){
+            if (i == selectedItem) {
+                cout << " * "<<items[i]->c_str() << endl;
+            }
+            else{
+                cout << "   " << items[i]->c_str() << endl;
+            }
+            
+        }
+    }
+
+};
 int main()
 {
-    for (int i = 0; i < 10; i++) {
-        std::cout << "Astahov Muzhik!\a\n";
-        Sleep(1000);
-        
-    }
+    menu menu1 = menu();
+    menu1.draw();
+    //for (int i = 0; i < 10; i++) {
+    //    std::cout << "Pasha Lavrov Muzhik!\a\n";
+    //    Sleep(1000);
+    //    Beep(1000, 1000);
+    //    system("cls");
+    //}
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"

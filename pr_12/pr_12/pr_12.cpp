@@ -4,42 +4,93 @@
 #include "windows.h"
 #include <iostream>
 #include <string.h>
+#include <conio.h>
+#include <stdio.h>
 using namespace std;
 
-class menu {
+class menuClass {
 public:
-    string items[5][20];
+    string items[30][40];
     int selectedItem;
+    int count;
 
-
-    menu() {
+    menuClass() {
         selectedItem = 0;
-        items[0]->assign("Pasha");
-        items[1]->assign("Serega");
-        items[2]->assign("Mersov");
-        items[3]->assign("Rusakov");
-        items[4]->assign("Filatov");
-
+    }
+    void setDown() {
+        selectedItem++;
+        if (selectedItem > count - 1)
+            selectedItem = 0;
+    }
+    void setUp() {
+        selectedItem--;
+        if (selectedItem < 0)
+            selectedItem = count - 1;
     }
 
+    //где <A> и <B> — шестнадцатеричные цифры — первая задает цвет фона, а вторая — цвет переднего плана(цвет шрифта).
+    //    Значения цифр
+    //    0 — черный
+    //    1 — синий
+    //    2 — зеленый
+    //    3 — голубой
+    //    4 — красный
+    //    5 — лиловый
+    //    6 — желтый
+    //    7 — белый
+    //    8 — серый
+    //    9 — свело - синий
+    //    A — светло - зеленый
+    //    B — светло - голубой
+    //    С — светло - красный
+    //    E — светло - желтый
+    //    F — ярко - белый
+    //system("Color 15");
     void draw() {
         system("cls");
+        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
         for (int i = 0;i<5;i++){
+            
             if (i == selectedItem) {
+                SetConsoleTextAttribute(hConsole, 13);
                 cout << " * "<<items[i]->c_str() << endl;
             }
             else{
+                SetConsoleTextAttribute(hConsole, 15);
                 cout << "   " << items[i]->c_str() << endl;
             }
             
         }
     }
 
+    void run() {
+        char ch = ' ';
+        while (ch != 13) {
+            draw();
+            Sleep(100);
+            ch = _getch();
+            //cout << endl << ch <<endl;
+            if (ch == 80)  // вниз
+                setDown();
+            if (ch == 72)
+                setUp();
+        }
+
+    }
+
 };
 int main()
 {
-    menu menu1 = menu();
-    menu1.draw();
+    menuClass menu1 = menuClass();
+    menu1.count = 5;
+    menu1.items[0]->assign("Выбрать файл для загрузки БД студентов");
+    menu1.items[1]->assign("Сохранить БД студентов в файл");
+    menu1.items[2]->assign("Вывести список студентов");
+    menu1.items[3]->assign("Добавить студента");
+    menu1.items[4]->assign("Выход");
+    menu1.run();
+    cout << endl << menu1.selectedItem << endl;
+    _getch();
     //for (int i = 0; i < 10; i++) {
     //    std::cout << "Pasha Lavrov Muzhik!\a\n";
     //    Sleep(1000);

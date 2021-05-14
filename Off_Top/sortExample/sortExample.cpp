@@ -48,7 +48,7 @@ int main()
     mas[1]->assign("Овчиников");
     mas[2]->assign("Ватутин");
     mas[3]->assign("Лавров");
-    mas[4]->assign("Паникёрович");
+    mas[4]->assign("Ярошенко");
     mas[5]->assign("Сияющий");
     mas[6]->assign("Ушаков");
      //вывести массив

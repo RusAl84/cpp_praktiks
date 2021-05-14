@@ -17,6 +17,19 @@ int min(string inString[7][30]) {
     }
     return ind;
 }
+int max(string inString[7][30]) {
+    string maxString = "";
+    maxString = inString[0]->c_str();
+    int ind = 0;
+    for (int i = 0; i < 7; i++) {
+        //cout << "\n" << inString[i]->c_str();
+        if (strcmp(inString[i]->c_str(), maxString.c_str()) >= 0) {
+            maxString = inString[i]->c_str();
+            ind = i;
+        }
+    }
+    return ind;
+}
 
 
 void display(string inString[7][30]) {
@@ -42,14 +55,16 @@ int main()
     display(mas);
 
     cout << "\n\n Минимальный элемент:  " << mas[min(mas)]->c_str() << "\n";
-
+    
+    //Сортировка
     string sortedMas[7][30];
     int ind = 0;
-    //Сортировка
+    string maxString = "";
+    maxString = mas[max(mas)]->c_str();
     for (int i = 0; i < 7; i++) {
         int minInt = min(mas);
         sortedMas[i]->assign(mas[minInt]->c_str());
-        mas[minInt]->assign("ЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯЯ");
+        mas[minInt]->assign(maxString);
     }
     display(sortedMas);
 

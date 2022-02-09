@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Очистка_буфера_ввода_3", "Очистка_буфера_ввода_3.vcxproj", "{5EC61148-3725-4657-8E13-EC52131C0BD9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5EC61148-3725-4657-8E13-EC52131C0BD9}.Debug|x64.ActiveCfg = Debug|x64
+		{5EC61148-3725-4657-8E13-EC52131C0BD9}.Debug|x64.Build.0 = Debug|x64
+		{5EC61148-3725-4657-8E13-EC52131C0BD9}.Debug|x86.ActiveCfg = Debug|Win32
+		{5EC61148-3725-4657-8E13-EC52131C0BD9}.Debug|x86.Build.0 = Debug|Win32
+		{5EC61148-3725-4657-8E13-EC52131C0BD9}.Release|x64.ActiveCfg = Release|x64
+		{5EC61148-3725-4657-8E13-EC52131C0BD9}.Release|x64.Build.0 = Release|x64
+		{5EC61148-3725-4657-8E13-EC52131C0BD9}.Release|x86.ActiveCfg = Release|Win32
+		{5EC61148-3725-4657-8E13-EC52131C0BD9}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F747CA11-6BCC-4E95-945E-946EDC3ABFDE}
+	EndGlobalSection
+EndGlobal

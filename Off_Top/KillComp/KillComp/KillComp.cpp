@@ -10,10 +10,10 @@ using namespace std;
 int main()
 {
     cout << "Kill Comp!\n";
-    for (int i = 0; i < 16; i++) {
-        Beep(1000+i*100, 400-10*i);
+    for (int i = 0; i < 40; i++) {
+        Beep(1000+i*100, 700-10*i);
     }
-    Beep(2600, 5000);
+    Beep(3000, 10000);
 
 }
 

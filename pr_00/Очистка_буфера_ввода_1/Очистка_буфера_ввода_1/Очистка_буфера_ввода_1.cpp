@@ -13,6 +13,7 @@ int main()
 	while ((getchar()) != '\n');
 
 	//сканируем символ от пользователя -
+	//ch = getchar();
 	ch = getchar();
 	// Печать массива символов,
 	printf("%s\n", str);

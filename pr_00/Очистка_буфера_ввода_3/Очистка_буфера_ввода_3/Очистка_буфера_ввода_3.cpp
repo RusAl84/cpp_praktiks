@@ -19,9 +19,10 @@ int main()
 	cin >> ws;
 	// Получить ввод от пользователя -
 	getline(cin, s);
-	// выполнит pri;nt a и s
-	cout.fill('r');
-	cout << setw(10) << a << endl;
+	// выполнит print a и s
+	cout.fill('*');
+	cout <<   setw(6) << a << endl;
 	cout << s << endl;
+
 	return 0;
 }

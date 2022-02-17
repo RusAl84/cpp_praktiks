@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{563ec426-bcd4-42e4-a258-606df31ae1ba}</ProjectGuid>
-    <RootNamespace>TestBeepSound</RootNamespace>
+    <ProjectGuid>{ffb1b3c9-87e9-416d-97a1-2a1c8ed5813a}</ProjectGuid>
+    <RootNamespace>KillComp</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="TestBeepSound.cpp" />
+    <ClCompile Include="KillComp.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -14,7 +14,7 @@ public:
 		return name;
 	}
 	EzhStandart(){
-		name = "Ваня";
+		name = "Стёпа";
 		Age = 19;
 	}
 

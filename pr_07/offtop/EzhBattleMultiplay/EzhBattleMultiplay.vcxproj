@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{6aa59fa8-f48e-42e8-b5ad-832a5b9c457d}</ProjectGuid>
-    <RootNamespace>pr07var7</RootNamespace>
+    <ProjectGuid>{d7067303-d86e-4be3-8bde-73b57fbbfeda}</ProjectGuid>
+    <RootNamespace>EzhBattleMultiplay</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,10 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="pr_07_var7.cpp" />
+    <ClCompile Include="EzhBattleMultiplay.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="calc_class.h" />
+    <ClInclude Include="EzhBattle.h" />
+    <ClInclude Include="EzhStandart.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

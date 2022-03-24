@@ -6,6 +6,8 @@
 using namespace std;
 int main()
 {
+    setlocale(LC_ALL, "Russian");
+
     struct student {
         string name;
         int loadCapacity;
@@ -19,11 +21,17 @@ int main()
     dima->name = "Дима засланец";
     dima->drinkType = "Henessy XO";
     dima->loadCapacity = 600;
-
+    student* ivan = new student();
+    ivan->name = "Иван молодец";
+    ivan->drinkType = "Балтика 7";
+    ivan->loadCapacity = 1000;
     vector <student> tripNaDachuMihalicha;
     tripNaDachuMihalicha.push_back(*sema);
+    tripNaDachuMihalicha.push_back(*dima);
+    tripNaDachuMihalicha.push_back(*ivan);
+
     for (auto item : tripNaDachuMihalicha) {
-        cout << item.name << item.drinkType << item.loadCapacity << endl;
+        cout << "Имя: " << item.name << " Что пил: " << item.drinkType << " Сколько выпил: " << item.loadCapacity << " мл." << endl;
     }
 
 

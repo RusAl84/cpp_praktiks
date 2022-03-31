@@ -29,9 +29,9 @@ public:
         cout << "";
     }
     EzhBattle() {
-        weapon = "Иголки";
-        damage = 1;
-        health = 10;
+        weapon = "Базука";
+        damage = 15;
+        health = 145;
     }
 };
 

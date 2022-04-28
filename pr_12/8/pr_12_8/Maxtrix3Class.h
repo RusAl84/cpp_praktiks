@@ -21,7 +21,7 @@ public:
 	}	
 	void Print() {
 		for (int i = 0; i < 3; i++)
-			cout << matrix[i][1] << " " << matrix[i][2] << " " << matrix[i][3] << endl;
+			cout << matrix[i][0] << " " << matrix[i][1] << " " << matrix[i][2] << endl;
 	}
 };
 

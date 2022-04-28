@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{cafebd3f-93e6-4112-813a-9194b0e69ec3}</ProjectGuid>
-    <RootNamespace>pr12</RootNamespace>
+    <ProjectGuid>{ef314ed5-8352-4d5d-a301-280aab300b8a}</ProjectGuid>
+    <RootNamespace>digitmenu</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="pr_12.cpp" />
+    <ClCompile Include="digit_menu.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

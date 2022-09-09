@@ -291,7 +291,7 @@ static void graviti_folz() {
 
 }
 
-static void Seven_Naion_Army()
+static void Seven_Nation_Army()
 {
     Beep(330, 624);
     Beep(330, 250);
@@ -466,7 +466,7 @@ static void Seven_Naion_Army()
 }
 int main()
 {
-    Seven_Naion_Army();
+    Seven_Nation_Army();
     cout << endl;
     graviti_folz();
     MarioSound();

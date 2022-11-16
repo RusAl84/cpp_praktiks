@@ -2,16 +2,19 @@
 #include <ctime>
 
 using namespace std;
-const int n = 4;
-const int m = 8;
-const int firs_value = -10;
+const int n = 8;
+const int m = 3;
+const int firs_value = 1;
 const int last_value = 10;
 
 int genRand() {
     // формула генерации случайных чисел по заданному диапазону
     // где firs_value - минимальное число из желаемого диапазона
     // last_value - ширина выборки
-    return firs_value + rand() % last_value;
+    if (rand()> RAND_MAX/2)
+        return firs_value + rand() % last_value;
+    else
+        return (-1)*(firs_value + rand() % last_value);
 }
 
 void genNumbers(int numbers[n][m], int n, int m) {
@@ -55,21 +58,56 @@ int main()
     //Вариант 6
     //Дан двумерный массив, размером(n⋅на⋅m).
     //Найти максимальный элемент в каждой строке матрицы
-    //среди отрицательных элементов.Затем все положительные элементы каждой строки заменить на
-    //соответствующий найденный максимальный элемент.При отсутствии положительных элементов в
+    //среди отрицательных элементов.
+    //Затем все положительные элементы каждой строки заменить на
+    //соответствующий найденный максимальный элемент.
+    //При отсутствии положительных элементов в
     //строке данную строку заменить строкой, содержащей минимальный из максимальных
     //отрицательных элементов
+    
+    //Инициализация массива для хранения максимальных из отрицательных элементов по строкам
+    int minus_inf= -1 * last_value - 1;
     int max_elements[n];
     for (int i = 0; i < n; i++)
-        max_elements[i] = firs_value-1;
+        max_elements[i] = minus_inf;
+    // Заполнение массива максимальными элементами по строкам
     for (int i = 0; i < n; i++)
         for (int j = 0; j < m; j++)
-            if (numbers[i][j] > max_elements[i])
+            if ((numbers[i][j] > max_elements[i]) and (numbers[i][j]<0))
                 max_elements[i] = numbers[i][j];
-    cout << "\n   \n";
+    cout << "\n  \n";
+    // Вывод на экран массива максимальными элементами по строкам
     for (int i = 0; i < n; i++)
         cout <<"  "<< max_elements[i];
-    
+    cout << "\n  \n";
+    //Проверка есть ли в строке положительные элементы
+    bool is_exist_positive_mas[n];
+    for (int i = 0; i < n; i++)
+        is_exist_positive_mas[i] = false;
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < m; j++)
+            if (numbers[i][j] > 0)
+                is_exist_positive_mas[i] = true;
+    int min_max_elemnt = firs_value - 1;
+    // минимальный из максимальных отрицательных элементов
+    for (int i = 0; i < n; i++)
+        if (max_elements[i] > min_max_elemnt and max_elements[i]!= minus_inf)
+            max_elements[i] = min_max_elemnt;
+    //финальное задание
+    for (int i = 0; i < n; i++)
+        if (is_exist_positive_mas[i])
+        {
+            for (int j = 0; j < m; j++)
+                if (numbers[i][j] > 0)
+                    numbers[i][j] = max_elements[i];
+        }
+        else
+        {
+            for (int j = 0; j < m; j++)
+                numbers[i][j] = min_max_elemnt;
+        }
+    displayNumbers(numbers, n, m);
+ 
 
     
 }

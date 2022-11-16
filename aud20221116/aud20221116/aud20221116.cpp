@@ -81,21 +81,27 @@ int main()
         cout <<"  "<< max_elements[i];
     cout << "\n  \n";
     //Проверка есть ли в строке положительные элементы
-    bool is_exist_positive_mas[n];
-    for (int i = 0; i < n; i++)
-        is_exist_positive_mas[i] = false;
-    for (int i = 0; i < n; i++)
+    bool is_all_positive_mas[n];
+    int count_positive_elements = 0;
+    for (int i = 0; i < n; i++) {
+        count_positive_elements = 0;
         for (int j = 0; j < m; j++)
             if (numbers[i][j] > 0)
-                is_exist_positive_mas[i] = true;
-    int min_max_elemnt = firs_value - 1;
+                 count_positive_elements++;
+        if (count_positive_elements == m)
+            is_all_positive_mas[i] = false;
+        else
+            is_all_positive_mas[i] = true;
+    }
+    int min_max_elemnt = minus_inf;
     // минимальный из максимальных отрицательных элементов
     for (int i = 0; i < n; i++)
-        if (max_elements[i] > min_max_elemnt and max_elements[i]!= minus_inf)
-            max_elements[i] = min_max_elemnt;
+        if (max_elements[i] > min_max_elemnt  and max_elements[i] != minus_inf)
+            min_max_elemnt = max_elements[i];
+    cout << "\n min_max_elemnt " << min_max_elemnt <<"\n";
     //финальное задание
     for (int i = 0; i < n; i++)
-        if (is_exist_positive_mas[i])
+        if (is_all_positive_mas[i])
         {
             for (int j = 0; j < m; j++)
                 if (numbers[i][j] > 0)

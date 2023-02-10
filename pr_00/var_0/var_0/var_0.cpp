@@ -34,11 +34,23 @@ int main()
 		unsigned short year;
 		double salary;
 	};
-	struct Line line1 = { "Иванов", "И. И.", 1975, 517.50 };
-	struct Line line2 = { "Петренко", "П.П.", 1956, 219.10 };
-	struct Line line3 = { "Панковский", "М.С.", 1967, 300.00 };
+	struct Line lines[3];
+	lines[0] = { "Иванов", "И. И.", 1975, 517.50 };
+	lines[1] = { "Петренко", "П.П.", 1956, 219.10 };
+	lines[2] = { "Панковский", "М.С.", 1967, 300.00 };
+	
+
 
 	DrawLine();
-	cout << "| Отдел кадров" <<  GetSpacebar(80-15) << "|\n";
+	cout << "| Отдел кадров" <<  GetSpacebar(80-sizeof("| Отдел кадров")) << "|\n";
+	DrawLine();
+	//|Фамилия |Инициалы |Год рожд | Оклад|
+	cout << "| Фамилия" << GetSpacebar(21 - sizeof("| Фамилия")) ;
+	cout << "| Инициалы" << GetSpacebar(21 - sizeof("| Инициалы"));
+	cout << "| Год рожд" << GetSpacebar(21 - sizeof("| Год рожд"));
+	cout << "| Оклад" << GetSpacebar(20 - sizeof("| Оклад")) << "|\n";
+	DrawLine();
+
+
 	DrawLine();
 }

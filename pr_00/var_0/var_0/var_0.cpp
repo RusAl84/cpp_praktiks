@@ -22,6 +22,13 @@ char* GetSpacebar(int count) {
 	return msg;
 }
 
+int GetSize(char* msg) {
+	int size = 0;
+	while (msg[size] != '\0')
+		size++;
+	return size;
+}
+
 int main()
 {
 	SetConsoleCP(1251);
@@ -32,7 +39,7 @@ int main()
 		char surName[17]; 
 		char ident[12];
 		unsigned short year;
-		double salary;
+		float salary;
 	};
 
 	struct Line lines[3];
@@ -50,10 +57,13 @@ int main()
 	cout << "| Год рожд" << GetSpacebar(21 - sizeof("| Год рожд"));
 	cout << "| Оклад" << GetSpacebar(20 - sizeof("| Оклад")) << "|\n";
 	DrawLine();
-	cout << "|" << lines[0].surName << GetSpacebar(21 - sizeof(lines[0].surName)) << "|";
-	cout << lines[0].ident << GetSpacebar(21 - sizeof(lines[0].ident)) << "|";
-	cout << lines[0].year << GetSpacebar(21 - sizeof(lines[0].year)) << "|";
-	cout << lines[0].salary << GetSpacebar(20 - sizeof(lines[0].salary)) << "|\n";
+	for (int i=0; i<3; i++){
+		cout << "| " << lines[i].surName << GetSpacebar(18 - GetSize(lines[i].surName));
+		cout << "| " << lines[i].ident << GetSpacebar(18 - GetSize(lines[i].ident));
+		cout << "| " << lines[i].year << GetSpacebar(18 - to_string(lines[i].year).size());
+		cout << "| " << lines[i].salary << GetSpacebar(22 - to_string(lines[i].salary).size()) << "|\n";
+		DrawLine();
+	}
+	cout << "| Примечание: оклад установлен по состоянию на 1 января 2000 года" << GetSpacebar(80 - sizeof("| Примечание: оклад установлен по состоянию на 1 января 2000 года")) << "|\n";
 	DrawLine();
-	cout << sizeof(to_string(lines[0].salary)) << endl;
 }

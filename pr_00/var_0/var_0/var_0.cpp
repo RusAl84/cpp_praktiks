@@ -89,9 +89,7 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-
 	struct Record records[10];
-
 
 	records[0] = { "Русаков", "И. И.", 1975, 517.50, true };
 	records[1] = { "Русаков", "П.П.", 1956, 219.10, true };

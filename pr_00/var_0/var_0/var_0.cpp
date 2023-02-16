@@ -5,6 +5,16 @@
 
 using namespace std;
 
+struct Record
+{
+	char surName[17];
+	char ident[12];
+	unsigned short year;
+	float salary;
+	bool isEmpty;
+};
+
+
 void DrawLine() {
 	for (int i = 0; i < 80; i++) {
 		cout << "-";
@@ -29,25 +39,44 @@ int GetSize(char* msg) {
 	return size;
 }
 
+
+struct Record CreateRecord() {
+	struct Record newRecord;
+	// ToDo cin 
+
+	return newRecord;
+}
+
+struct Record ReadRecord(struct Record *records, int index) {
+	struct Record newRecord;
+	// ToDo cin 
+	return newRecord;
+}
+
+
+struct Record UpdateRecord(struct Record inRecord, int index) { 
+	return inRecord;
+}
+
+void deleteRecord(struct Record inRecord, int index) {
+	
+}
+
 int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	struct Line
-	{
-		char surName[17]; 
-		char ident[12];
-		unsigned short year;
-		float salary;
-	};
 
-	struct Line lines[3];
+	struct Record Records[10];
 
-	lines[0] = { "Иванов", "И. И.", 1975, 517.50 };
-	lines[1] = { "Петренко", "П.П.", 1956, 219.10 };
-	lines[2] = { "Панковский", "М.С.", 1967, 300.00 };
+	Records[0] = { "Русаков", "И. И.", 1975, 517.50 };
+	Records[1] = { "Русаков", "П.П.", 1956, 219.10 };
+	Records[2] = { "Русаков", "М.С.", 1967, 300.10 };
 	
+	Rec
+
+
 	DrawLine();
 	cout << "| Отдел кадров" <<  GetSpacebar(80-sizeof("| Отдел кадров")) << "|\n";
 	DrawLine();

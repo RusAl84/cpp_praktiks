@@ -60,22 +60,22 @@ void Draw(struct Record* records) {
 	cout.fill(' '); cout.width(78);  cout << left << "|Офисные пакеты"; cout << "|" << endl;
 	cout.width(79); cout.fill('-'); cout << "-" << endl;
 	cout.fill(' ');	
-	cout << left << "|"; myCentr("Наименование", 10);
-	cout << left << "|"; myCentr("Производитель", 10);
-	cout << left << "|"; myCentr("Количество сост.частей", 24);
-	cout << left << "|"; myCentr("Цена($)", 10);
-	cout << left << " |"; myCentr("Дата релиза", 11);
+	cout << left << "| Наименование "; 
+	cout << left << "| Производитель"; 
+	cout << left << "| Количество сост. частей"; 
+	cout << left << "| Цена($)"; 
+	cout << left << " | Дата релиза";
 	cout << "|" << endl;
 	cout.width(79); cout.fill('-'); cout << "-" << endl;
 	cout.fill(' ');
 	for (int i = 0; i < 3; i++) {
-		cout << left << "|"; cout.width(16); cout << left << records[i].name;
-		cout << left << "|"; cout.width(11); cout << left << records[i].product;
-		cout << left << "|+"; cout.width(10); cout << left << records[i].unitCount;
+		cout << left << "|"; cout.width(14); cout << left << records[i].name;
+		cout << left << "|"; cout.width(14); cout << left << records[i].product;
+		cout << left << "|"; cout.width(24); cout << left << records[i].unitCount;
 		std::cout.precision(2);
-		cout << left << "|"; cout.width(11); cout << left << fixed << records[i].cost;
+		cout << left << "|"; cout.width(9); cout << left << fixed << records[i].cost;
 		cout << left << "|";
-		printDate(records[i].date.day, records[i].date.month, records[i].date.year, 26);
+		printDate(records[i].date.day, records[i].date.month, records[i].date.year, 11);
 		cout << "|" << endl;
 	}
 	cout.width(79); cout.fill('-'); cout << "-" << endl;

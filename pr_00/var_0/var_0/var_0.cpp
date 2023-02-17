@@ -96,9 +96,41 @@ void DrawWrong(struct Record * records) {
 	DrawLine();
 }
 
+void myCentr(string s, int wLine) {
+
+	int w = s.length();
+	int delta = (wLine - w) / 2 - 1;
+	cout << left;
+	cout.width(delta); cout << " ";
+	cout << s;
+	cout.width(delta); cout << " ";
+}
+
+void printDate(unsigned short day, unsigned short month, unsigned short year, int wLine) {
+	int w = 10;
+	int delta = (wLine - w) / 2 - 1;
+	cout << left;
+	cout.width(delta); cout << " ";
+	if (day > 9) {
+		cout << day;
+	} else {
+		cout << "0" << day;
+	}
+	cout << ".";
+	if (month > 9) {
+		cout << month;
+	}
+	else {
+		cout << "0" << month;
+	}
+	cout << ".";
+	cout << year;
+	cout.width(delta); cout << " ";
+}
+
 void Draw(struct Record* records) {
 	cout << endl;	cout.width(79); cout.fill('-'); cout << "-" << endl;
-	cout.fill(' '); cout.width(78);  cout << left << "| Отдел кадров"; cout << "|" << endl;
+	cout.fill(' '); cout.width(78);  cout << left << "|Отдел кадров"; cout << "|" << endl;
 	cout.width(79); cout.fill('-'); cout << "-" << endl;
 	cout.fill(' ');
 	cout.width(17); cout << "| Фамилия";
@@ -107,6 +139,21 @@ void Draw(struct Record* records) {
 	cout.width(12); cout << "| Оклад";
 	cout.width(25); cout << "| Дата приема на работу";
 	cout <<"|" << endl;
+	cout.width(79); cout.fill('-'); cout << "-" << endl;
+	cout.fill(' ');
+	for (int i = 0; i < 3; i++) {
+		 cout << left << "|"; cout.width(17-1); cout << left << records[i].surName;
+		 cout << left << "|"; cout.width(12-1); cout << left << records[i].ident;
+		 cout << left << "|+"; cout.width(12-2); cout << left << records[i].year;
+		 std::cout.precision(2);
+		 cout << left << "|"; cout.width(12-1); cout << left << fixed << records[i].salary;
+		 cout << left << "|"; 
+		 printDate(records[i].date.day, records[i].date.month, records[i].date.year, 25+1);
+		 cout << "|" << endl;
+	}
+	cout.width(79); cout.fill('-'); cout << "-" << endl;
+	cout.fill(' '); cout.width(78);  cout << left << "|Примечание: оклад установлен по состоянию на 1 января 2000 года"; cout << "|" << endl;
+	cout.width(79); cout.fill('-'); cout << "-" << endl;
 }
 
 int main()

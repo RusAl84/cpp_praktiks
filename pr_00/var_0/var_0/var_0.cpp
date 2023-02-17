@@ -22,34 +22,6 @@ struct Record
 };
 
 
-struct Record CreateRecord() {
-	struct Record newRecord;
-	// ToDo cin 
-
-	return newRecord;
-}
-
-struct Record ReadRecord(struct Record *records, int index) {
-	struct Record newRecord;
-	// ToDo cin 
-	return newRecord;
-}
-
-/// <summary>
-/// Функция которая обновляет запись
-/// </summary>
-/// <param name="inRecord">массив записей</param>
-/// <param name="index">индекс который надо обновить</param>
-/// <returns>Результат операции</returns>
-bool UpdateRecord(struct Record inRecord, int index) { 
-	return false;
-}
-
-void deleteRecord(struct Record inRecord, int index) {
-	
-}
-
-
 void DrawLine() {
 	for (int i = 0; i < 80; i++) {
 		cout << "-";
@@ -99,11 +71,12 @@ void DrawWrong(struct Record * records) {
 void myCentr(string s, int wLine) {
 
 	int w = s.length();
-	int delta = (wLine - w) / 2 - 1;
+	int delta = (wLine - w) / 2;  
 	cout << left;
-	cout.width(delta); cout << " ";
-	cout << s;
-	cout.width(delta); cout << " ";
+	cout.width(delta); cout << " "; 
+	cout << s; 
+	cout.width(delta+1); cout << " ";
+
 }
 
 void printDate(unsigned short day, unsigned short month, unsigned short year, int wLine) {
@@ -133,22 +106,27 @@ void Draw(struct Record* records) {
 	cout.fill(' '); cout.width(78);  cout << left << "|Отдел кадров"; cout << "|" << endl;
 	cout.width(79); cout.fill('-'); cout << "-" << endl;
 	cout.fill(' ');
-	cout.width(17); cout << "| Фамилия";
-	cout.width(12); cout << "| Инициалы";
-	cout.width(12); cout << "| Год рожд" ;
-	cout.width(12); cout << "| Оклад";
-	cout.width(25); cout << "| Дата приема на работу";
+	//cout.width(17); cout << "| Фамилия";
+	//cout.width(12); cout << "| Инициалы";
+	//cout.width(12); cout << "| Год рожд" ;
+	//cout.width(12); cout << "| Оклад";
+	//cout.width(25); cout << "| Дата приема на работу";
+	cout << left << "|"; myCentr("Фамилия", 16);
+	cout << left << "|"; myCentr("Инициалы", 11);
+	cout << left << "|"; myCentr("Год рожд", 10);
+	cout << left << "|"; myCentr("Оклад", 10);
+	cout << left << " |"; myCentr("Дата приема на работу", 24);
 	cout <<"|" << endl;
 	cout.width(79); cout.fill('-'); cout << "-" << endl;
 	cout.fill(' ');
 	for (int i = 0; i < 3; i++) {
-		 cout << left << "|"; cout.width(17-1); cout << left << records[i].surName;
-		 cout << left << "|"; cout.width(12-1); cout << left << records[i].ident;
-		 cout << left << "|+"; cout.width(12-2); cout << left << records[i].year;
+		 cout << left << "|"; cout.width(16); cout << left << records[i].surName;
+		 cout << left << "|"; cout.width(11); cout << left << records[i].ident;
+		 cout << left << "|+"; cout.width(10); cout << left << records[i].year;
 		 std::cout.precision(2);
-		 cout << left << "|"; cout.width(12-1); cout << left << fixed << records[i].salary;
+		 cout << left << "|"; cout.width(11); cout << left << fixed << records[i].salary;
 		 cout << left << "|"; 
-		 printDate(records[i].date.day, records[i].date.month, records[i].date.year, 25+1);
+		 printDate(records[i].date.day, records[i].date.month, records[i].date.year, 26);
 		 cout << "|" << endl;
 	}
 	cout.width(79); cout.fill('-'); cout << "-" << endl;

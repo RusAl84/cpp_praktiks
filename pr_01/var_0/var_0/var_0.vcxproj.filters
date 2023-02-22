@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pr_01.cpp">
+    <ClCompile Include="var_0.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>

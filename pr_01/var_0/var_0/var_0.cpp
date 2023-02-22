@@ -178,6 +178,15 @@ struct Date getMaxDate(struct Record* records) {
 	return minDate;
 };
 
+int  findIndex(struct Record* records, const struct Date date) {
+	int ind = -1;
+	for (int i = 0; i < 3; i++) {
+		if (records[i].date.year == date.year && records[i].date.month == date.month && records[i].date.day == date.day)
+			ind = i;
+	}
+	return ind;
+};
+
 int main()
 {
 	SetConsoleCP(1251);
@@ -192,8 +201,7 @@ int main()
 	Draw(records);
 	cout << endl << "Вариант задания: Поменять местами записи (элементы массива структур),";
 	cout << endl << "содержащие минимальную и максимальную даты" << endl;
-	struct Record newRecords[10];
-
+	
 	struct Date minDate = getMinDate(records);
 	cout << "Минимальная дата: "; cout.fill(' ');
 	printDate(minDate.day, minDate.month, minDate.year, 16);
@@ -204,6 +212,18 @@ int main()
 	printDate(maxDate.day, maxDate.month, maxDate.year, 16);
 	cout << endl;
 	
-
-
+	int indMaxDate = findIndex(records, maxDate);
+	int indMinDate = findIndex(records, minDate);
+	
+	struct Record newRecords[10];
+	for (int i = 0; i < 3; i++) {
+		if (i == indMaxDate)
+			newRecords[i] = records[indMinDate];
+		else if (i == indMinDate)
+			newRecords[i] = records[indMaxDate];
+		else 
+			newRecords[i] = records[i];
+	}
+	cout << "Данные по варианту задания:" << endl;
+	Draw(newRecords);
 }

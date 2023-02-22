@@ -69,28 +69,28 @@ void printWhithZero(int num, int width) {
 void Draw(struct Record* records) {
 	int width = 78 + 9;
 	cout << endl;	cout.width(width + 1); cout.fill('-'); cout << "-" << endl;
-	cout.fill(' '); cout.width(width);  cout << left << "|Сельскохозяйственные культуры"; cout << "|" << endl;
+	cout.fill(' '); cout.width(width);  cout << left << "|Каталог библиотеки"; cout << "|" << endl;
 	cout.width(width + 1); cout.fill('-'); cout << "-" << endl;
 	cout.fill(' ');
-	cout << left << "| Наименование ";
-	cout << left << "| Тип";
-	cout << left << "| Посевная площадь (га)";
-	cout << left << "| Урожайность (ц/га)";
-	cout << left << " | Дата начала посевной ";
+	cout << left << "|     Автор книги    ";
+	cout << left << "|     Название   ";
+	cout << left << "| Год выпуска";
+	cout << left << "| Группа";
+	cout << left << " | Дата подписания рукописи ";
 	cout << "|" << endl;
 	cout.width(width + 1); cout.fill('-'); cout << "-" << endl;
 	cout.fill(' ');
 	for (int i = 0; i < 3; i++) {
 		cout << left << "|"; cout.width(20); cout << left << records[i].author;
-		cout << left << "|"; cout.width(20); cout << left << records[i].title;
-		cout << left << "|"; cout.width(8); cout << left << records[i].year;
+		cout << left << "|"; cout.width(16); cout << left << records[i].title;
+		cout << left << "|"; cout.width(12); cout << left << records[i].year;
 		cout << left << "|"; cout.width(8); cout << left << records[i].group;
 		cout << left << "|";
-		printDate(records[i].date.day, records[i].date.month, records[i].date.year, 16);
+		printDate(records[i].date.day, records[i].date.month, records[i].date.year, 28);
 		cout << "|" << endl;
 	}
 	cout.width(width + 1); cout.fill('-'); cout << "-" << endl;
-	cout.fill(' '); cout.width(width);  cout << left << "|Примечание: возможно бесплатно получить продукт StarOffice через Internet "; cout << "|" << endl;
+	cout.fill(' '); cout.width(width);  cout << left << "|Примечание: Х – худож. лит-ра; У - учебная лит-ра; С - справочная лит-ра. "; cout << "|" << endl;
 	cout.width(width + 1); cout.fill('-'); cout << "-" << endl;
 }
 

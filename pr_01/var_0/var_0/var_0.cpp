@@ -203,6 +203,7 @@ int main()
 	cout << "Максимальная дата: "; cout.fill(' ');
 	printDate(maxDate.day, maxDate.month, maxDate.year, 16);
 	cout << endl;
+	
 
 
 }

@@ -130,6 +130,54 @@ void Draw(struct Record* records) {
 	cout.width(79); cout.fill('-'); cout << "-" << endl;
 }
 
+
+struct Date getMinDate(struct Record* records) {
+	unsigned short minYear = 2100;
+	for (int i = 0; i < 3; i++) {
+		if (records[i].date.year < minYear)
+			minYear = records[i].date.year;
+	}
+
+	unsigned short minMonth = 12;
+	for (int i = 0; i < 3; i++) {
+		if (records[i].date.year == minYear and records[i].date.month < minMonth)
+			minMonth = records[i].date.month;
+	}
+
+	unsigned short minDay = 31;
+	for (int i = 0; i < 3; i++) {
+		if (records[i].date.year == minYear and records[i].date.month == minMonth and records[i].date.day < minDay)
+			minDay = records[i].date.day;
+	}
+
+	struct Date minDate = { minDay, minMonth, minYear };
+	return minDate;
+};
+
+
+struct Date getMaxDate(struct Record* records) {
+	unsigned short maxYear = 1900;
+	for (int i = 0; i < 3; i++) {
+		if (records[i].date.year > maxYear)
+			maxYear = records[i].date.year;
+	}
+
+	unsigned short maxMonth = 1;
+	for (int i = 0; i < 3; i++) {
+		if (records[i].date.year == maxYear and records[i].date.month > maxMonth)
+			maxMonth = records[i].date.month;
+	}
+
+	unsigned short maxDay = 1;
+	for (int i = 0; i < 3; i++) {
+		if (records[i].date.year == maxYear and records[i].date.month == maxMonth and records[i].date.day > maxDay)
+			maxDay = records[i].date.day;
+	}
+
+	struct Date minDate = { maxDay, maxMonth, maxYear };
+	return minDate;
+};
+
 int main()
 {
 	SetConsoleCP(1251);
@@ -137,11 +185,24 @@ int main()
 
 	struct Record records[10];
 
-	records[0] = { "Иванов", "И.И.", 1975, 517.50, {01,02,2010} };
-	records[1] = { "Петренко", "П.П.", 1956, 219.10, {02,03,2020} };
-	records[2] = { "Панковский", "М.С.", 1967, 300.10, {12,12,2012} };
-		
+	records[0] = { "Иванов", "И.И.", 1975, 517.50, {01,02,2010} };      // Свой комментарий
+	records[1] = { "Петренко", "П.П.", 1956, 219.10, {02,03,2020} };      // Свой комментарий
+	records[2] = { "Панковский", "М.С.", 1967, 300.10, {12,12,2012} };      // Свой комментарий
+	cout << "Исходные данные:" << endl;
 	Draw(records);
-	//cout << endl;
-	//DrawWrong(records);
+	cout << endl << "Вариант задания: Поменять местами записи (элементы массива структур),";
+	cout << endl << "содержащие минимальную и максимальную даты" << endl;
+	struct Record newRecords[10];
+
+	struct Date minDate = getMinDate(records);
+	cout << "Минимальная дата: "; cout.fill(' ');
+	printDate(minDate.day, minDate.month, minDate.year, 16);
+	cout << endl;
+
+	struct Date maxDate = getMaxDate(records);
+	cout << "Максимальная дата: "; cout.fill(' ');
+	printDate(maxDate.day, maxDate.month, maxDate.year, 16);
+	cout << endl;
+
+
 }

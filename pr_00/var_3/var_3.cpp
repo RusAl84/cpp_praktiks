@@ -86,7 +86,7 @@ void Draw(struct Record* records) {
 		cout << left << "|"; cout.width(8); cout << left << records[i].year;
 		cout << left << "|"; cout.width(8); cout << left << records[i].group;
 		cout << left << "|";
-		printDate(records[i].date.day, records[i].date.month, records[i].date.year, 24);
+		printDate(records[i].date.day, records[i].date.month, records[i].date.year, 16);
 		cout << "|" << endl;
 	}
 	cout.width(width + 1); cout.fill('-'); cout << "-" << endl;

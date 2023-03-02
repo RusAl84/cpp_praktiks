@@ -228,27 +228,50 @@ int main()
 	Draw(newRecords);
 	
 	cout << endl << "Практическая № 2 (Динамические массивы):" << endl;
-	const int n = 10;
-	Record* A = (Record*)calloc(n, sizeof(Record)); // выделяем и обнуляем массив из 4 Record
-	for (int i = 0; i < 3; i++) {
-		A[i] = records[i];
-	}
-	cout << endl << "Массив А:" << endl;
-	Draw(A);
+	//const int n = 10;
+	//Record* A = (Record*)calloc(n, sizeof(Record)); // выделяем и обнуляем массив из 4 Record
+	//for (int i = 0; i < 3; i++) {
+	//	A[i] = records[i];
+	//}
+	//cout << endl << "Массив А:" << endl;
+	//Draw(A);
 
-	Record* B{ new Record[n] {} };
-	
-	for (int i = 0; i < 10; i++) {
-		B[i] = A[i];
-	}
-	cout << endl << "Массив B:" << endl;
-	Draw(B);
+	//Record* B{ new Record[n] {} };
+	//
+	//for (int i = 0; i < 10; i++) {
+	//	B[i] = A[i];
+	//}
+	//cout << endl << "Массив B:" << endl;
+	//Draw(B);
 
-	//адрес А[i], значение A[i]->строковое_поле, адрес В[i], значение В[i]->строковое_поле.
-	for (int i = 0; i < 10; i++) {
-		cout << endl << "адрес А[i] " << &A[i] << " A[i]->surName " << A[i].surName;
-		cout << endl << "адрес В[i] " << &B[i] << " B[i]->surName " << B[i].surName;
+	////адрес А[i], значение A[i]->строковое_поле, адрес В[i], значение В[i]->строковое_поле.
+	//for (int i = 0; i < 10; i++) {
+	//	cout << endl << "адрес А[i] " << &A[i] << " A[i]->surName " << A[i].surName;
+	//	cout << endl << "адрес В[i] " << &B[i] << " B[i]->surName " << B[i].surName;
+	//}
+	//free(A);
+	//delete[] B;  //Attention!!! []
+
+	Record* A;
+	Record myTable[3];
+	Draw(myTable);
+	int n = 3;
+	A = (Record*)malloc(n * sizeof(Record));
+	for (int i = 0; i < n; i++) {
+		A[i] = myTable[i];
 	}
+	A = (Record*)realloc(A, 10 * sizeof(Record));
+	Record ** B;
+	B = (Record**) new Record * [10];
+	for (int i = 0; i < 10; i++) {
+		B[i] = (Record*) new Record;
+		//*(B[i]) = A[i];
+		B[i]->date = A[i].date;
+	}
+
+	for (int i = 0; i < 10; i++) {
+		delete B[i];
+	}
+	delete[]B;
 	free(A);
-	delete[] B;  //Attention!!! []
 }

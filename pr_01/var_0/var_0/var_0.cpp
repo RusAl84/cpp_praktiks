@@ -132,20 +132,20 @@ void Draw(struct Record* records) {
 
 
 struct Date getMinDate(struct Record* records) {
-	unsigned short minYear = 2100;
-	for (int i = 0; i < 3; i++) {
+	unsigned short minYear = records[0].date.year;
+	for (int i = 1; i < 3; i++) {
 		if (records[i].date.year < minYear)
 			minYear = records[i].date.year;
 	}
 
-	unsigned short minMonth = 12;
-	for (int i = 0; i < 3; i++) {
+	unsigned short minMonth = records[0].date.month;
+	for (int i = 1; i < 3; i++) {
 		if (records[i].date.year == minYear and records[i].date.month < minMonth)
 			minMonth = records[i].date.month;
 	}
 
-	unsigned short minDay = 31;
-	for (int i = 0; i < 3; i++) {
+	unsigned short minDay = records[0].date.day;
+	for (int i = 1; i < 3; i++) {
 		if (records[i].date.year == minYear and records[i].date.month == minMonth and records[i].date.day < minDay)
 			minDay = records[i].date.day;
 	}
@@ -156,20 +156,20 @@ struct Date getMinDate(struct Record* records) {
 
 
 struct Date getMaxDate(struct Record* records) {
-	unsigned short maxYear = 1900;
-	for (int i = 0; i < 3; i++) {
+	unsigned short maxYear = records[0].date.year;
+	for (int i = 1; i < 3; i++) {
 		if (records[i].date.year > maxYear)
 			maxYear = records[i].date.year;
 	}
 
-	unsigned short maxMonth = 1;
-	for (int i = 0; i < 3; i++) {
+	unsigned short maxMonth = records[0].date.month;
+	for (int i = 1; i < 3; i++) {
 		if (records[i].date.year == maxYear and records[i].date.month > maxMonth)
 			maxMonth = records[i].date.month;
 	}
 
-	unsigned short maxDay = 1;
-	for (int i = 0; i < 3; i++) {
+	unsigned short maxDay = records[0].date.day;
+	for (int i = 1; i < 3; i++) {
 		if (records[i].date.year == maxYear and records[i].date.month == maxMonth and records[i].date.day > maxDay)
 			maxDay = records[i].date.day;
 	}

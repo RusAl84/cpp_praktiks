@@ -84,7 +84,7 @@ void Draw(struct Record* records) {
 	cout << left << "|Кол. работников";
 	cout << left << " |Дата документа";
 	cout << "|" << endl;
-	cout.width(79); cout.fill('-'); cout << "-" << endl;
+	cout.width(80); cout.fill('-'); cout << "-" << endl;
 	cout.fill(' ');
 	for (int i = 0; i < 3; i++) {
 		cout << left << "|"; cout.width(9); cout << left << records[i].name;

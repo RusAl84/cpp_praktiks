@@ -82,7 +82,7 @@ void Draw(struct Record* records) {
 	for (int i = 0; i < 3; i++) {
 		cout << left << "|";  cout << left; myCentr(records[i].transportType,16);
 		cout << left << "| ";  cout << left; myCentr(records[i].route, 8);
-		std::cout.precision(3);
+		cout.precision(3);
 		cout << left << "|           "; cout << left << fixed << records[i].lengthRoute;
 		cout << left << "           ";
 		cout << left << "|"; cout.width(20); cout << left; myCentr(records[i].timeMin, 22);

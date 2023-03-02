@@ -74,9 +74,9 @@ void printWithZero4(int num, int width) {
 }
 
 void Draw(struct Record* records) {
-	cout << endl;	cout.width(79); cout.fill('-'); cout << "-" << endl;
+	cout << endl;	cout.width(80); cout.fill('-'); cout << "-" << endl;
 	cout.fill(' '); cout.width(79);  cout << left << "|Сельскохозяйственные предприятия"; cout << "|" << endl;
-	cout.width(79); cout.fill('-'); cout << "-" << endl;
+	cout.width(80); cout.fill('-'); cout << "-" << endl;
 	cout.fill(' ');
 	cout << left << "|Название ";
 	cout << left << "|Вид собственности";
@@ -96,9 +96,9 @@ void Draw(struct Record* records) {
 		printDate(records[i].date.day, records[i].date.month, records[i].date.year, 16);
 		cout << "|" << endl;
 	}
-	cout.width(79); cout.fill('-'); cout << "-" << endl;
+	cout.width(80); cout.fill('-'); cout << "-" << endl;
 	cout.fill(' '); cout.width(79);  cout << left << "|Вид собственности: Д - государственная, Ч - частная, К - кооперативная "; cout << "|" << endl;
-	cout.width(79); cout.fill('-'); cout << "-" << endl;
+	cout.width(80); cout.fill('-'); cout << "-" << endl;
 }
 
 int main()

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <windows.h>
 #include <string>
-
+#include  <cstdlib>
 using namespace std;
 
 struct Date {
@@ -13,7 +13,7 @@ struct Date {
 
 struct Record
 {
-	char surName[17];
+	string surName[17];
 	char ident[12];
 	unsigned short year;
 	float salary;
@@ -46,27 +46,27 @@ int GetSize(char* msg) {
 	return size;
 }
 
-void DrawWrong(struct Record * records) {
-	DrawLine();
-	cout << "| Отдел кадров" << GetSpacebar(80 - sizeof("| Отдел кадров")) << "|\n";
-	DrawLine();
-	//|Фамилия |Инициалы |Год рожд | Оклад|
-	cout << "| Фамилия" << GetSpacebar(21 - sizeof("| Фамилия"));
-	cout << "| Инициалы" << GetSpacebar(21 - sizeof("| Инициалы"));
-	cout << "| Год рожд" << GetSpacebar(21 - sizeof("| Год рожд"));
-	cout << "| Оклад" << GetSpacebar(20 - sizeof("| Оклад")) << "|\n";
-	DrawLine();
-	for (int i = 0; i < 3; i++) {
-		cout << "| " << records[i].surName << GetSpacebar(18 - GetSize(records[i].surName));
-		cout << "| " << records[i].ident << GetSpacebar(18 - GetSize(records[i].ident));
-		cout << "| " << records[i].year << GetSpacebar(18 - to_string(records[i].year).size());
-		cout << "| " << records[i].salary << GetSpacebar(22 - to_string(records[i].salary).size()) << "|\n";
-		//cout << "| " << records[i].salary << GetSpacebar(22 - to_string(records[i].salary).size()) << "|\n";
-		DrawLine();
-	}
-	cout << "| Примечание: оклад установлен по состоянию на 1 января 2000 года" << GetSpacebar(80 - sizeof("| Примечание: оклад установлен по состоянию на 1 января 2000 года")) << "|\n";
-	DrawLine();
-}
+//void DrawWrong(struct Record * records) {
+//	DrawLine();
+//	cout << "| Отдел кадров" << GetSpacebar(80 - sizeof("| Отдел кадров")) << "|\n";
+//	DrawLine();
+//	//|Фамилия |Инициалы |Год рожд | Оклад|
+//	cout << "| Фамилия" << GetSpacebar(21 - sizeof("| Фамилия"));
+//	cout << "| Инициалы" << GetSpacebar(21 - sizeof("| Инициалы"));
+//	cout << "| Год рожд" << GetSpacebar(21 - sizeof("| Год рожд"));
+//	cout << "| Оклад" << GetSpacebar(20 - sizeof("| Оклад")) << "|\n";
+//	DrawLine();
+//	for (int i = 0; i < 3; i++) {
+//		cout << "| " << records[i].surName << GetSpacebar(18 - GetSize(records[i].surName));
+//		cout << "| " << records[i].ident << GetSpacebar(18 - GetSize(records[i].ident));
+//		cout << "| " << records[i].year << GetSpacebar(18 - to_string(records[i].year).size());
+//		cout << "| " << records[i].salary << GetSpacebar(22 - to_string(records[i].salary).size()) << "|\n";
+//		//cout << "| " << records[i].salary << GetSpacebar(22 - to_string(records[i].salary).size()) << "|\n";
+//		DrawLine();
+//	}
+//	cout << "| Примечание: оклад установлен по состоянию на 1 января 2000 года" << GetSpacebar(80 - sizeof("| Примечание: оклад установлен по состоянию на 1 января 2000 года")) << "|\n";
+//	DrawLine();
+//}
 
 void myCentr(string s, int wLine) {
 
@@ -252,26 +252,35 @@ int main()
 	//free(A);
 	//delete[] B;  //Attention!!! []
 
-	Record* A;
-	Record myTable[3];
-	Draw(myTable);
-	int n = 3;
-	A = (Record*)malloc(n * sizeof(Record));
-	for (int i = 0; i < n; i++) {
-		A[i] = myTable[i];
-	}
-	A = (Record*)realloc(A, 10 * sizeof(Record));
-	Record ** B;
-	B = (Record**) new Record * [10];
-	for (int i = 0; i < 10; i++) {
-		B[i] = (Record*) new Record;
-		//*(B[i]) = A[i];
-		B[i]->date = A[i].date;
-	}
+	//Record* A;
+	//int n = 3;
+	//A = (Record*)malloc(n * sizeof(Record));
+	//for (int i = 0; i < n; i++) {
+	//	//strcpy_s(A[i].surName, records[i].surName);
+	//	A[i].surName = records[i].surName;
+	//}
+	
+	//
+	//A = (Record*)realloc(A, 10 * sizeof(Record));
+	//Record ** B;
+	//B = (Record**) new Record * [10];
+	//for (int i = 0; i < 10; i++) {
+	//	B[i] = (Record*) new Record;
+	//	*(B[i]) = A[i];
+	//	//B[i].surName = A[i].surName;
+	//	//*(B[i])->surName = A[i]->surName;
+	//	
+	//}
 
-	for (int i = 0; i < 10; i++) {
-		delete B[i];
-	}
-	delete[]B;
-	free(A);
+	////адрес А[i], значение A[i]->строковое_поле, адрес В[i], значение В[i]->строковое_поле.
+	//for (int i = 0; i < 10; i++) {
+	//	cout << endl << "адрес А[i] " << &A[i] << " A[i]->surName " << A[i].surName;
+	//	cout << endl << "адрес В[i] " << &B[i] << " B[i]->surName " << B[i]->surName;
+	//}
+
+	//for (int i = 0; i < 10; i++) {
+	//	delete B[i];
+	//}
+	//delete[]B;
+	//free(A);
 }

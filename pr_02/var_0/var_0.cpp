@@ -15,12 +15,11 @@ struct Date {
 
 struct Record
 {
-	string surName;
-	char ident[12];
+	char surName[20];
+	char ident[6];
 	unsigned short year;
 	float salary;
 	struct Date date;
-	//bool isEmpty;
 };
 
 
@@ -236,12 +235,12 @@ int main()
 	int n = 3;
 	A = (Record*)malloc(n * sizeof(Record));
 	//A = (Record*)calloc(n, sizeof(Record)); 
-	//for (int i = 0; i < n; i++) {
-	//	//strcpy_s(A[i].surName, (char)records[i].surName.c_str());
-	//	string misha = "Миша не любит Олю";
-	//	A[i].surName = misha;
-	//	A[i].salary = 15000;
-	//}
+	for (int i = 0; i < n; i++) {
+		strcpy_s(A[i].surName, records[i].surName);
+		//string misha = "Миша не любит Олю";
+		//A[i].surName = misha;
+		//A[i].salary = 15000;
+	}
 
 	Record** B;
 	B = (Record**) new Record * [10];

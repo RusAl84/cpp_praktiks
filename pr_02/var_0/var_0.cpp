@@ -2,7 +2,9 @@
 #include <iostream>
 #include <windows.h>
 #include <string>
-#include  <cstdlib>
+#include <cstdlib>
+
+
 using namespace std;
 
 struct Date {
@@ -13,7 +15,7 @@ struct Date {
 
 struct Record
 {
-	string surName[17];
+	string surName;
 	char ident[12];
 	unsigned short year;
 	float salary;
@@ -228,38 +230,29 @@ int main()
 	Draw(newRecords);
 	
 	cout << endl << "Практическая № 2 (Динамические массивы):" << endl;
-	//const int n = 10;
-	//Record* A = (Record*)calloc(n, sizeof(Record)); // выделяем и обнуляем массив из 4 Record
-	//for (int i = 0; i < 3; i++) {
-	//	A[i] = records[i];
-	//}
-	//cout << endl << "Массив А:" << endl;
-	//Draw(A);
-
-	//Record* B{ new Record[n] {} };
-	//
-	//for (int i = 0; i < 10; i++) {
-	//	B[i] = A[i];
-	//}
-	//cout << endl << "Массив B:" << endl;
-	//Draw(B);
-
-	////адрес А[i], значение A[i]->строковое_поле, адрес В[i], значение В[i]->строковое_поле.
-	//for (int i = 0; i < 10; i++) {
-	//	cout << endl << "адрес А[i] " << &A[i] << " A[i]->surName " << A[i].surName;
-	//	cout << endl << "адрес В[i] " << &B[i] << " B[i]->surName " << B[i].surName;
-	//}
-	//free(A);
-	//delete[] B;  //Attention!!! []
-
-	//Record* A;
-	//int n = 3;
-	//A = (Record*)malloc(n * sizeof(Record));
-	//for (int i = 0; i < n; i++) {
-	//	//strcpy_s(A[i].surName, records[i].surName);
-	//	A[i].surName = records[i].surName;
-	//}
 	
+	
+	Record* A;
+	int n = 3;
+	A = (Record*)malloc(n * sizeof(Record));
+	//A = (Record*)calloc(n, sizeof(Record)); 
+	//for (int i = 0; i < n; i++) {
+	//	//strcpy_s(A[i].surName, (char)records[i].surName.c_str());
+	//	string misha = "Миша не любит Олю";
+	//	A[i].surName = misha;
+	//	A[i].salary = 15000;
+	//}
+
+	Record** B;
+	B = (Record**) new Record * [10];
+	for (int i = 0; i < 10; i++) {
+		B[i] = (Record*) new Record;
+		*(B[i]) = records[i];
+		//B[i].surName = A[i].surName;
+		//*(B[i])->surName = A[i]->surName;
+		
+	}
+
 	//
 	//A = (Record*)realloc(A, 10 * sizeof(Record));
 	//Record ** B;
@@ -272,11 +265,11 @@ int main()
 	//	
 	//}
 
-	////адрес А[i], значение A[i]->строковое_поле, адрес В[i], значение В[i]->строковое_поле.
-	//for (int i = 0; i < 10; i++) {
-	//	cout << endl << "адрес А[i] " << &A[i] << " A[i]->surName " << A[i].surName;
-	//	cout << endl << "адрес В[i] " << &B[i] << " B[i]->surName " << B[i]->surName;
-	//}
+	//адрес а[i], значение a[i]->строковое_поле, адрес в[i], значение в[i]->строковое_поле.
+	for (int i = 0; i < 10; i++) {
+		//cout << endl << "адрес A[i] " << &A[i] << " a[i]->surName " << A[i].surname;
+		cout << endl << "адрес B[i] " << &B[i] << " B[i]->surName " << B[i]->surName;
+	}
 
 	//for (int i = 0; i < 10; i++) {
 	//	delete B[i];

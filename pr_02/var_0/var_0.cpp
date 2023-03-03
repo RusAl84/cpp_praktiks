@@ -1,9 +1,7 @@
-﻿// var_0.cpp : 
-#include <iostream>
+﻿#include <iostream>
 #include <windows.h>
 #include <string>
 #include <cstdlib>
-
 
 using namespace std;
 
@@ -22,52 +20,6 @@ struct Record
 	struct Date date;
 };
 
-
-void DrawLine() {
-	for (int i = 0; i < 80; i++) {
-		cout << "-";
-	}
-	cout << "\n";
-}
-
-char* GetSpacebar(int count) {
-	char* msg = new char[count];
-	for (int i = 0; i < count; i++)
-	{
-		msg[i] = ' ';
-	}
-	msg[count] = '\0';
-	return msg;
-}
-
-int GetSize(char* msg) {
-	int size = 0;
-	while (msg[size] != '\0')
-		size++;
-	return size;
-}
-
-//void DrawWrong(struct Record * records) {
-//	DrawLine();
-//	cout << "| Отдел кадров" << GetSpacebar(80 - sizeof("| Отдел кадров")) << "|\n";
-//	DrawLine();
-//	//|Фамилия |Инициалы |Год рожд | Оклад|
-//	cout << "| Фамилия" << GetSpacebar(21 - sizeof("| Фамилия"));
-//	cout << "| Инициалы" << GetSpacebar(21 - sizeof("| Инициалы"));
-//	cout << "| Год рожд" << GetSpacebar(21 - sizeof("| Год рожд"));
-//	cout << "| Оклад" << GetSpacebar(20 - sizeof("| Оклад")) << "|\n";
-//	DrawLine();
-//	for (int i = 0; i < 3; i++) {
-//		cout << "| " << records[i].surName << GetSpacebar(18 - GetSize(records[i].surName));
-//		cout << "| " << records[i].ident << GetSpacebar(18 - GetSize(records[i].ident));
-//		cout << "| " << records[i].year << GetSpacebar(18 - to_string(records[i].year).size());
-//		cout << "| " << records[i].salary << GetSpacebar(22 - to_string(records[i].salary).size()) << "|\n";
-//		//cout << "| " << records[i].salary << GetSpacebar(22 - to_string(records[i].salary).size()) << "|\n";
-//		DrawLine();
-//	}
-//	cout << "| Примечание: оклад установлен по состоянию на 1 января 2000 года" << GetSpacebar(80 - sizeof("| Примечание: оклад установлен по состоянию на 1 января 2000 года")) << "|\n";
-//	DrawLine();
-//}
 
 void myCentr(string s, int wLine) {
 
@@ -131,22 +83,21 @@ void Draw(struct Record* records) {
 	cout.width(79); cout.fill('-'); cout << "-" << endl;
 }
 
-
 struct Date getMinDate(struct Record* records) {
-	unsigned short minYear = 2100;
-	for (int i = 0; i < 3; i++) {
+	unsigned short minYear = records[0].date.year;
+	for (int i = 1; i < 3; i++) {
 		if (records[i].date.year < minYear)
 			minYear = records[i].date.year;
 	}
 
-	unsigned short minMonth = 12;
-	for (int i = 0; i < 3; i++) {
+	unsigned short minMonth = records[0].date.month;
+	for (int i = 1; i < 3; i++) {
 		if (records[i].date.year == minYear and records[i].date.month < minMonth)
 			minMonth = records[i].date.month;
 	}
 
-	unsigned short minDay = 31;
-	for (int i = 0; i < 3; i++) {
+	unsigned short minDay = records[0].date.day;
+	for (int i = 1; i < 3; i++) {
 		if (records[i].date.year == minYear and records[i].date.month == minMonth and records[i].date.day < minDay)
 			minDay = records[i].date.day;
 	}
@@ -157,20 +108,20 @@ struct Date getMinDate(struct Record* records) {
 
 
 struct Date getMaxDate(struct Record* records) {
-	unsigned short maxYear = 1900;
-	for (int i = 0; i < 3; i++) {
+	unsigned short maxYear = records[0].date.year;
+	for (int i = 1; i < 3; i++) {
 		if (records[i].date.year > maxYear)
 			maxYear = records[i].date.year;
 	}
 
-	unsigned short maxMonth = 1;
-	for (int i = 0; i < 3; i++) {
+	unsigned short maxMonth = records[0].date.month;
+	for (int i = 1; i < 3; i++) {
 		if (records[i].date.year == maxYear and records[i].date.month > maxMonth)
 			maxMonth = records[i].date.month;
 	}
 
-	unsigned short maxDay = 1;
-	for (int i = 0; i < 3; i++) {
+	unsigned short maxDay = records[0].date.day;
+	for (int i = 1; i < 3; i++) {
 		if (records[i].date.year == maxYear and records[i].date.month == maxMonth and records[i].date.day > maxDay)
 			maxDay = records[i].date.day;
 	}
@@ -237,20 +188,14 @@ int main()
 	//A = (Record*)calloc(n, sizeof(Record)); 
 	for (int i = 0; i < n; i++) {
 		strcpy_s(A[i].surName, records[i].surName);
-		//string misha = "Миша не любит Олю";
-		//A[i].surName = misha;
-		//A[i].salary = 15000;
 	}
 
-	Record** B;
-	B = (Record**) new Record * [10];
-	for (int i = 0; i < 10; i++) {
-		B[i] = (Record*) new Record;
-		*(B[i]) = records[i];
-		//B[i].surName = A[i].surName;
-		//*(B[i])->surName = A[i]->surName;
-		
-	}
+	//Record** B;
+	//B = (Record**) new Record * [10];
+	//for (int i = 0; i < 10; i++) {
+	//	B[i] = (Record*) new Record;
+	//	*(B[i]) = records[i];
+	//}
 
 	//
 	//A = (Record*)realloc(A, 10 * sizeof(Record));
@@ -266,8 +211,8 @@ int main()
 
 	//адрес а[i], значение a[i]->строковое_поле, адрес в[i], значение в[i]->строковое_поле.
 	for (int i = 0; i < 10; i++) {
-		//cout << endl << "адрес A[i] " << &A[i] << " a[i]->surName " << A[i].surname;
-		cout << endl << "адрес B[i] " << &B[i] << " B[i]->surName " << B[i]->surName;
+		cout << endl << "адрес A[i] " << &A[i] << " a[i]->surName " << A[i].surName;
+		//cout << endl << "адрес B[i] " << &B[i] << " B[i]->surName " << B[i]->surName;
 	}
 
 	//for (int i = 0; i < 10; i++) {

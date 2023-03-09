@@ -22,6 +22,7 @@ void addItem(int data) {
     countItem++;
 }
 
+
 void editItem(int index, int data) {
     if (index >= 0 and index < countItem) {
         struct node* current = myHead;
@@ -33,6 +34,33 @@ void editItem(int index, int data) {
     }
     else {
         cout << "Ошибка индекс не в диапазоне";
+    }
+}
+
+void deleteItem(int index) {
+    if (index >= 0 and index < countItem and countItem>0) {
+        struct node* current = myHead;
+        struct node* old;
+        if (index == 0) {
+            old = myHead;
+            myHead = current->next;
+            delete old;
+            countItem--;
+        }
+        else {
+            int i = 0;
+            while (current) {
+                if (i == index-1) {
+                    old = current->next->next;
+                    delete current->next;
+                    current->next = old;
+                    countItem--;
+                    break;
+                }
+                i++;
+                current = current->next;
+            }
+        }
     }
 
 }
@@ -49,12 +77,15 @@ void printMyList() {
 int main()
 {
     cout << "myList\n";
-
     addItem(1);
     addItem(2);
     addItem(3);
-    addItem(4);
+    addItem(4); 
     printMyList();
-    editItem(2, 8);
+    cout << endl << "Count item: " << countItem << endl;
+    //editItem(2, 8);
+    deleteItem(3);
+
+
     printMyList();
 }

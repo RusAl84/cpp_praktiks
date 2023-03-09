@@ -21,10 +21,14 @@ void addItem(int data) {
     myHead = newItem;
     countItem++;
 }
+void insertItem(int index, int data) {
+    if (index==0)
+    addItem(data);
+}
 
 
 void editItem(int index, int data) {
-    if (index >= 0 and index < countItem) {
+    if (index >= 0 and index < countItem and countItem>0) {
         struct node* current = myHead;
         for (int i = 0; i < index;  i++) {
             current = current->next;
@@ -33,10 +37,13 @@ void editItem(int index, int data) {
         current->data = data;
     }
     else {
-        cout << "Ошибка индекс не в диапазоне";
+        cout << endl <<"Ошибка индекс не в диапазоне";
     }
 }
-
+/// <summary>
+/// Функция для удаления элемента из динамического списка
+/// </summary>
+/// <param name="index">индекс удаляемого элемента</param>
 void deleteItem(int index) {
     if (index >= 0 and index < countItem and countItem>0) {
         struct node* current = myHead;

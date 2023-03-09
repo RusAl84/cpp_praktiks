@@ -13,8 +13,8 @@ struct Date {
 
 struct Record
 {
-	char surName[20];
-	char ident[6];
+	string surName;
+	string ident;
 	unsigned short year;
 	float salary;
 	struct Date date;
@@ -187,7 +187,9 @@ int main()
 	A = (Record*)malloc(n * sizeof(Record));
 	//A = (Record*)calloc(n, sizeof(Record)); 
 	for (int i = 0; i < n; i++) {
-		strcpy_s(A[i].surName, records[i].surName);
+		//strcpy_s(A[i].surName, records[i].surName);
+		A[i].surName = records[i].surName;
+		//	*(B[i]) = records[i];
 	}
 
 	//Record** B;

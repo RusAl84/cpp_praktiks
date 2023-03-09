@@ -8,7 +8,8 @@ struct node {
 struct node* myHead;
 int countItem = 0;
 
-void addItem(int data) {
+void addItem(int data) //Добавляет элемент в начало.
+{
     struct node* newItem = new node();
     newItem->data = data;
     if (countItem == 0) {
@@ -22,11 +23,22 @@ void addItem(int data) {
     countItem++;
 }
 void insertItem(int index, int data) {
-    if (index==0)
-    addItem(data);
+    if (not (index >= 0 and index <= countItem and countItem>0))
+        return;
+    if (index==0){
+        addItem(data);
+    }
+    else {
+        struct node* current = myHead;
+        for (int i = 0; i < index-1; i++) {
+            current = current->next;
+        }
+        struct node* newItem = new node();
+        newItem->data = data;
+        newItem->next = current->next;
+        current->next = newItem;
+    }
 }
-
-
 void editItem(int index, int data) {
     if (index >= 0 and index < countItem and countItem>0) {
         struct node* current = myHead;
@@ -71,7 +83,6 @@ void deleteItem(int index) {
     }
 
 }
-
 void printMyList() {
     struct node* current = myHead;
     cout << endl;
@@ -91,8 +102,7 @@ int main()
     printMyList();
     cout << endl << "Count item: " << countItem << endl;
     //editItem(2, 8);
-    deleteItem(3);
-
-
+    //deleteItem(3);
+    insertItem(4, 8);
     printMyList();
 }

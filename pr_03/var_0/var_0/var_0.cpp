@@ -149,7 +149,7 @@ int  findIndex(struct Record* records, const struct Date date) {
 };
 
 /// <summary>
-/// Добавляет элемент в начало.
+/// Добавляет элемент в начало динамического списка
 /// </summary>
 /// <param name="data"> данные элемента</param>
 void addItem(Record data)

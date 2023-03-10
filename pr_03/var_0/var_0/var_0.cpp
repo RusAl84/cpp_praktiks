@@ -186,6 +186,7 @@ void insertItem(int index, Record data) {
 		newItem->data = data;
 		newItem->next = current->next;
 		current->next = newItem;
+		countItem++;
 	}
 }
 /// <summary>
@@ -237,6 +238,7 @@ void deleteItem(int index) {
 	}
 
 }
+
 void printMyList() {
 	struct node* current = myHead;
 	cout << endl;
@@ -251,7 +253,6 @@ void DrawWithList() {
 	cout.fill(' '); cout.width(78);  cout << left << "|Отдел кадров"; cout << "|" << endl;
 	cout.width(79); cout.fill('-'); cout << "-" << endl;
 	cout.fill(' ');
-
 	cout << left << "|"; myCentr("Фамилия", 16);
 	cout << left << "|"; myCentr("Инициалы", 11);
 	cout << left << "|"; myCentr("Год рожд", 10);
@@ -329,8 +330,7 @@ int main()
 	struct Record newRecord = { "Русаков", "А.М.", 1984, 712.50, {01,02,2023} };
 	insertItem(1, newRecord);
 	DrawWithList();
-	deleteItem(0);
-	deleteItem(0);
-	deleteItem(0);
+	deleteItem(3);
 	DrawWithList();
+	struct Record editRecord = { "Мерсов", "А.А.", 1962, 2000.75, {01,02,2023} };
 }

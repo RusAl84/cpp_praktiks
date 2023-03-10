@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 
 using namespace std;
+
 struct node {
     int data;
     struct node* next;
@@ -8,7 +9,11 @@ struct node {
 struct node* myHead;
 int countItem = 0;
 
-void addItem(int data) //Добавляет элемент в начало.
+/// <summary>
+/// Добавляет элемент в начало.
+/// </summary>
+/// <param name="data"> данные элемента</param>
+void addItem(int data) 
 {
     struct node* newItem = new node();
     newItem->data = data;
@@ -22,8 +27,13 @@ void addItem(int data) //Добавляет элемент в начало.
     myHead = newItem;
     countItem++;
 }
+/// <summary>
+/// Вставка элемента в список
+/// </summary>
+/// <param name="index">индекс после которого вставить</param>
+/// <param name="data">значение которое необходимо вставить</param>
 void insertItem(int index, int data) {
-    if (not (index >= 0 and index <= countItem and countItem>0))
+    if (not (index >= 0 and index <= countItem and countItem>=0))
         return;
     if (index==0){
         addItem(data);
@@ -39,6 +49,11 @@ void insertItem(int index, int data) {
         current->next = newItem;
     }
 }
+/// <summary>
+/// Изменить элемент списка
+/// </summary>
+/// <param name="index">индекс изменяемого элемента</param>
+/// <param name="data">значение на которое нужно изменить</param>
 void editItem(int index, int data) {
     if (index >= 0 and index < countItem and countItem>0) {
         struct node* current = myHead;

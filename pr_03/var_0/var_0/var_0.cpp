@@ -209,7 +209,7 @@ void editItem(int index, Record data) {
 /// <summary>
 /// Функция для удаления элемента из динамического списка
 /// </summary>
-/// <param name="index">индекс удаляемого элемента</param>
+/// <param name="index">Индекс удаляемого элемента</param>
 void deleteItem(int index) {
 	if (index >= 0 and index < countItem and countItem>0) {
 		struct node* current = myHead;
@@ -329,6 +329,8 @@ int main()
 	struct Record newRecord = { "Русаков", "А.М.", 1984, 712.50, {01,02,2023} };
 	insertItem(1, newRecord);
 	DrawWithList();
-	deleteItem(2);
+	deleteItem(0);
+	deleteItem(0);
+	deleteItem(0);
 	DrawWithList();
 }

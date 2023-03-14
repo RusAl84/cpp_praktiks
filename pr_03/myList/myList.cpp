@@ -98,6 +98,9 @@ void deleteItem(int index) {
     }
 
 }
+/// <summary>
+/// Печать списка
+/// </summary>
 void printMyList() {
     struct node* current = myHead;
     cout << endl;

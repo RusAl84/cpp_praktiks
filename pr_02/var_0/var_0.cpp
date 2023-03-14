@@ -200,7 +200,8 @@ int main()
 	//}
 
 	//
-	//A = (Record*)realloc(A, 10 * sizeof(Record));
+	A = (Record*)realloc(A, 3 * sizeof(Record));
+	// 
 	//Record ** B;
 	//B = (Record**) new Record * [10];
 	//for (int i = 0; i < 10; i++) {

@@ -3,6 +3,7 @@
 #include <windows.h>
 #include <string>
 #include <stdio.h>
+#include <fstream>
 
 using namespace std;
 
@@ -347,6 +348,8 @@ int main()
 	//	3.	Просмотреть содержимое файла в текстовом редакторе и проанализировать результат.
 
 
+	// stdio.h
+	
 	//1.	Записать 3 записи(три строки(records) из таблицы практики 0) в файл в текстовом формате.
 	FILE* textFile;
 	fopen_s(&textFile, "textFile.txt", "w+");
@@ -388,5 +391,28 @@ int main()
 	fread(readRecords, sizeof(readRecords), 1, binaryFile);
 	fclose(binaryFile);
 	Draw(readRecords);
+
+	// fstream
+	//1.	Записать 3 записи(три строки(records) из таблицы практики 0) в файл в текстовом формате.
+	ofstream textFstreamFile("textFstreamFile.txt", ios_base::out);	
+	//for (int i = 0; !textFstreamFile.eof(); i++)
+	//textFstreamFile << records[i].surName;   // запись в текстовый файл 
+	textFstreamFile << records;   // запись в текстовый файл 
+	textFstreamFile.close();
+
+	//	2.	Считать 3 записи из файла в текстовом формате и отобразить.
+	//ifstream textFstreamFileR;
+	//textFstreamFileR.open("textFstreamFile.txt", ios_base::in);
+	//for (int i = 0; !textFstreamFile.eof(); i++)
+	//	textFstreamFileR >> readRecords[i].surName;
+
+
+
+
+
+	ofstream binariFstreamFile;
+	binariFstreamFile.open("binariFstreamFile.txt", ios_base::out | ios_base::binary);
+	binariFstreamFile << records;   // запись в бинарный файл 
+	binariFstreamFile.close();
 
 }

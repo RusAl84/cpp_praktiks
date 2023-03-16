@@ -2,6 +2,7 @@
 #include <iostream>
 #include <windows.h>
 #include <string>
+#include <stdio.h>
 
 using namespace std;
 
@@ -14,11 +15,10 @@ struct Date {
 struct Record
 {
 	char surName[17];
-	char ident[12];
+	char ident[6];
 	unsigned short year;
 	float salary;
 	struct Date date;
-	//bool isEmpty;
 };
 
 struct node {
@@ -238,7 +238,6 @@ void deleteItem(int index) {
 	}
 
 }
-
 void printMyList() {
 	struct node* current = myHead;
 	cout << endl;
@@ -247,7 +246,6 @@ void printMyList() {
 		current = current->next;
 	}
 }
-
 void DrawWithList() {
 	cout << endl;	cout.width(79); cout.fill('-'); cout << "-" << endl;
 	cout.fill(' '); cout.width(78);  cout << left << "|Отдел кадров"; cout << "|" << endl;
@@ -277,8 +275,6 @@ void DrawWithList() {
 	cout.fill(' '); cout.width(78);  cout << left << "|Примечание: оклад установлен по состоянию на 1 января 2000 года"; cout << "|" << endl;
 	cout.width(79); cout.fill('-'); cout << "-" << endl;
 }
-
-
 
 int main()
 {
@@ -337,4 +333,60 @@ int main()
 	//struct Record editRecord = { "Мерсов", "А.А.", 1962, 2000.75, {01,02,2023} };
 	//editItem(1, editRecord);
 	//DrawWithList();
+
+
+	// Практика 4 Файлы
+	// Текстовый формат
+	//	1.	Записать 3 записи(три строки(records) из таблицы практики 0) в файл в текстовом формате.
+	//	2.	Считать 3 записи из файла в текстовом формате и отобразить.
+	//	3.	Просмотреть содержимое файла в текстовом редакторе и проанализировать результат.
+
+	//	Бинарный формат
+	//	1.	Записать 3 записи(три строки(records) из таблицы практики 0) в файл в бинарном формате.
+	//	2.	Записать 3 записи(три строки(records) из таблицы практики 0) в файл в бинарном формате.
+	//	3.	Просмотреть содержимое файла в текстовом редакторе и проанализировать результат.
+
+
+	//1.	Записать 3 записи(три строки(records) из таблицы практики 0) в файл в текстовом формате.
+	FILE* textFile;
+	fopen_s(&textFile, "textFile.txt", "w+");
+	for (int i = 0; i < 3; i++) {
+		fprintf(textFile, "%s %s %d %f %d %d %d \n", records[i].surName, \
+			records[i].ident, records[i].year, records[i].salary, \
+			records[i].date.day, records[i].date.month, records[i].date.year);
+		//char surName[17];
+		//char ident[6];
+		//unsigned short year;
+		//float salary;
+		//struct Date date;
+	}
+	fclose(textFile);
+
+	//	2.	Считать 3 записи из файла в текстовом формате и отобразить.
+	fopen_s(&textFile, "textFile.txt", "r");
+	Record readRecords[3];
+	for (int i = 0; i < 3; i++) {
+		fscanf_s(textFile, "%s", readRecords[i].surName, _countof(readRecords[i].surName));
+		fscanf_s(textFile, "%s", readRecords[i].ident, _countof(readRecords[i].ident));
+		fscanf_s(textFile, "%d", &readRecords[i].year);
+		fscanf_s(textFile, "%f", &readRecords[i].salary);
+		fscanf_s(textFile, "%d", &readRecords[i].date.day);
+		fscanf_s(textFile, "%d", &readRecords[i].date.month);
+		fscanf_s(textFile, "%d", &readRecords[i].date.year);
+	}
+	fclose(textFile);
+	Draw(readRecords);
+
+	// 1.	Записать 3 записи(три строки(records) из таблицы практики 0) в файл в бинарном формате.
+	FILE* binaryFile;
+	fopen_s(&binaryFile, "binaryFile.txt", "w");
+	fwrite(records, sizeof(records), 1, binaryFile);
+	fclose(binaryFile);
+
+	// 2.	Записать 3 записи(три строки(records) из таблицы практики 0) в файл в бинарном формате.
+	fopen_s(&binaryFile, "binaryFile.txt", "rb");
+	fread(readRecords, sizeof(readRecords), 1, binaryFile);
+	fclose(binaryFile);
+	Draw(readRecords);
+
 }

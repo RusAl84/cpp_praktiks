@@ -188,19 +188,23 @@ int main()
 	//A = (Record*)calloc(n, sizeof(Record)); 
 	for (int i = 0; i < n; i++) {
 		strcpy_s(A[i].surName, records[i].surName);
+		strcpy_s(A[i].ident, records[i].ident);
 		//A[i].surName = records[i].surName;
+		/*A[i].year, records[i].year;*/
+		//A[i].surName.assign(records[i].surName.c_str());
 		//	*(B[i]) = records[i];
+		//basic_string<char>
 	}
 
-	//Record** B;
-	//B = (Record**) new Record * [10];
-	//for (int i = 0; i < 10; i++) {
-	//	B[i] = (Record*) new Record;
-	//	*(B[i]) = records[i];
-	//}
+	Record** B;
+	B = (Record**) new Record * [10];
+	for (int i = 0; i < 10; i++) {
+		B[i] = (Record*) new Record;
+		*(B[i]) = records[i];
+	}
 
 	//
-	A = (Record*)realloc(A, 3 * sizeof(Record));
+	A = (Record*)realloc(A, 10 * sizeof(Record));
 	// 
 	//Record ** B;
 	//B = (Record**) new Record * [10];

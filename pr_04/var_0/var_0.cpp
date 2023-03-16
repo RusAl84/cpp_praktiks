@@ -285,55 +285,56 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
+	// Практика 0
 	struct Record records[10];
-
 	records[0] = { "Иванов", "И.И.", 1975, 517.50, {01,02,2010} };      
 	records[1] = { "Петренко", "П.П.", 1956, 219.10, {02,03,2020} };      
 	records[2] = { "Панковский", "М.С.", 1967, 300.10, {12,12,2012} };      
 	cout << "Исходные данные:" << endl;
 	Draw(records);
 
-	cout << endl << "Вариант задания: Поменять местами записи (элементы массива структур),";
-	cout << endl << "содержащие минимальную и максимальную даты" << endl;
-	
-	struct Date minDate = getMinDate(records);
-	cout << "Минимальная дата: "; cout.fill(' ');
-	printDate(minDate.day, minDate.month, minDate.year, 16);
-	cout << endl;
+	// Практика 1
+	//cout << endl << "Вариант задания: Поменять местами записи (элементы массива структур),";
+	//cout << endl << "содержащие минимальную и максимальную даты" << endl;
+	//
+	//struct Date minDate = getMinDate(records);
+	//cout << "Минимальная дата: "; cout.fill(' ');
+	//printDate(minDate.day, minDate.month, minDate.year, 16);
+	//cout << endl;
 
-	struct Date maxDate = getMaxDate(records);
-	cout << "Максимальная дата: "; cout.fill(' ');
-	printDate(maxDate.day, maxDate.month, maxDate.year, 16);
-	cout << endl;
-	
-	int indMaxDate = findIndex(records, maxDate);
-	int indMinDate = findIndex(records, minDate);
-	
-	struct Record newRecords[10];
-	for (int i = 0; i < 3; i++) {
-		if (i == indMaxDate)
-			newRecords[i] = records[indMinDate];
-		else if (i == indMinDate)
-			newRecords[i] = records[indMaxDate];
-		else 
-			newRecords[i] = records[i];
-	}
-	cout << "Данные по варианту задания:" << endl;
-	Draw(newRecords);
+	//struct Date maxDate = getMaxDate(records);
+	//cout << "Максимальная дата: "; cout.fill(' ');
+	//printDate(maxDate.day, maxDate.month, maxDate.year, 16);
+	//cout << endl;
+	//
+	//int indMaxDate = findIndex(records, maxDate);
+	//int indMinDate = findIndex(records, minDate);
+	//
+	//struct Record newRecords[10];
+	//for (int i = 0; i < 3; i++) {
+	//	if (i == indMaxDate)
+	//		newRecords[i] = records[indMinDate];
+	//	else if (i == indMinDate)
+	//		newRecords[i] = records[indMaxDate];
+	//	else 
+	//		newRecords[i] = records[i];
+	//}
+	//cout << "Данные по варианту задания:" << endl;
+	//Draw(newRecords);
 
     // Практика 3 Динамический список
-	cout << "Практика 3 Динамический список"<<endl;
-	//system("mspaint");
-	addItem(records[0]);
-	addItem(records[1]);
-	addItem(records[2]);
-	DrawWithList();
-	struct Record newRecord = { "Русаков", "А.М.", 1984, 712.50, {01,02,2023} };
-	insertItem(1, newRecord);
-	DrawWithList();
-	deleteItem(3);
-	DrawWithList();
-	struct Record editRecord = { "Мерсов", "А.А.", 1962, 2000.75, {01,02,2023} };
-	editItem(1, editRecord);
-	DrawWithList();
+	//cout << "Практика 3 Динамический список"<<endl;
+	////system("mspaint");
+	//addItem(records[0]);
+	//addItem(records[1]);
+	//addItem(records[2]);
+	//DrawWithList();
+	//struct Record newRecord = { "Русаков", "А.М.", 1984, 712.50, {01,02,2023} };
+	//insertItem(1, newRecord);
+	//DrawWithList();
+	//deleteItem(3);
+	//DrawWithList();
+	//struct Record editRecord = { "Мерсов", "А.А.", 1962, 2000.75, {01,02,2023} };
+	//editItem(1, editRecord);
+	//DrawWithList();
 }

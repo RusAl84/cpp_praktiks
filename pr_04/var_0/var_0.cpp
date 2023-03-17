@@ -337,6 +337,9 @@ int main()
 
 
 	// Практика 4 Файлы
+	// 
+	// Этап 1
+	//
 	// Текстовый формат
 	//	1.	Записать 3 записи(три строки(records) из таблицы практики 0) в файл в текстовом формате.
 	//	2.	Считать 3 записи из файла в текстовом формате и отобразить.
@@ -414,5 +417,8 @@ int main()
 	binariFstreamFile.open("binariFstreamFile.txt", ios_base::out | ios_base::binary);
 	binariFstreamFile << records;   // запись в бинарный файл 
 	binariFstreamFile.close();
+
+
+	// Этап 2
 
 }

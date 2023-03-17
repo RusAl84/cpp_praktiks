@@ -2,6 +2,9 @@
 
 using namespace std;
 
+/// <summary>
+/// Структура узла динамического списка
+/// </summary>
 struct node {
     int data;
     struct node* next;
@@ -20,13 +23,10 @@ void addItem(int data)
 {
     struct node* newItem = new node();
     newItem->data = data;
-    if (countItem == 0) {
+    if (countItem == 0)
         newItem->next = NULL;    
-    }
     else
-    {
         newItem->next = myHead;
-    }
     myHead = newItem;
     countItem++;
 }

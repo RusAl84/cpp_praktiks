@@ -38,9 +38,8 @@ void addItem(int data)
 void insertItem(int index, int data) {
     if (not (index >= 0 and index <= countItem and countItem>=0))
         return;
-    if (index==0){
+    if (index==0)
         addItem(data);
-    }
     else {
         struct node* current = myHead;
         for (int i = 0; i < index-1; i++) {
@@ -50,6 +49,7 @@ void insertItem(int index, int data) {
         newItem->data = data;
         newItem->next = current->next;
         current->next = newItem;
+        countItem++;
     }
 }
 /// <summary>

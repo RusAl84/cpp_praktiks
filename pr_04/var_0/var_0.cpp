@@ -27,7 +27,7 @@ struct node {
 	struct node* next;
 };
 
-struct node* myHead;
+ node* myHead;
 int countItem = 0;
 
 void myCentr(string s, int wLine) {
@@ -357,14 +357,12 @@ int main()
 	FILE* textFile;
 	fopen_s(&textFile, "textFile.txt", "w+");
 	for (int i = 0; i < 3; i++) {
-		fprintf(textFile, "%s %s %d %f %d %d %d \n", records[i].surName, \
-			records[i].ident, records[i].year, records[i].salary, \
+		fprintf(textFile, "%s %s %d %f %d %d %d \n", \
+			records[i].surName, \
+			records[i].ident, \
+			records[i].year, \
+			records[i].salary, \
 			records[i].date.day, records[i].date.month, records[i].date.year);
-		//char surName[17];
-		//char ident[6];
-		//unsigned short year;
-		//float salary;
-		//struct Date date;
 	}
 	fclose(textFile);
 
@@ -430,20 +428,20 @@ int main()
 	//unsigned short year;
 	//float salary;
 	//struct Date date;
-	cout << "Введите фамилию:";
-	cin >> inRecord.surName;
-	cout << "Введите инициалы:";
-	cin >> inRecord.ident;
-	cout << "Введите год рожд:";
-	cin >> inRecord.year;
-	cout << "Введите оклад:";
-	cin >> inRecord.salary;
-	cout << "Введите дата приема на работу (день):";
-	cin >> inRecord.date.day;
-	cout << "Введите дата приема на работу (месяц):";
-	cin >> inRecord.date.month;
-	cout << "Введите дата приема на работу (год):";
-	cin >> inRecord.date.year;
+	//cout << "Введите фамилию:";
+	//cin >> inRecord.surName;
+	//cout << "Введите инициалы:";
+	//cin >> inRecord.ident;
+	//cout << "Введите год рожд:";
+	//cin >> inRecord.year;
+	//cout << "Введите оклад:";
+	//cin >> inRecord.salary;
+	//cout << "Введите дата приема на работу (день):";
+	//cin >> inRecord.date.day;
+	//cout << "Введите дата приема на работу (месяц):";
+	//cin >> inRecord.date.month;
+	//cout << "Введите дата приема на работу (год):";
+	//cin >> inRecord.date.year;
 	// 0
 	//Поменять местами значения поля даты в 3 и 4 записях файла. 
 	//Данные считываются из файла.	Текстовый

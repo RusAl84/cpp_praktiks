@@ -112,7 +112,10 @@ void printMyList() {
         current = current->next;
     }
 }
-
+/// <summary>
+/// Программа для работы с динамическими списками.
+/// </summary>
+/// <returns>При нормальной отработке возвращает 0</returns>
 int main()
 {
     cout << "myList\n";
@@ -122,8 +125,8 @@ int main()
     addItem(4); 
     printMyList();
     cout << endl << "Count item: " << countItem << endl;
-    //editItem(2, 8);
-    //deleteItem(3);
+    editItem(2, 8);
+    deleteItem(3);
     insertItem(4, 8);
     printMyList();
 }

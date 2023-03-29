@@ -22,6 +22,73 @@ struct Record
 	struct Date date;
 };
 
+class clDate
+{
+private:
+	unsigned short year;
+	unsigned short month;
+	unsigned short day;
+public:
+	/// <summary>
+	/// Разделитель для даты (по умолчанию '.')
+	/// </summary>
+	char delimetr='.';
+	/// <summary>
+	/// Конструктор по умолчанию
+	/// </summary>
+	clDate()
+	{
+		//this->day = 1;
+		//this->month = 1;
+		//this->year = 1970;
+		setDate(1, 1, 1970);
+	}
+	/// <summary>
+	/// Конструктор c возможностью задания даты
+	/// </summary>
+	/// <param name="_day"></param>
+	/// <param name="_month"></param>
+	/// <param name="_year"></param>
+	clDate(unsigned short _day, unsigned short _month, unsigned short _year)
+	{ 
+		setDate(_day, _month, _year);
+	}
+	//clDate(struct Date mD) { setDate(mD); }
+	//clDate(struct Date* pD)
+	//{
+	//	day = pD->day; month = pD->month; year = pD->year;
+	//}
+	//~clDate() { ; }
+
+	Date getDate()
+	{
+		struct Date MD; 
+		MD.year = year;
+		MD.month = month;
+		MD.day = day;
+	}
+
+	void setDate(Date _mD)
+	{
+		setDate(_mD.day, _mD.month, _mD.year);
+	}
+	void setDate(unsigned short _day, unsigned short _month, unsigned short _year)
+	{
+		this->day = _day; 
+		this->month = _month;
+		this->year = _year;
+	}
+
+	void printDate() {
+		if (this->day > 0 and this->day < 10)
+			cout << "0";
+		cout << day << delimetr;
+		if (this->month > 0 and this->month < 10)
+			cout << "0";
+		cout << month << delimetr << year << endl;
+	}
+};
+
 struct node {
 	Record data;
 	struct node* next;
@@ -282,6 +349,8 @@ void DrawWithList() {
 	cout.width(79); cout.fill('-'); cout << "-" << endl;
 }
 
+
+
 int main()
 {
 	SetConsoleCP(1251);
@@ -292,8 +361,8 @@ int main()
 	records[0] = { "Иванов", "И.И.", 1975, 517.50, {01,02,2010} };      
 	records[1] = { "Петренко", "П.П.", 1956, 219.10, {02,03,2020} };      
 	records[2] = { "Панковский", "М.С.", 1967, 300.10, {12,12,2012} };      
-	cout << "Исходные данные:" << endl;
-	Draw(records, 3);
+	//cout << "Исходные данные:" << endl;
+	//Draw(records, 3);
 
 	// Практика 1
 	//cout << endl << "Вариант задания: Поменять местами записи (элементы массива структур),";
@@ -349,54 +418,51 @@ int main()
 	//	1.	Записать 3 записи(три строки(records) из таблицы практики 0) в файл в текстовом формате.
 	//	2.	Считать 3 записи из файла в текстовом формате и отобразить.
 	//	3.	Просмотреть содержимое файла в текстовом редакторе и проанализировать результат.
-
 	//	Бинарный формат
 	//	1.	Записать 3 записи(три строки(records) из таблицы практики 0) в файл в бинарном формате.
 	//	2.	Записать 3 записи(три строки(records) из таблицы практики 0) в файл в бинарном формате.
 	//	3.	Просмотреть содержимое файла в текстовом редакторе и проанализировать результат.
 
-
 	// stdio.h
-	
-	//1.	Записать 3 записи(три строки(records) из таблицы практики 0) в файл в текстовом формате.
-	FILE* textFile;
-	fopen_s(&textFile, "textFile.txt", "w+");
-	for (int i = 0; i < 3; i++) {
-		fprintf(textFile, "%s %s %d %f %d %d %d \n", \
-			records[i].surName, \
-			records[i].ident, \
-			records[i].year, \
-			records[i].salary, \
-			records[i].date.day, records[i].date.month, records[i].date.year);
-	}
-	fclose(textFile);
+	////1.	Записать 3 записи(три строки(records) из таблицы практики 0) в файл в текстовом формате.
+	//FILE* textFile;
+	//fopen_s(&textFile, "textFile.txt", "w+");
+	//for (int i = 0; i < 3; i++) {
+	//	fprintf(textFile, "%s %s %d %f %d %d %d \n", \
+	//		records[i].surName, \
+	//		records[i].ident, \
+	//		records[i].year, \
+	//		records[i].salary, \
+	//		records[i].date.day, records[i].date.month, records[i].date.year);
+	//}
+	//fclose(textFile);
 
-	//	2.	Считать 3 записи из файла в текстовом формате и отобразить.
-	fopen_s(&textFile, "textFile.txt", "r");
-	Record readRecords[3];
-	for (int i = 0; i < 3; i++) {
-		fscanf_s(textFile, "%s", readRecords[i].surName, _countof(readRecords[i].surName));
-		fscanf_s(textFile, "%s", readRecords[i].ident, _countof(readRecords[i].ident));
-		fscanf_s(textFile, "%d", &readRecords[i].year);
-		fscanf_s(textFile, "%f", &readRecords[i].salary);
-		fscanf_s(textFile, "%d", &readRecords[i].date.day);
-		fscanf_s(textFile, "%d", &readRecords[i].date.month);
-		fscanf_s(textFile, "%d", &readRecords[i].date.year);
-	}
-	fclose(textFile);
-	Draw(readRecords,3);
+	////	2.	Считать 3 записи из файла в текстовом формате и отобразить.
+	//fopen_s(&textFile, "textFile.txt", "r");
+	//Record readRecords[3];
+	//for (int i = 0; i < 3; i++) {
+	//	fscanf_s(textFile, "%s", readRecords[i].surName, _countof(readRecords[i].surName));
+	//	fscanf_s(textFile, "%s", readRecords[i].ident, _countof(readRecords[i].ident));
+	//	fscanf_s(textFile, "%d", &readRecords[i].year);
+	//	fscanf_s(textFile, "%f", &readRecords[i].salary);
+	//	fscanf_s(textFile, "%d", &readRecords[i].date.day);
+	//	fscanf_s(textFile, "%d", &readRecords[i].date.month);
+	//	fscanf_s(textFile, "%d", &readRecords[i].date.year);
+	//}
+	//fclose(textFile);
+	//Draw(readRecords,3);
 
-	// 1.	Записать 3 записи(три строки(records) из таблицы практики 0) в файл в бинарном формате.
-	FILE* binaryFile;
-	fopen_s(&binaryFile, "binaryFile.txt", "w");
-	fwrite(records, sizeof(records), 1, binaryFile);
-	fclose(binaryFile);
+	//// 1.	Записать 3 записи(три строки(records) из таблицы практики 0) в файл в бинарном формате.
+	//FILE* binaryFile;
+	//fopen_s(&binaryFile, "binaryFile.txt", "w");
+	//fwrite(records, sizeof(records), 1, binaryFile);
+	//fclose(binaryFile);
 
-	// 2.	Записать 3 записи(три строки(records) из таблицы практики 0) в файл в бинарном формате.
-	fopen_s(&binaryFile, "binaryFile.txt", "rb");
-	fread_s(readRecords, sizeof(readRecords), sizeof(readRecords), 1, binaryFile);
-	fclose(binaryFile);
-	Draw(readRecords, 3);
+	//// 2.	Записать 3 записи(три строки(records) из таблицы практики 0) в файл в бинарном формате.
+	//fopen_s(&binaryFile, "binaryFile.txt", "rb");
+	//fread_s(readRecords, sizeof(readRecords), sizeof(readRecords), 1, binaryFile);
+	//fclose(binaryFile);
+	//Draw(readRecords, 3);
 
 	//// fstream
 	////1.	Записать 3 записи(три строки(records) из таблицы практики 0) в файл в текстовом формате.
@@ -412,15 +478,10 @@ int main()
 	////for (int i = 0; !textFstreamFile.eof(); i++)
 	////	textFstreamFileR >> readRecords[i].surName;
 
-
-
-
-
-	ofstream binariFstreamFile;
-	binariFstreamFile.open("binariFstreamFile.txt", ios_base::out | ios_base::binary);
-	binariFstreamFile << records;   // запись в бинарный файл 
-	binariFstreamFile.close();
-
+	//ofstream binariFstreamFile;
+	//binariFstreamFile.open("binariFstreamFile.txt", ios_base::out | ios_base::binary);
+	//binariFstreamFile << records;   // запись в бинарный файл 
+	//binariFstreamFile.close();
 
 	// Этап 2
 	// Добавить новую запись (четвертую) в указанный существующий файл, 
@@ -428,7 +489,7 @@ int main()
 	// в указанном файле, изменения сохраняются в файле. 
 
 	//Record inRecord;
-	Record inRecord = { "Русаков", "А.М.", 1984, 1500.50, {21,03,2023} }; ;
+	//Record inRecord = { "Русаков", "А.М.", 1984, 1500.50, {21,03,2023} }; ;
 	//char surName[17];
 	//char ident[6];
 	//unsigned short year;
@@ -448,59 +509,62 @@ int main()
 	//cin >> inRecord.date.month;
 	//cout << "Введите дата приема на работу (год):";
 	//cin >> inRecord.date.year;
-	
 
-	// Записываю запись в файл
-	fopen_s(&textFile, "textFile.txt", "a");
-	fprintf(textFile, "%s %s %d %f %d %d %d \n", \
-		inRecord.surName, \
-		inRecord.ident, \
-		inRecord.year, \
-		inRecord.salary, \
-		inRecord.date.day, inRecord.date.month, inRecord.date.year);
-	fclose(textFile);
+	//// Записываю запись в файл
+	//fopen_s(&textFile, "textFile.txt", "a");
+	//fprintf(textFile, "%s %s %d %f %d %d %d \n", \
+	//	inRecord.surName, \
+	//	inRecord.ident, \
+	//	inRecord.year, \
+	//	inRecord.salary, \
+	//	inRecord.date.day, inRecord.date.month, inRecord.date.year);
+	//fclose(textFile);
 
-	//Проверка считаю данные из файла
-	Record fileRecords[4];
-	fopen_s(&textFile, "./textFile.txt", "r");
-	for (int i = 0; i < 4; i++) {
-		fscanf_s(textFile, "%s", fileRecords[i].surName, _countof(fileRecords[i].surName));
-		fscanf_s(textFile, "%s", fileRecords[i].ident, _countof(fileRecords[i].ident));
-		fscanf_s(textFile, "%d", &fileRecords[i].year);
-		fscanf_s(textFile, "%f", &fileRecords[i].salary);
-		fscanf_s(textFile, "%d", &fileRecords[i].date.day);
-		fscanf_s(textFile, "%d", &fileRecords[i].date.month);
-		fscanf_s(textFile, "%d", &fileRecords[i].date.year);
-	}
-	fclose(textFile);
-	Draw(fileRecords, 4);
-	// 0
-	//Поменять местами значения поля даты в 3 и 4 записях файла. 
-	//Данные считываются из файла.	Текстовый
-	fopen_s(&textFile, "textFile.txt", "r");
-	for (int i = 0; i < 4; i++) {
-		fscanf_s(textFile, "%s", fileRecords[i].surName, _countof(fileRecords[i].surName));
-		fscanf_s(textFile, "%s", fileRecords[i].ident, _countof(fileRecords[i].ident));
-		fscanf_s(textFile, "%d", &fileRecords[i].year);
-		fscanf_s(textFile, "%f", &fileRecords[i].salary);
-		fscanf_s(textFile, "%d", &fileRecords[i].date.day);
-		fscanf_s(textFile, "%d", &fileRecords[i].date.month);
-		fscanf_s(textFile, "%d", &fileRecords[i].date.year);
-	}
-	swap(fileRecords[2].date.day, fileRecords[3].date.day);
-	swap(fileRecords[2].date.month, fileRecords[3].date.month);
-	swap(fileRecords[2].date.year, fileRecords[3].date.year);
-	fclose(textFile);
-	fopen_s(&textFile, "textFile.txt", "w+");
-	for (int i = 0; i < 4; i++) {
-		fprintf(textFile, "%s %s %d %f %d %d %d \n", \
-			fileRecords[i].surName, \
-			fileRecords[i].ident, \
-			fileRecords[i].year, \
-			fileRecords[i].salary, \
-			fileRecords[i].date.day, fileRecords[i].date.month, fileRecords[i].date.year);
-	}
-	fclose(textFile);
-	Draw(fileRecords, 4);
+	////Проверка считаю данные из файла
+	//Record fileRecords[4];
+	//fopen_s(&textFile, "./textFile.txt", "r");
+	//for (int i = 0; i < 4; i++) {
+	//	fscanf_s(textFile, "%s", fileRecords[i].surName, _countof(fileRecords[i].surName));
+	//	fscanf_s(textFile, "%s", fileRecords[i].ident, _countof(fileRecords[i].ident));
+	//	fscanf_s(textFile, "%d", &fileRecords[i].year);
+	//	fscanf_s(textFile, "%f", &fileRecords[i].salary);
+	//	fscanf_s(textFile, "%d", &fileRecords[i].date.day);
+	//	fscanf_s(textFile, "%d", &fileRecords[i].date.month);
+	//	fscanf_s(textFile, "%d", &fileRecords[i].date.year);
+	//}
+	//fclose(textFile);
+	//Draw(fileRecords, 4);
+	//// 0
+	////Поменять местами значения поля даты в 3 и 4 записях файла. 
+	////Данные считываются из файла.	Текстовый
+	//fopen_s(&textFile, "textFile.txt", "r");
+	//for (int i = 0; i < 4; i++) {
+	//	fscanf_s(textFile, "%s", fileRecords[i].surName, _countof(fileRecords[i].surName));
+	//	fscanf_s(textFile, "%s", fileRecords[i].ident, _countof(fileRecords[i].ident));
+	//	fscanf_s(textFile, "%d", &fileRecords[i].year);
+	//	fscanf_s(textFile, "%f", &fileRecords[i].salary);
+	//	fscanf_s(textFile, "%d", &fileRecords[i].date.day);
+	//	fscanf_s(textFile, "%d", &fileRecords[i].date.month);
+	//	fscanf_s(textFile, "%d", &fileRecords[i].date.year);
+	//}
+	//swap(fileRecords[2].date.day, fileRecords[3].date.day);
+	//swap(fileRecords[2].date.month, fileRecords[3].date.month);
+	//swap(fileRecords[2].date.year, fileRecords[3].date.year);
+	//fclose(textFile);
+	//fopen_s(&textFile, "textFile.txt", "w+");
+	//for (int i = 0; i < 4; i++) {
+	//	fprintf(textFile, "%s %s %d %f %d %d %d \n", \
+	//		fileRecords[i].surName, \
+	//		fileRecords[i].ident, \
+	//		fileRecords[i].year, \
+	//		fileRecords[i].salary, \
+	//		fileRecords[i].date.day, fileRecords[i].date.month, fileRecords[i].date.year);
+	//}
+	//fclose(textFile);
+	//Draw(fileRecords, 4);
 
+
+	// Практическая работа 5 (классы и объекты)
+	class clDate date1;
+	date1.printDate();
 }

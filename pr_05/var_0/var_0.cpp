@@ -32,7 +32,7 @@ public:
 	/// <summary>
 	/// Разделитель для даты (по умолчанию '.')
 	/// </summary>
-	char delimetr='.';
+	char delimiter ='.';
 	/// <summary>
 	/// Конструктор по умолчанию
 	/// </summary>
@@ -82,10 +82,10 @@ public:
 	void printDate() {
 		if (this->day > 0 and this->day < 10)
 			cout << "0";
-		cout << day << delimetr;
+		cout << day << this->delimiter;
 		if (this->month > 0 and this->month < 10)
 			cout << "0";
-		cout << month << delimetr << year << endl;
+		cout << month << this->delimiter << year << endl;
 	}
 };
 

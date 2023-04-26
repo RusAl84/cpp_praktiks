@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{5494fd99-c831-4612-bfd8-a2014e8251c4}</ProjectGuid>
-    <RootNamespace>var0</RootNamespace>
+    <ProjectGuid>{74f75a9b-5dc8-4670-b9c4-2a23a23518d0}</ProjectGuid>
+    <RootNamespace>var6</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,11 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="var_0.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="ClassMisha.h" />
-    <ClInclude Include="Veselovskiy.h" />
+    <ClCompile Include="var6.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

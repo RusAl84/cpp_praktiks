@@ -47,8 +47,6 @@ https://www3.ntu.edu.sg/home/ehchua/programming/cpp/cp3_OOP.html
 */
 
 
-
-
 //metod example
 //#include <iostream>
 //using namespace std;

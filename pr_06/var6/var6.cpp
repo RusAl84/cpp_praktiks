@@ -2,17 +2,16 @@
 using namespace std;
 class A
 {public: void f() { cout << " A";}};
-class B: public  A
+class B: public virtual A
 {public: void f() { cout << " B";}};
-class C: public  A
+class C: public virtual A
 {public: void f() { cout << " C";}};
-class E : public  A
+class E : public virtual A, public virtual C
 { public: void f() { cout << " E"; }};
-class D : public  B, public  C, public  E
+class D : public virtual B, public virtual C, public virtual  E
 {public: void f() { cout << " D"; }};
-class F: public  D
-{  /*public: void f() { cout << " F"; };*/
-};
+class F: public virtual D, public virtual E
+{  public: void f() { cout << " F"; }; };
 int main()
 {
     F object;

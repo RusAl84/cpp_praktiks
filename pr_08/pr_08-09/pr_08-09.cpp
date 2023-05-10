@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include "clDate.h"
 
 using namespace std;
 
@@ -9,13 +10,12 @@ protected:
     string surName;     //Фамилия(string);
     string name;        //Имя(string);
     string middleName;  //Отчество(string);
-    string bDate;       //Дата рождения(clDate);
+    clDate bDate;       //Дата рождения(clDate);
     enum class sex;     //Пол;
-    string startDate;   //Дата зачисления(clDate)
+    clDate startDate;   //Дата зачисления(clDate)
     double studentship; //Стипендия;
-    
-    
-
+public:
+    clStudent() {};
 };
 
 class clGroup {
@@ -27,7 +27,10 @@ protected:
     int countStud; // –	Численность(целое);
     clStudent *listOfStudents; // – список студентов, представляющий собой динамический массив объектов «Студент» (clStudent), 
 public:
-
+    clGroup() { listOfStudents == NULL; };
+    void addStudent(clStudent* st) {
+    
+    };
 };
 
 int main()

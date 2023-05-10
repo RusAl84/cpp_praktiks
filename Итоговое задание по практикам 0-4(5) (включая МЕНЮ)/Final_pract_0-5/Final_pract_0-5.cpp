@@ -99,48 +99,6 @@ void Draw(struct Record* table, int count)
 
 }
 
-int praktika1()
-{
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
-	struct Record table[10];
-	table[0] = { "Борис Акунин", "Турецкий гамбит", 1998, 'Х', { 11, 11, 2020 } };
-	table[1] = { "Стругацкие", "Пикник на обочине", 1978, 'У', { 11, 11, 2020 } };
-	table[2] = { "Станислав Лем", "Футурологический ко", 1980, 'С', { 12, 12, 2010 } };
-
-	int maxYear = table[0].year;
-	int maxDay = table[0].date.day;
-	int maxMonth = table[0].date.month;
-	int maxYearDate = table[0].date.year;
-	int maxIndex = 0;
-
-	for (int i = 1; i < 3; i++) {
-		if (table[i].year > maxYear) {
-			maxYear = table[i].year;
-			maxIndex = i;
-		}
-		if (table[i].date.day > maxDay) {
-			maxDay = table[i].date.day;
-			maxIndex = i;
-		}
-		if (table[i].date.month > maxMonth) {
-			maxMonth = table[i].date.month;
-			maxIndex = i;
-		}
-		if (table[i].date.year > maxYearDate) {
-			maxYearDate = table[i].date.year;
-			maxIndex = i;
-		}
-	}
-
-
-
-	table[3] = { "max","max", maxYear, table[maxIndex].group, {maxDay, maxMonth, maxYearDate} };
-
-	Draw(table, 4);
-	return 0;
-}
-
 
 int praktika0() {
 	SetConsoleCP(1251);
@@ -247,6 +205,48 @@ int praktika0() {
 	return 0;
 }
 
+int praktika1()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	struct Record table[10];
+	table[0] = { "Борис Акунин", "Турецкий гамбит", 1998, 'Х', { 11, 11, 2020 } };
+	table[1] = { "Стругацкие", "Пикник на обочине", 1978, 'У', { 11, 11, 2020 } };
+	table[2] = { "Станислав Лем", "Футурологический ко", 1980, 'С', { 12, 12, 2010 } };
+
+	int maxYear = table[0].year;
+	int maxDay = table[0].date.day;
+	int maxMonth = table[0].date.month;
+	int maxYearDate = table[0].date.year;
+	int maxIndex = 0;
+
+	for (int i = 1; i < 3; i++) {
+		if (table[i].year > maxYear) {
+			maxYear = table[i].year;
+			maxIndex = i;
+		}
+		if (table[i].date.day > maxDay) {
+			maxDay = table[i].date.day;
+			maxIndex = i;
+		}
+		if (table[i].date.month > maxMonth) {
+			maxMonth = table[i].date.month;
+			maxIndex = i;
+		}
+		if (table[i].date.year > maxYearDate) {
+			maxYearDate = table[i].date.year;
+			maxIndex = i;
+		}
+	}
+
+
+
+	table[3] = { "max","max", maxYear, table[maxIndex].group, {maxDay, maxMonth, maxYearDate} };
+
+	Draw(table, 4);
+	return 0;
+}
+
 int praktika2() {
 	struct Record Table[] = {
 	{ "Борис Акунин", "Турецкий гамбит", 1998, 'Х', {11, 11, 2020} },
@@ -300,9 +300,6 @@ int praktika2() {
 
 	return 0;
 }
-
-
-
 
 void printRecord(Record* record) {
 	std::cout << "Author: " << record->author << std::endl;

@@ -56,8 +56,10 @@ public:
             listOfStudents =  new clStudent(_surName, _name, _middleName, _bDate, _sex, _startDate , _studentship);
             countStud++;
         }
-
     };
+    void printAll() {
+        cout<< Фамилия
+    }
 };
 
 int main()

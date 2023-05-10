@@ -63,6 +63,6 @@ public:
 int main()
 {
     clGroup BBBO01;
-    BBBO01.addStudent("Филатов", "Никита", "Михайлович", clDate( 12, 05, 1974 ), sex::Men, clDate( 01, 08, 1996 ), 1000);
+    BBBO01.addStudent("Филатов", "Никита", "Михайлович", { 12, 5, 1974 }, sex::Men, { 1, 8, 1996 }, 1000);
     std::cout << "Hello World!\n";
 }

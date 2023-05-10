@@ -1,5 +1,5 @@
 #pragma once
-
+using namespace std;
 struct Date {
 	unsigned short day;
 	unsigned short month;

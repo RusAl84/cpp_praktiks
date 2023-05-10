@@ -11,7 +11,7 @@ protected:
     string name;        //Имя(string);
     string middleName;  //Отчество(string);
     clDate bDate;       //Дата рождения(clDate);
-    enum class sex;     //Пол;
+    enum class sex sex;     //Пол;
     clDate startDate;   //Дата зачисления(clDate)
     double studentship; //Стипендия;
 public:
@@ -27,7 +27,7 @@ public:
         name = _name;
         middleName = _middleName;
         bDate = _bDate;
-        sex = _sex;
+        this->sex = _sex;
         startDate = _startDate;
         studentship = _studentship;
     };
@@ -63,6 +63,6 @@ public:
 int main()
 {
     clGroup BBBO01;
-    BBBO01.addStudent("Филатов", "Никита", "Михайлович", { 12, 05, 1974 }, sex::Men, { 01, 08, 1996 }, 1000);
+    BBBO01.addStudent("Филатов", "Никита", "Михайлович", clDate( 12, 05, 1974 ), sex::Men, clDate( 01, 08, 1996 ), 1000);
     std::cout << "Hello World!\n";
 }

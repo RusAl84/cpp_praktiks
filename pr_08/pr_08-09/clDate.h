@@ -1,10 +1,17 @@
 #pragma once
+
+struct Date {
+	unsigned short day;
+	unsigned short month;
+	int year;
+};
+
 class clDate
 {
 private:
-	unsigned short year;
-	unsigned short month;
 	unsigned short day;
+	unsigned short month;
+	int year;
 public:
 	/// <summary>
 	/// Разделитель для даты (по умолчанию '.')
@@ -37,7 +44,7 @@ public:
 	//}
 	//~clDate() { ; }
 
-	Date getDate()
+	clDate getDate()
 	{
 		struct Date MD;
 		MD.year = year;

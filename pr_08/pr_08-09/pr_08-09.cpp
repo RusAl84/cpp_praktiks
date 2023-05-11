@@ -58,7 +58,7 @@ public:
         }
     };
     void printAll() {
-        cout<< Фамилия
+        cout<< "Фамилия"
     }
 };
 

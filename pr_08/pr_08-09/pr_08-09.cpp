@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include "clDate.h"
+#include "windows.h"
 
 using namespace std;
 
@@ -13,15 +14,10 @@ protected:
     clDate bDate;       //Дата рождения(clDate);
     enum class sex sex;     //Пол;
     clDate startDate;   //Дата зачисления(clDate)
-    double studentship; //Стипендия;
+    double studentShip; //Стипендия;
 public:
-    clStudent(string _surName,
-        string _name,
-        string _middleName,
-        clDate _bDate,
-        enum class sex  _sex,
-        clDate _startDate,
-        double _studentship) 
+    clStudent(string _surName, string _name, string _middleName, clDate _bDate,
+        enum class sex  _sex, clDate _startDate, double _studentShip)
     {
         surName = _surName;
         name = _name;
@@ -29,7 +25,27 @@ public:
         bDate = _bDate;
         this->sex = _sex;
         startDate = _startDate;
-        studentship = _studentship;
+        studentShip = _studentShip;
+    };
+    void print() {
+        cout << " Фамилия: " << surName << " Имя: " << name << " Отчество: " << middleName;
+        cout << " Дата рождения: "; bDate.printDate(); cout << endl;
+        cout << " Пол: ";
+        switch (sex)
+        {
+        case sex::Women:
+            cout << "женский ";
+            break;
+        case sex::Men:
+            cout << "мужской ";
+            break;
+        case sex::Any:
+            cout << "не бинарный ";
+            break;
+        default:
+            break;
+        };
+        cout << " Дата зачисления: "; startDate.printDate(); cout << " Стипендия: " << studentShip << endl;
     };
 };
 
@@ -58,13 +74,18 @@ public:
         }
     };
     void printAll() {
-        cout<< "Фамилия"
+        cout << " Название (шифр) группы: " << name << " Институт" << institute << endl;
+        cout << " Выпускающая кафедра: " << department << " Фамилия ИО куратора " << tutorName;
+
+        listOfStudents->print();
     }
 };
 
 int main()
 {
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
     clGroup BBBO01;
     BBBO01.addStudent("Филатов", "Никита", "Михайлович", { 12, 5, 1974 }, sex::Men, { 1, 8, 1996 }, 1000);
-    std::cout << "Hello World!\n";
+    BBBO01.printAll();
 }

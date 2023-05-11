@@ -70,7 +70,7 @@ public:
 		cout << day << this->delimiter;
 		if (this->month > 0 and this->month < 10)
 			cout << "0";
-		cout << month << this->delimiter << year << endl;
+		cout << month << this->delimiter << year ;
 	}
 };
 

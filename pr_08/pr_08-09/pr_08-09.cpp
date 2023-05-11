@@ -61,6 +61,13 @@ public:
     clGroup() { 
         countStud = 0;
         listOfStudents == NULL; };
+    clGroup(string _name, string _institute, string _department, string _tutorName) :clGroup() {
+        this->name = _name;
+        this->institute = _institute;
+        this->department = _department;
+        this->tutorName = _tutorName;
+    };
+
     void addStudent(string _surName,
         string _name,
         string _middleName,
@@ -76,7 +83,7 @@ public:
     void printAll() {
         cout << " Название (шифр) группы: " << name << " Институт" << institute << endl;
         cout << " Выпускающая кафедра: " << department << " Фамилия ИО куратора " << tutorName;
-
+        cout << " Численность: " << countStud << endl;
         listOfStudents->print();
     }
 };
@@ -85,7 +92,7 @@ int main()
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    clGroup BBBO01;
-    BBBO01.addStudent("Филатов", "Никита", "Михайлович", { 12, 5, 1974 }, sex::Men, { 1, 8, 1996 }, 1000);
-    BBBO01.printAll();
+    clGroup * BBBO01 = new clGroup( "БББО-01-22", "ИКБ", "КБ-4 Информационная безопасность", "Пиджаков Д.А.");
+    BBBO01->addStudent("Филатов", "Никита", "Михайлович", { 12, 5, 1974 }, sex::Men, { 1, 8, 1996 }, 1000);
+    BBBO01->printAll();
 }

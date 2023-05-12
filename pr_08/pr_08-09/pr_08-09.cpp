@@ -76,8 +76,14 @@ public:
         clDate _startDate,
         double _studentship) {
         if (countStud==0) {
-            listOfStudents =  new clStudent(_surName, _name, _middleName, _bDate, _sex, _startDate , _studentship);
+            listOfStudents = { new clStudent[1] {clStudent(_surName, _name, _middleName, _bDate, _sex, _startDate , _studentship)} };
+            //listOfStudents = new clStudent(_surName, _name, _middleName, _bDate, _sex, _startDate, _studentship);
             countStud++;
+        }
+        else {
+            countStud++;
+            clStudent* ls = new clStudent(_surName, _name, _middleName, _bDate, _sex, _startDate, _studentship);
+            clStudent* ols = listOfStudents;
         }
     };
     void printAll() {

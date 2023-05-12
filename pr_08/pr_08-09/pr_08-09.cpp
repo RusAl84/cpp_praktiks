@@ -77,13 +77,9 @@ public:
         this->tutorName = _tutorName;
     };
 
-    void addStudent(string _surName,
-        string _name,
-        string _middleName,
-        clDate _bDate,
-        enum class sex _sex,
-        clDate _startDate,
-        double _studentship) {
+    void addStudent(string _surName, string _name, string _middleName, clDate _bDate,   enum class sex _sex,
+        clDate _startDate, double _studentship) {
+        // https://metanit.com/cpp/tutorial/4.11.php
         if (countStud==0) {
             listOfStudents = { new clStudent[1] {clStudent(_surName, _name, _middleName, _bDate, _sex, _startDate , _studentship)} };
             //listOfStudents = new clStudent(_surName, _name, _middleName, _bDate, _sex, _startDate, _studentship);
@@ -105,7 +101,9 @@ public:
         cout << " Выпускающая кафедра: " << department << " Фамилия ИО куратора " << tutorName;
         cout << " Численность: " << countStud << endl;
         for (int i = 0; i < countStud; i++) {
+            cout << " ____________________________ " << endl;
             listOfStudents[i].print();
+            cout << " ____________________________ " << endl;
         }
     }
 };
@@ -114,8 +112,10 @@ int main()
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    clGroup * BBBO01 = new clGroup( "БББО-01-22", "ИКБ", "КБ-4 Информационная безопасность", "Пиджаков Д.А.");
-    BBBO01->addStudent("Филатов", "Никита", "Михайлович", { 12, 5, 1974 }, sex::Men, { 1, 8, 1996 }, 1000);
-    BBBO01->addStudent("Русаков", "Никита", "Михайлович", { 12, 5, 1974 }, sex::Men, { 1, 8, 1996 }, 1000);
-    BBBO01->printAll();
+    clGroup * BBSO01 = new clGroup( "ББСО-01-22", "ИКБ", "КБ-4 Информационная безопасность", "Пиджаков Д.А.");
+    BBSO01->addStudent("Филатов", "Никита", "Михайлович", { 12, 5, 1974 }, sex::Men, { 1, 8, 1996 }, 1000);
+    BBSO01->addStudent("Русаков", "Никита", "Михайлович", { 12, 5, 1974 }, sex::Men, { 1, 8, 1996 }, 1000);
+    BBSO01->addStudent("Игнатович", "Александра", "Алексеевна", { 12, 5, 2000 }, sex::Women, { 9, 8, 2000 }, 28000);
+    BBSO01->addStudent("Гладкова", "Кира", "Алексеевна", { 12, 5, 2000 }, sex::Women, { 9, 8, 2000 }, 28000);
+    BBSO01->printAll();
 }

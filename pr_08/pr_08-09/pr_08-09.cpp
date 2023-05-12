@@ -16,6 +16,15 @@ protected:
     clDate startDate;   //Дата зачисления(clDate)
     double studentShip; //Стипендия;
 public:
+    clStudent(){
+        surName = "Филатов";
+        name = "Андрей";
+        middleName = "Александрович";
+        bDate = { 12, 5, 1974 };
+        this->sex = sex::Men;
+        startDate = { 1, 9, 2022 };
+        studentShip = 1000;
+    }
     clStudent(string _surName, string _name, string _middleName, clDate _bDate,
         enum class sex  _sex, clDate _startDate, double _studentShip)
     {
@@ -82,15 +91,22 @@ public:
         }
         else {
             countStud++;
-            clStudent* ls = new clStudent(_surName, _name, _middleName, _bDate, _sex, _startDate, _studentship);
             clStudent* ols = listOfStudents;
+            listOfStudents = { new clStudent[countStud]{} };
+            for (int i = 0; i < countStud - 1; i++) {
+                listOfStudents[i] = ols[i];
+            }
+            clStudent* ls = { new clStudent[1] {clStudent(_surName, _name, _middleName, _bDate, _sex, _startDate , _studentship)} };
+            listOfStudents[countStud - 1] = ls[0];
         }
     };
     void printAll() {
-        cout << " Название (шифр) группы: " << name << " Институт" << institute << endl;
+        cout << " Название (шифр) группы: " << name << " Институт " << institute << endl;
         cout << " Выпускающая кафедра: " << department << " Фамилия ИО куратора " << tutorName;
         cout << " Численность: " << countStud << endl;
-        listOfStudents->print();
+        for (int i = 0; i < countStud; i++) {
+            listOfStudents[i].print();
+        }
     }
 };
 
@@ -100,5 +116,6 @@ int main()
     SetConsoleOutputCP(1251);
     clGroup * BBBO01 = new clGroup( "БББО-01-22", "ИКБ", "КБ-4 Информационная безопасность", "Пиджаков Д.А.");
     BBBO01->addStudent("Филатов", "Никита", "Михайлович", { 12, 5, 1974 }, sex::Men, { 1, 8, 1996 }, 1000);
+    BBBO01->addStudent("Русаков", "Никита", "Михайлович", { 12, 5, 1974 }, sex::Men, { 1, 8, 1996 }, 1000);
     BBBO01->printAll();
 }

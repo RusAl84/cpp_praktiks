@@ -1,20 +1,30 @@
-﻿// ex_scanf.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
+﻿#include <iostream>
+#include <stdio.h>
+#include <windows.h>
 
-#include <iostream>
+using namespace std;
 
-int main()
-{
-    std::cout << "Hello World!\n";
+int main() {
+	setlocale(LC_ALL, "Russian");
+	SetConsoleCP(1251); // Ввод с консоли в кодировке 1251
+	SetConsoleOutputCP(1251);
+
+    // https://learn.microsoft.com/ru-ru/cpp/c-runtime-library/reference/scanf-s-scanf-s-l-wscanf-s-wscanf-s-l?view=msvc-170&devlangs=cpp&f1url=%3FappId%3DDev16IDEF1%26l%3DRU-RU%26k%3Dk(STDIO%252Fscanf_s)%3Bk(scanf_s)%3Bk(DevLang-C%252B%252B)%3Bk(TargetOS-Windows)%26rd%3Dtrue
+    int      i,
+        result;
+    float    fp;
+    char     c,
+        s[80];
+    wchar_t  wc,
+        ws[80];
+
+    //71 98.6 h z Byte characters
+
+    result = scanf_s("%d %f %c %C %s %S", &i, &fp, &c, 1,
+        &wc, 1, s, (unsigned)_countof(s), ws, (unsigned)_countof(ws));
+    printf("The number of fields input is %d\n", result);
+    printf("The contents are: %d %f %c %C %s %S\n", i, fp, c,
+        wc, s, ws);
+
+	return 0;
 }
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.

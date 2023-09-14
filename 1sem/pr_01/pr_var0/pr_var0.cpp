@@ -33,7 +33,7 @@ int main()
     for (int i = 0; i < wigth; i++)
         printf("-");
     printf("\n");
-    //        15                16              14          14
+    //        28                16              14          14
     printf("|Фамилия                    |Инициалы          |Год рожд       |Оклад          |");
     printf("\n");
     for (int i = 0; i < wigth; i++)
@@ -42,7 +42,7 @@ int main()
 
     //Строка 1
     printf("|%s", surName1.c_str());
-    for(int i=0;i< 14-surName1.size();i++)
+    for(int i=0;i< 27-surName1.size();i++)
         printf(" ");
     printf("|%s", ident1.c_str());
     for (int i = 0; i < 15-ident1.size(); i++)

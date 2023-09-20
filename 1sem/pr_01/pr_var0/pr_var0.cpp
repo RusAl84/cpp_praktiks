@@ -11,38 +11,30 @@ int main()
     SetConsoleOutputCP(1251);
     //cout << "Русский язык выводится корректно\n";
     int wigth = 80;
-    //string surName1 = "Иванов";
-    //string surName2 = "Петренко";
-    //string surName3 ="Панковский";
-    //string ident1="И.И.";
-    //string ident2="П.П.";
-    //string ident3="М.С.";
-    //int bYear1= 1975;
-    //int bYear2= 1956;
-    //int bYear3= 1967;
-    //float salary1= 517.50;
-    //float salary2= 219.10;
-    //float salary3= 300.00;
+    string surName1 = "Иванов";
+    string surName2 = "Петренко";
+    string surName3 ="Панковский";
+    string ident1="И.И.";
+    string ident2="П.П.";
+    string ident3="М.С.";
+    int bYear1= 1975;
+    int bYear2= 1956;
+    int bYear3= 1967;
+    float salary1= 517.50;
+    float salary2= 219.10;
+    float salary3= 300.00;
     string descr = "оклад установлен по состоянию на 1 января 2000 года";
 
-    string surName1;
-    string surName2;
-    string surName3;
-    string ident1;
-    string ident2;
-    string ident3;
-    int bYear1= 2000;
-    int bYear2= 2000;
-    int bYear3= 2000;
-    float salary1 = 100;
-    float salary2 = 100;
-    float salary3 = 100;
-
-    char tmpC1[64];
-    char tmpC2[64];
-    //Иванов И.И. 1975 517.50
+    char tmpC1[32];
+    char tmpC2[32];
+    //Иванов И.И. 1975 517,50
     printf("Введите фамилию 1    инициалы1       год рожд 1      оклад1\n");
-    scanf_s("%s %s", tmpC1, tmpC2, &bYear1, 64, 64);
+    scanf_s("%s %s %d", tmpC1, sizeof(tmpC1), tmpC2, sizeof(tmpC2), &bYear1, );
+    surName1 = tmpC1;
+    ident1 = tmpC2;
+    //Петренко П.П. 1956 219,10
+    printf("Введите фамилию 1    инициалы1       год рожд 1      оклад1\n");
+    scanf_s("%s %s %d", tmpC1, sizeof(tmpC1), tmpC2, sizeof(tmpC2), &bYear1, );
     surName1 = tmpC1;
     ident1 = tmpC2;
 

@@ -29,14 +29,19 @@ int main()
     char tmpC2[32];
     //Иванов И.И. 1975 517,50
     printf("Введите фамилию 1    инициалы1       год рожд 1      оклад1\n");
-    scanf_s("%s %s %d", tmpC1, sizeof(tmpC1), tmpC2, sizeof(tmpC2), &bYear1, );
+    scanf_s("%s %s %d %f", tmpC1, sizeof(tmpC1), tmpC2, sizeof(tmpC2), &bYear1, &salary1);
     surName1 = tmpC1;
     ident1 = tmpC2;
     //Петренко П.П. 1956 219,10
-    printf("Введите фамилию 1    инициалы1       год рожд 1      оклад1\n");
-    scanf_s("%s %s %d", tmpC1, sizeof(tmpC1), tmpC2, sizeof(tmpC2), &bYear1, );
-    surName1 = tmpC1;
-    ident1 = tmpC2;
+    printf("Введите фамилию 2    инициалы2       год рожд 2      оклад2\n");
+    scanf_s("%s %s %d %f", tmpC1, sizeof(tmpC1), tmpC2, sizeof(tmpC2), &bYear2, &salary2);
+    surName2 = tmpC1;
+    ident2 = tmpC2;
+    //Панковский М.С. 1967 300,00
+    printf("Введите фамилию 3    инициалы3       год рожд 3      оклад3\n");
+    scanf_s("%s %s %d %f", tmpC1, sizeof(tmpC1), tmpC2, sizeof(tmpC2), &bYear3, &salary3);
+    surName3 = tmpC1;
+    ident3 = tmpC2;
 
 
     printf("\n");

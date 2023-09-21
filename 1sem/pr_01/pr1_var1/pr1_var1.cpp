@@ -28,9 +28,10 @@ int main()
     //Oracle 1 2488000000 31.1
     //FIZIKA 7 7778000000 77.1
     char tmp[32];
-    printf("Введите фирму1     инициалы1       год рожд 1      оклад1\n");
+    printf("Введите фирму1     Количество продуктов1      Годовой объем продажи ($)1      Часть рынка (%)1\n");
     scanf_s("%s %d %u %f", tmp, sizeof(tmp), &count1, &sale1, &part1);
     //scanf_s("%s %d %u %f", brand1, sizeof(brand1), &count1, &sale1, &part1);
+    //так нельзя потому что стринги
     brand1 = tmp;
 
 

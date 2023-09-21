@@ -12,7 +12,7 @@ int main()
 
     //Процессор Частота (Mgz) RAM (Mb) Тип
 
-    string cpu1 = "Pentium - III";
+    string cpu1 = "Pentium-III";
     string cpu2 = "AMD-К6";
     string cpu3 = "PowerPC";
     int freq1 = 233;
@@ -24,8 +24,20 @@ int main()
     char type1 = 'C';
     char type2 = 'C';
     char type3 = 'R';
-    //
-    //
+
+
+    char tmp[32];
+    //Pentium-III 233 128 C
+    //Celeron-III 777 777 X
+    printf("Введите процессор1    частота(Mgz)1       RAM(Mb)1       Тип1      \n");
+    scanf_s("%s %d %d %d", tmp, sizeof(tmp), &freq1, &ram1, &type1);
+    cpu1 = tmp;
+    printf("Введите процессор2    частота(Mgz)2       RAM(Mb)2       Тип2      \n");
+    scanf_s("%s %d %d %d", tmp, sizeof(tmp), &freq2, &ram2, &type2);
+    cpu2 = tmp;
+    printf("Введите процессор3    частота(Mgz)3       RAM(Mb)3       Тип3      \n");
+    scanf_s("%s %d %d %d", tmp, sizeof(tmp), &freq3, &ram3, &type3);
+    cpu3 = tmp;
 
     int wigth = 80;
     printf("\n");

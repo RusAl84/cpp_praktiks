@@ -18,11 +18,21 @@ int main()
     int count2 = 2;
     int count3 = 3;
     unsigned int sale1 = 2488000000;
-    int sale2 = 2392000000;
-    int sale3 = 1048000000;
+    unsigned int sale2 = 2392000000;
+    unsigned int sale3 = 1048000000;
     float part1 = 31.1;
     float part2 = 29.9;
     float part3 = 13.1;
+    
+
+    //Oracle 1 2488000000 31.1
+    //FIZIKA 7 7778000000 77.1
+    char tmp[32];
+    printf("Введите фирму1     инициалы1       год рожд 1      оклад1\n");
+    scanf_s("%s %d %u %f", tmp, sizeof(tmp), &count1, &sale1, &part1);
+    //scanf_s("%s %d %u %f", brand1, sizeof(brand1), &count1, &sale1, &part1);
+    brand1 = tmp;
+
 
     int wigth = 80;
     printf("\n");
@@ -88,8 +98,10 @@ int main()
     for (int i = 0; i < wigth; i++)
         printf("-");
     printf("\n");
-
-
+    printf("| Примечание: по данным Gartner Group за 1999г                                 |\n");
+    for (int i = 0; i < wigth; i++)
+        printf("-");
+    printf("\n");
 
     return 0;
 }

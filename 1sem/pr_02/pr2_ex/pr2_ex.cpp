@@ -1,10 +1,10 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 #define _USE_MATH_DEFINES
 
-#include <stdio.h>
+#include <stdio.h> //c printf scanf
 #include <math.h>
 #include <Windows.h>
-#include <iostream>
+#include <iostream> //c++ cin //cout
 #include <math.h>
 
 int main()
@@ -17,6 +17,7 @@ int main()
     double c = 14.1, d = 2.7;
     double t1, t2;
     double ax;
+    double pi = M_PI;
     printf("Введите x, y >");
     
     //scanf("%lf %lf", &x, &y);
@@ -27,6 +28,7 @@ int main()
     double t1_p3 = (pow(a, 2) * pow(x, 2)) / (2 * pow(y, 2));
     double t1_p4 = t1_p2 - t1_p3;
     t1 = t1_p1 * t1_p4;
+    double pi = M_PI;
     t2 = y;
 
     printf("t1 = %lg\n", t1); printf("t2 = %lg\n", t2);

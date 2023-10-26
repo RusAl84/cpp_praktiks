@@ -13,12 +13,14 @@ int main()
     double y = 0;
     
     bool getIntoArea = false;
+    //https://www.desmos.com/calculator?lang=ru
     //проверка для четверти I
     if ((x >= 0) && (y >= 0)) {
         if (y <= (1 - x)) {
             getIntoArea = true; //1
         }
-        if ( (( (pow(y,2) + pow(x, 2)) >= 1) )  && ((x <= 1) && (y <= 1)) ) {
+        if ( (( (pow(y,2) + pow(x, 2)) >= 1) )
+            && ((x <= 1) && (y <= 1)) ) {
             getIntoArea = true; //2
         }
     }

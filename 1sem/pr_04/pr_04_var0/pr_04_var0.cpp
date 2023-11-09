@@ -13,7 +13,7 @@ int main()
     double y = 0;
     bool getIntoArea = false;
     //https://www.desmos.com/calculator?lang=ru
-    if ((x <= 1) && (y <= 1)) {           // Проверка что точка входит в квадрат
+    if ((x <= 1) && (x >= -1) && (y >= -1) && (y <= 1)  ) {           // Проверка что точка входит в квадрат
         if ((x >= 0) && (y >= 0)) {       // Проверка для четверти I
                 if (y <= (1 - x))
                     getIntoArea = true; //1

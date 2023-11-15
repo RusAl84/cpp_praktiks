@@ -27,7 +27,7 @@ int main()
     // Ввод данных
     c = 31;
     f = 1;
-    b = 0;
+    b = 1;
     n = 255;
     printf("\nс = %d\n", c);
     printf("f = %d\n", f);

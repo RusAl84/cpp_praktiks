@@ -29,7 +29,7 @@ int main()
     C = 1;
     D = 1;
     N = 511;
-    printf("\nN = %d\n", O);
+    printf("\nO = %d\n", O);
     printf("C = %d\n", C);
     printf("D = %d\n", D);
     printf("N = %d\n", N);
@@ -48,7 +48,7 @@ int main()
     C = (UnitStateWord >> 10) & 1;
     D = (UnitStateWord >> 9) & 1;
     N = UnitStateWord & 0b0000000111111111;
-    printf("\nN = %d\n", O);
+    printf("\nO = %d\n", O);
     printf("C = %d\n", C);
     printf("D = %d\n", D);
     printf("N = %d\n", N);

@@ -34,7 +34,7 @@ int main()
     printf("D = %d\n", D);
     printf("N = %d\n", N);
     // Запаковка
-    UnitStateWord = (N & 0b00011111) << 11;
+    UnitStateWord = (O & 0b00011111) << 11;
     UnitStateWord |= (C & 1) << 10;
     UnitStateWord |= (D & 1) << 9;
     UnitStateWord |= N & 0b0000000111111111;

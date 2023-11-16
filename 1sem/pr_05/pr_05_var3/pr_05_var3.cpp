@@ -1,5 +1,4 @@
-﻿//#define BYTE_TO_BINARY_PATTERN "%c%c%c%c%c%c%c%c"
-#define BYTE_TO_BINARY(byte)  \
+﻿#define BYTE_TO_BINARY(byte)  \
   ((byte) & 0x80 ? '1' : '0'), \
   ((byte) & 0x40 ? '1' : '0'), \
   ((byte) & 0x20 ? '1' : '0'), \
@@ -25,34 +24,32 @@ int main()
     unsigned short P; // 0..1
     unsigned short UnitStateWord = 0;
     // Ввод данных
-    //c = 31;
-    //f = 1;
-    //b = 1;
-    //n = 255;
-    //printf("\nс = %d\n", c);
-    //printf("f = %d\n", f);
-    //printf("b = %d\n", b);
-    //printf("n = %d\n", n);
-    //// Запаковка
-    //UnitStateWord = (c & 0x1F) << 11;
-    //UnitStateWord |= (f & 1) << 9;
-    //UnitStateWord |= (b & 1) << 8;
-    //UnitStateWord |= n & 0xFF;
-
-    //printf("\nСлово состояния устройства (16-ричное число от 0 до 0xFFFF): %04x\n", UnitStateWord);
-    //printf("\nСлово состояния устройства (DEC): %d\n", UnitStateWord);
-    ////printf("\nСлово состояния устройства в двоичном виде:  %hu\n", UnitStateWord);
-
-    //// https://stackoverflow.com/questions/111928/is-there-a-printf-converter-to-print-in-binary-format
-    //printf("\nДвоичный код: %c%c%c%c%c%c%c%c:%c%c%c%c%c%c%c%c \n", BYTE_TO_BINARY(UnitStateWord >> 8), BYTE_TO_BINARY(UnitStateWord));
-    //// распаковка
-    //c = (UnitStateWord >> 11) & 0x1F;
-    //f = (UnitStateWord >> 9) & 1;
-    //b = (UnitStateWord >> 8) & 1;
-    //n = UnitStateWord & 0xFF;
-    //printf("\nс = %d\n", c);
-    //printf("f = %d\n", f);
-    //printf("b = %d\n", b);
-    //printf("n = %d\n", n);
+    N = 15;
+    E = 1;
+    C = 511;
+    P = 1;
+    printf("\nN = %d\n", N);
+    printf("E = %d\n", E);
+    printf("C = %d\n", C);
+    printf("P = %d\n", P);
+    // Запаковка
+    // NNNNECCC:CCCCCC0P
+    UnitStateWord = (N & 0x0F) << 12;
+    UnitStateWord |= (E & 1) << 11;
+    UnitStateWord |= (C & 0x1FF) << 2;
+    UnitStateWord |= P & 1;
+    printf("\nСлово состояния устройства (16-ричное число от 0 до 0xFFFF): %04x\n", UnitStateWord);
+    printf("\nСлово состояния устройства (DEC): %d\n", UnitStateWord);
+    // https://stackoverflow.com/questions/111928/is-there-a-printf-converter-to-print-in-binary-format
+    printf("\nДвоичный код: %c%c%c%c%c%c%c%c:%c%c%c%c%c%c%c%c \n", BYTE_TO_BINARY(UnitStateWord >> 8), BYTE_TO_BINARY(UnitStateWord));
+    // распаковка
+    N = (UnitStateWord >> 12) & 0x0F;
+    E = (UnitStateWord >> 11) & 1;
+    C = (UnitStateWord >> 2) & 0x1FF;
+    P = UnitStateWord & 1;
+    printf("\nN = %d\n", N);
+    printf("E = %d\n", E);
+    printf("C = %d\n", C);
+    printf("P = %d\n", P);
     return 0;
 }

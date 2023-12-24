@@ -24,9 +24,9 @@ int main()
     unsigned short N; // 0b0000000111111111 0..511
     unsigned short UnitStateWord = 0;
     // Ввод данных
-    T = 3;
-    D = 1;
-    N = 511;
+    T = 2;
+    D = 0;
+    N = 500;
     printf("\nT = %d\n", T);
     printf("D = %d\n", D);
     printf("N = %d\n", N);
@@ -34,7 +34,7 @@ int main()
     UnitStateWord = (0b1101) << 12;
     UnitStateWord |= (T & 0b11) << 10;
     UnitStateWord |= (D & 1) << 9;
-    UnitStateWord |= N & 0b0000000111111111;
+    UnitStateWord |= N & 0b0000000111111111 << 0;
     printf("\nСлово состояния устройства (16-ричное число от 0 до 0xFFFF): %04x\n", UnitStateWord);
     printf("\nСлово состояния устройства (DEC): %d\n", UnitStateWord);
     // https://stackoverflow.com/questions/111928/is-there-a-printf-converter-to-print-in-binary-format

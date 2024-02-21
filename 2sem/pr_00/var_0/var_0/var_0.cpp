@@ -146,6 +146,10 @@ int main()
 	records[2] = { "Панковский", "М.С.", 1967, 300.10, {12,12,2012} };
 		
 	Draw(records);
+
+
+
+
 	//cout << endl;
 	//DrawWrong(records);
 }

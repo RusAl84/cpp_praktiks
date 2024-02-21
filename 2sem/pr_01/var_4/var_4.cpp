@@ -85,22 +85,28 @@ void Draw(struct Record* records) {
 }
 
 vector<int> getMinDayDate(struct Record* records) {
+	//if (records[i].date.day < minDay) {
 	vector<int> indexes;
-	int minDay = 32; // максимальное возможное значение
+	int minDay = 32;
 	for (int i = 0; i < 10; i++) {
 		if (records[i].date.day < minDay) {
 			minDay = records[i].date.day;
+		}
+	}
+	for (int i = 0; i < 10; i++) {
+		if (minDay == records[i].date.day) {
 			indexes.push_back(i);
 		}
 	}
+
 	return indexes;
 }
 
 vector<int> getMaxDayDate(struct Record* records) {
 	vector<int> indexes;
-	int maxDay = 0; // максимальное возможное значение
-	for (int i = 0; i < 3; i++) {
-		if (maxDay < records[i].date.day) {
+	int maxDay = 0; 
+	for (int i = 0; i < 10; i++) {
+		if ((maxDay < records[i].date.day) and (records[i].date.day<32)) {
 			maxDay = records[i].date.day;  
 		}  
 	}

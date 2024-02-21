@@ -2,6 +2,7 @@
 #include <iostream>
 #include <windows.h>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -83,6 +84,34 @@ void Draw(struct Record* records) {
 	cout.width(79); cout.fill('-'); cout << "-" << endl;
 }
 
+vector<int> getMinDayDate(struct Record* records) {
+	vector<int> indexes;
+	int minDay = 32; // максимальное возможное значение
+	for (int i = 0; i < 10; i++) {
+		if (records[i].date.day < minDay) {
+			minDay = records[i].date.day;
+			indexes.push_back(i);
+		}
+	}
+	return indexes;
+}
+
+vector<int> getMaxDayDate(struct Record* records) {
+	vector<int> indexes;
+	int maxDay = 0; // максимальное возможное значение
+	for (int i = 0; i < 3; i++) {
+		if (maxDay < records[i].date.day) {
+			maxDay = records[i].date.day;  
+		}  
+	}
+	for (int i = 0; i < 10; i++) {
+		if (maxDay == records[i].date.day) {
+			indexes.push_back(i);  
+		}
+	}
+	return indexes;
+}
+
 int main()
 {
 	SetConsoleCP(1251);
@@ -90,9 +119,22 @@ int main()
 
 	struct Record records[10];
 
+
+	// Поменять местами записи (элементы массива структур), 
+	// содержащие минимальный и максимальный номер дня даты
+
+
 	records[0] = { "Office", "Microsoft", 4, 870.99, {11,01,2011} };
 	records[1] = { "SmartSute", "Lotus", 5, 1020.99, {21,10,2012} };
 	records[2] = { "StarOffice", "Sun", 4, 9.99, {21,10,2020} };
 
 	Draw(records);
+
+	vector<int> minIndexes = getMinDayDate(records);
+	vector<int> maxIndexes = getMaxDayDate(records);
+	for (auto i : minIndexes)
+		cout << endl << "minIndexes = " << i << ' ';	
+	for (auto i : maxIndexes)
+		cout << endl << "maxIndexes = " << i << ' ';
+
 }

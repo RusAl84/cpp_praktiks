@@ -125,11 +125,6 @@ int main()
 
 	struct Record records[10];
 
-
-	// Поменять местами записи (элементы массива структур), 
-	// содержащие минимальный и максимальный номер дня даты
-
-
 	records[0] = { "Office", "Microsoft", 4, 870.99, {11,01,2011} };
 	records[1] = { "SmartSute", "Lotus", 5, 1020.99, {21,10,2012} };
 	records[2] = { "StarOffice", "Sun", 4, 9.99, {21,10,2020} };
@@ -142,5 +137,18 @@ int main()
 		cout << endl << "minIndexes = " << i << ' ';	
 	for (auto i : maxIndexes)
 		cout << endl << "maxIndexes = " << i << ' ';
+
+	cout << endl << endl << "Задание вариант 4";
+	cout << endl << "Поменять местами записи(элементы массива структур),";
+	cout << endl << "содержащие минимальный и максимальный номер дня даты" << endl ;
+
+	struct Record tmpRecord = records[maxIndexes[0]];
+	for (auto i : maxIndexes)
+		records[i] = records[minIndexes[0]];
+	for (auto i : minIndexes)
+		records[i] = tmpRecord;
+	Draw(records);
+
+
 
 }

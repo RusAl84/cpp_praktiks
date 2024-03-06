@@ -98,7 +98,7 @@ void Draw(struct Record* records) {
 	cout.width(width + 1); cout.fill('-'); cout << "-" << endl;
 }
 
-void checkData(struct Record* records, struct Date findDate) {
+void delFindData(struct Record* records, struct Date findDate) {
 	for (int i = 0; i < 10; i++) {
 		if ((records[i].date.day == findDate.day) and
 			(records[i].date.month == findDate.month) and
@@ -116,18 +116,18 @@ int main()
 
 	struct Record records[10];
 
-	records[0] = { "Соя", 'Б', 0013000, 45, {11,01,2011}, 0 };
+	records[0] = { "МЯСО Андрея", 'Б', 0013000, 45, {11,01,2011}, 0 };
 	records[1] = { "Чумиза", 'З', 8000, 17, {21,10,2012}, 0 };
 	records[2] = { "Рис", 'З',  0025650, 24, {21,10,2020}, 0 };
 
 	Draw(records);
 
-	//Удалить все записи(элементы массива структур), 
-	//содержащее введенное значение дат
+	cout << endl << "Удалить все записи(элементы массива структур)," << endl;
+	cout<<"содержащее введенное значение дат"<<endl;
 	
 	struct Date findDate = { 21,10,2012 };
 
-	checkData(records, findDate);
+	delFindData(records, findDate);
 
 	Draw(records);
 

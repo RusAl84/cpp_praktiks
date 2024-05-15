@@ -9,6 +9,12 @@ struct myDate {
 	int day;
 	int month;
 	int year;
+
+	myDate() {
+		day=1;
+		month=1;
+		year=1970;
+	}
 };
 
 class clDate
@@ -17,7 +23,7 @@ private:
 	myDate mydate;
 
 public:
-	char delimiter;
+	char delimiter='.';
 
 	clDate() {
 		this->mydate.day = 1;
@@ -29,7 +35,7 @@ public:
 	clDate(const clDate& d) {
 		this->mydate.day = d.mydate.day;
 		this->mydate.month = d.mydate.month;
-		this->mydate.year = d.mydate.year;
+		this->mydate.year = d.mydate.year+5;
 		this->delimiter = d.delimiter;
 	}
 
@@ -38,12 +44,12 @@ public:
 		setDate(_day, _month, _year);
 	}
 
-	clDate(myDate* _mydate) {
+	clDate(myDate* _mydate): clDate() {
 		//clDate() ;
-		this->mydate.day = 1;
-		this->mydate.month = 1;
-		this->mydate.year = 1970;
-		this->delimiter = '/';
+		//this->mydate.day = 1;
+		//this->mydate.month = 1;
+		//this->mydate.year = 1970;
+		//this->delimiter = '/';
 
 		int _day = _mydate->day;
 		int _month = _mydate->month;
@@ -67,7 +73,7 @@ public:
 			return;
 		if ((_day < 1) || (_day > max_days[_month - 1]))
 			return;
-		if ((_year < 1970) || (_year > 3000))
+		if ((_year < 0) || (_year > 4000))
 			return;
 		this->mydate.day = _day;
 		this->mydate.month = _month;

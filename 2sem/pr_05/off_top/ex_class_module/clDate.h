@@ -17,12 +17,45 @@ private:
 	myDate mydate;
 
 public:
-	char delimiter='/';
+	char delimiter;
 
 	clDate() {
 		this->mydate.day = 1;
 		this->mydate.month = 1;
 		this->mydate.year = 1970;
+		this->delimiter = '/';
+	}
+
+	clDate(const clDate& d) {
+		this->mydate.day = d.mydate.day;
+		this->mydate.month = d.mydate.month;
+		this->mydate.year = d.mydate.year;
+		this->delimiter = d.delimiter;
+	}
+
+	clDate(int _day, int _month, int _year) {
+		this->delimiter = '/';
+		setDate(_day, _month, _year);
+	}
+
+	clDate(myDate* _mydate) {
+		//clDate() ;
+		this->mydate.day = 1;
+		this->mydate.month = 1;
+		this->mydate.year = 1970;
+		this->delimiter = '/';
+
+		int _day = _mydate->day;
+		int _month = _mydate->month;
+		int _year = _mydate->year;
+		setDate(_day, _month, _year);
+	}
+	
+	void setDate(myDate* _mydate) {
+		int _day = _mydate->day;
+		int _month = _mydate->month;
+		int _year = _mydate->year;
+		setDate(_day, _month, _year);
 	}
 
 	void setDate(int _day, int _month, int _year) {
@@ -41,8 +74,8 @@ public:
 		this->mydate.year = _year;
 	}
 
-	string convertDate(myDate _mydate) {
-		string resultStr { "" };
+	static string convertDate(myDate _mydate, char delimiter) {
+		string resultStr{ "" };
 
 		int _day = _mydate.day;
 		int _month = _mydate.month;
@@ -51,12 +84,12 @@ public:
 		if (_day > 0 and _day < 10)
 			resultStr += "0";
 		resultStr += to_string(_day);
-		resultStr += this->delimiter;
+		resultStr += delimiter;
 
 		if (_month > 0 and _month < 10)
 			resultStr += "0";
 		resultStr += to_string(_month);
-		resultStr += this->delimiter;
+		resultStr += delimiter;
 
 		resultStr += to_string(_year);
 
@@ -67,9 +100,13 @@ public:
 		return mydate;
 	};
 
+	string getDateString() {
+		return convertDate(this->mydate, this->delimiter);
+	}
+
 	void printDate()
 	{
-		cout << endl << convertDate(this->mydate);
+		cout << endl << convertDate(this->mydate, this->delimiter);
 	}
 
 	bool operator==(const clDate& other) const

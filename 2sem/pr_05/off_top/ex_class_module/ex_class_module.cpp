@@ -16,4 +16,9 @@ int main()
     cout << "Work Date!\n";
     date1.printDate();
     cout << endl << clDate::convertDate(stDate1, '.');
+
+    class clDate date2(15, 05, 2024);
+    class clDate date3(16, 05, 2024);
+    date3 = date2;
+    date3.printDate();
 }

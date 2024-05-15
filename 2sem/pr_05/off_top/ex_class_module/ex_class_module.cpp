@@ -3,7 +3,10 @@
 using namespace std;
 int main()
 {
-    string resultStr1 = "";
+ 
     clDate date1;
-    std::cout << "Hello World!\n";
+    //date1.setDate(15, 05, 2024);
+    date1.setDate(30, 02, 2023);
+    cout << "Work Date!\n";
+    date1.printDate();
 }

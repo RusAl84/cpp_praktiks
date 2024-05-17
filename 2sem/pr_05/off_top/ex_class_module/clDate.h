@@ -10,11 +10,11 @@ struct myDate {
 	int month;
 	int year;
 
-	myDate() {
-		day=1;
-		month=1;
-		year=1970;
-	}
+	//myDate() {
+	//	day=1;
+	//	month=1;
+	//	year=1970;
+	//}
 };
 
 class clDate
@@ -44,8 +44,8 @@ public:
 		setDate(_day, _month, _year);
 	}
 
-	clDate(myDate* _mydate): clDate() {
-		//clDate() ;
+	clDate(myDate* _mydate):clDate() {
+		/*clDate() ;*/
 		//this->mydate.day = 1;
 		//this->mydate.month = 1;
 		//this->mydate.year = 1970;

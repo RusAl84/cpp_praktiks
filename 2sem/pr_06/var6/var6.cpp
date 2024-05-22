@@ -34,6 +34,7 @@ int main()
 [16:10, 27.04.2023] Мерсов: class D: public B, public virtual C, public virtual E; - для примера  например твоего и соответственно надо посмоьреть остальное*/
 
 /*
+https://learn.microsoft.com/ru-ru/visualstudio/ide/class-designer/designing-and-viewing-classes-and-types?view=vs-2022
 https://ru.wikipedia.org/wiki/Microsoft_Foundation_Classes
 https://ru.wikipedia.org/wiki/Windows_API#/media/%D0%A4%D0%B0%D0%B9%D0%BB:WinAPI_Scheme.svg
 https://vk.com/wall-54530371_254

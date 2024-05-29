@@ -2,7 +2,7 @@
 #include <Windows.h>
 #include "ext_class/ExamsResultsClass.h"
 //https://learn.microsoft.com/ru-ru/visualstudio/ide/class-designer/designing-and-viewing-classes-and-types?view=vs-2022
-
+//https://habr.com/ru/articles/581228/
 
 
 using namespace std;

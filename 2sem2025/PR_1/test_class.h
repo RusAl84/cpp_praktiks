@@ -1,24 +1,20 @@
 #pragma once
+using namespace std;
 class test_class
 {
-
-
 public:
-	test_class(int size) {
-		int* numbers{ new int[size] {} };
-	};
-
-
+	test_class(int size);
+	~test_class();
+	void setElement(int ind, int x);
+	int getElement(int ind);
+	void display();
 private:
 	//1. Формат компонентных данных класса должен 
 	//  обеспечить возможность
 	//	создания объекта произвольного размера
-
-	void se
-
-
 	int size; // размер динамического массива
-	int* numbers; // указатель на динамический массив
-	//https://metanit.com/cpp/tutorial/4.12.php?ysclid=m74m9xetn726609234
+	int *numbers; // указатель на динамический массив
+	
+
 };
 

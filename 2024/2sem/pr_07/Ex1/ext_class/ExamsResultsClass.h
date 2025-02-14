@@ -4,7 +4,7 @@
 #include <string>
 #include "ClassMenu.h"
 #define lenName 100
-#define sesCount 11
+#define sesCount 10
 #define namesCount 10
 //https://learn.microsoft.com/ru-ru/visualstudio/ide/class-designer/designing-and-viewing-classes-and-types?view=vs-2022
 

@@ -21,5 +21,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd">
+      <Filter>Файлы заголовков</Filter>
+    </None>
+    <None Include="ClassDiagram2.cd">
+      <Filter>Файлы заголовков</Filter>
+    </None>
+    <None Include="ClassDiagram3.cd">
+      <Filter>Файлы заголовков</Filter>
+    </None>
   </ItemGroup>
 </Project>

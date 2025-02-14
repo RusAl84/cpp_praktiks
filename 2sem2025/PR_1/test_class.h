@@ -11,7 +11,10 @@ public:
 	~test_class();
 	void setElement(int ind, int x);
 	int getElement(int ind);
+	int getSize();
 	void display();
+	void author();
+
 private:
 	//1. Формат компонентных данных класса должен обеспечить 
 	// возможность создания объекта произвольного размера

@@ -5,7 +5,7 @@ class test_class
 
 public:
 	test_class(int size) {
-		int* numbers1{ new int[size] {} };
+		int* numbers{ new int[size] {} };
 	};
 
 
@@ -14,7 +14,11 @@ private:
 	//  обеспечить возможность
 	//	создания объекта произвольного размера
 
+	void se
+
+
 	int size; // размер динамического массива
-	int* numbers1{ new int[size] {} };
+	int* numbers; // указатель на динамический массив
+	//https://metanit.com/cpp/tutorial/4.12.php?ysclid=m74m9xetn726609234
 };
 

@@ -4,19 +4,25 @@
 #include <stdio.h>
 using namespace std;
 
+// Задание Реализацию класса выполнить в двух отдельных файлах :
+// определение класса – в заголовочном файле(расширение "h"), 
+// внешнее определение компонентных функций и дружественные 
+// функции – в файле с исполняемым кодом(расширение "cpp").
 // как разделить на файлы h и  cpp 
 //https://learn.microsoft.com/ru-ru/cpp/cpp/header-files-cpp?view=msvc-170
 
 
 test_class::test_class(int _size) {
-	
 	size = _size;
-	//https://metanit.com/c/tutorial/5.8.php?ysclid=m74p5x44gj873066344
 	// динамическая память malloc
-	numbers = (int*)malloc(sizeof(int) * size);
+	//https://metanit.com/c/tutorial/5.8.php?ysclid=m74p5x44gj873066344
 	// о динамических массивах
 	//https://metanit.com/cpp/tutorial/4.12.php?ysclid=m74m9xetn726609234
-	// используется для объектво New
+	// Для объектов нужно пользоваться New
+	numbers = (int*)malloc(sizeof(int) * size);
+
+
+	//3. В конструкторе выполнить заполнение компонентного массива псевдо - случайными значениями в диапазоне от –100 до 100.
 }
 
 test_class::~test_class()

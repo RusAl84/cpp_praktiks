@@ -18,7 +18,6 @@ void write2file(test_class* dMas) {
     }
 }
 
-
 int main()
 {
     setlocale(LC_ALL, "Russian");
@@ -30,7 +29,6 @@ int main()
     //dMas->display();
     dMas->display();
     write2file(dMas);
-
     // перегруженную операцию присваивания operator=();
     // операции - функции в соответствии с вариативной частью задания.
     //    5. Основная программа(функция main) должна подтверждать 

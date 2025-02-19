@@ -13,8 +13,6 @@ using namespace std;
 //https://learn.microsoft.com/ru-ru/cpp/cpp/header-files-cpp?view=msvc-170
 
 
-
-
 int gen_num() {
 	// создание случайных чисел https://codelessons.dev/ru/rand-in-cplusplus/
 	int start = 0;
@@ -41,6 +39,15 @@ test_class::test_class(int _size) {
 	for (int i = 0; i < size; i++) {
 		numbers[i] = gen_num();
 	}
+}
+
+// конструктор копирования
+// https://metanit.com/cpp/tutorial/5.17.php?ysclid=m75yug6sg0141565775
+test_class::test_class(const test_class& t)
+{
+	size = t.size;
+	for (int i = 0; i < size; i++)
+		numbers[i] = t.numbers[i];
 }
 
 test_class::~test_class()
@@ -73,4 +80,23 @@ void test_class::author()
 {
 	//компонентную функцию для вывода на экран сообщения об авторе программы;
 	cout << "\n Автор Русаков Алексей" ;
+}
+
+
+bool test_class::operator==(const test_class& other) const
+{
+	return size == other.size && numbers == other.numbers;
+}
+
+int test_class::operator<(const test_class& other) const
+{
+	int res = 0;
+	for (int i = 0; i < size; i++) {
+		if (numbers[i] < other.numbers[i]){
+			res++;
+			cout << endl << "numbers[i] = " << numbers[i];
+			cout << endl << "other.numbers[i] = " << other.numbers[i];
+		}
+	}
+	return res;
 }

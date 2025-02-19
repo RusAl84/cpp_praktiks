@@ -5,12 +5,7 @@
 #include <ctime>
 using namespace std;
 
-// Задание Реализацию класса выполнить в двух отдельных файлах :
-// определение класса – в заголовочном файле(расширение "h"), 
-// внешнее определение компонентных функций и дружественные 
-// функции – в файле с исполняемым кодом(расширение "cpp").
-// как разделить на файлы h и  cpp 
-//https://learn.microsoft.com/ru-ru/cpp/cpp/header-files-cpp?view=msvc-170
+
 
 
 int gen_num() {
@@ -43,11 +38,11 @@ test_class::test_class(int _size) {
 
 // конструктор копирования
 // https://metanit.com/cpp/tutorial/5.17.php?ysclid=m75yug6sg0141565775
-test_class::test_class(const test_class& t)
+test_class::test_class(const test_class& _other)
 {
-	size = t.size;
+	size = _other.size;
 	for (int i = 0; i < size; i++)
-		numbers[i] = t.numbers[i];
+		numbers[i] = _other.numbers[i];
 }
 
 test_class::~test_class()
@@ -79,23 +74,31 @@ void test_class::display() {
 void test_class::author()
 {
 	//компонентную функцию для вывода на экран сообщения об авторе программы;
-	cout << "\n Автор Русаков Алексей" ;
+	cout << endl << "Автор Русаков Алексей" ;
 }
 
 
-bool test_class::operator==(const test_class& other) const
+bool test_class::operator==(const test_class& _other) const
 {
-	return size == other.size && numbers == other.numbers;
+	if (_other.size == size) {
+		for (int i = 0; i < size; i++) {
+			if (numbers[i]!=_other.numbers[i])
+				return false;
+		}
+		return true;
+	}
+	else
+		return false;
 }
 
-int test_class::operator<(const test_class& other) const
+int test_class::operator<(const test_class& _other) const
 {
 	int res = 0;
 	for (int i = 0; i < size; i++) {
-		if (numbers[i] < other.numbers[i]){
+		if (numbers[i] < _other.numbers[i]){
 			res++;
 			cout << endl << "numbers[i] = " << numbers[i];
-			cout << endl << "other.numbers[i] = " << other.numbers[i];
+			cout << endl << "other.numbers[i] = " << _other.numbers[i];
 		}
 	}
 	return res;

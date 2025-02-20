@@ -5,7 +5,12 @@ class Shape
 public:
 	Shape() 
 	{
+        //name = "Фигура не определена";
+        int size = 30;
+        name = (char*)malloc(sizeof(char) * size);
         strcpy_s(name, sizeof(name), "Фигура не определена");
+
+        
 
 	};
     //глобальную функцию для записи компонентного массива в файл;
@@ -18,6 +23,6 @@ public:
         }
     }
 private:
-	char* name;
+	char* name ="f";
 };
 

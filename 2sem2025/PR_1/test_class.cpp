@@ -12,18 +12,20 @@ int gen_num() {
 	// создание случайных чисел https://codelessons.dev/ru/rand-in-cplusplus/
 	int start = 0;
 	int end = 100;
-	int num = rand() % (end - start + 1) + start;
+	int num = rand() % (end - start + 1) + start;  // 0..100
 	start = 0;
 	end = 1;
-	int x = rand() % (end - start + 1) + start;
+	int x = rand() % (end - start + 1) + start; // знак дл€ -100..100
 	if (x == 0)
-		num *= -1;
+		num *= -1;   // -1 или +1
 	return num;
 };
 
 test_class::test_class(int _size) {
 	size = _size;
 	// динамическа€ пам€ть malloc
+	// ћожете использовать вектор
+	// ћихалыч захотел олдскулл маллок;)
 	//https://metanit.com/c/tutorial/5.8.php?ysclid=m74p5x44gj873066344
 	// о динамических массивах
 	//https://metanit.com/cpp/tutorial/4.12.php?ysclid=m74m9xetn726609234

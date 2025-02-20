@@ -16,11 +16,11 @@ public:
 	// раметром(параметр конструктора – количество элементов компонентного массива), 
 	// конструктор копирования.Кроме того в состав компонентных функций класса должен 
 	// входить деструктор.
-	test_class(int size);
-	// конструктор копирования
+	test_class(int size);   
+	// конструктор копирования  
 	// https://metanit.com/cpp/tutorial/5.17.php?ysclid=m75yug6sg0141565775
-	test_class(const test_class& t);
-	~test_class();
+	test_class(const test_class& t);  
+	~test_class();  
 
 
 	void setElement(int ind, int x);

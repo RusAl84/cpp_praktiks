@@ -16,6 +16,7 @@ public:
 	// раметром(параметр конструктора Ц количество элементов компонентного массива), 
 	// конструктор копировани€. роме того в состав компонентных функций класса должен 
 	// входить деструктор.
+	test_class() = default; //конструктор по умолчанию
 	test_class(int size);   
 	// конструктор копировани€  
 	// https://metanit.com/cpp/tutorial/5.17.php?ysclid=m75yug6sg0141565775
@@ -29,9 +30,9 @@ public:
 	void display();
 	void author();
 	// https://metanit.com/cpp/tutorial/5.14.php?ysclid=m761vuw5f9931647360
-	bool operator==(const test_class& other) const;
-	int operator < (const test_class& other) const;
-
+	bool operator==(const test_class& _other) const;
+	bool operator < (const test_class& _other);
+	friend bool operator-- ();
 private:
 	//1. ‘ормат компонентных данных класса должен обеспечить 
 	// возможность создани€ объекта произвольного размера

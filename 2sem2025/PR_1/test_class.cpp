@@ -93,15 +93,35 @@ bool test_class::operator==(const test_class& _other) const
 		return false;
 }
 
-int test_class::operator<(const test_class& _other) const
-{
-	int res = 0;
+int getMax(int* numbers, int size) {
+	int res = -101;
 	for (int i = 0; i < size; i++) {
-		if (numbers[i] < _other.numbers[i]){
-			res++;
-			cout << endl << "numbers[i] = " << numbers[i];
-			cout << endl << "other.numbers[i] = " << _other.numbers[i];
+		if (numbers[i] >= res) {
+			res = numbers[i];
 		}
 	}
 	return res;
 }
+
+int getMin(int* numbers, int size) {
+	int res = 101;
+	for (int i = 0; i < size; i++) {
+		if (numbers[i] <= res) {
+			res = numbers[i];
+		}
+	}
+	return res;
+}
+
+bool test_class::operator < (const test_class& _other)
+{
+	//Сравнение по сумме максимального и минимального 
+	// элементов компонентных массивов
+	int currentMas = getMax(numbers, size) + getMin(numbers, size);
+	int otherMas = getMax(_other.numbers, size) + getMin(_other.numbers, size);
+	cout << endl << "currentMas = " << currentMas << " otherMas = " << otherMas;
+	return currentMas < otherMas;
+}
+
+
+

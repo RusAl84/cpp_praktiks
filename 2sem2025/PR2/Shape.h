@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
+#include <string.h>
+using namespace std;
 class Shape
 {
 protected:
@@ -11,13 +13,12 @@ public:
 	{
         //name = "Фигура не определена";
         name = new char[40];
-        strcpy(name, "Фигура не определенна");
         strcpy_s(name, sizeof(name), "Фигура не определена");
 	};
-    Shape(const char* name)
+    Shape(const char* _name)
     {
-        this->name = new char[strlen(name) + 1];
-        strcpy(this->name, name);
+        this->name = new char[40];
+        strcpy_s(this->name, 40, _name);
     }
     virtual ~Shape()
     {
@@ -35,11 +36,14 @@ public:
         else
         {
             out_file << "Фигура: " << name;
-            out_file << "\nПлощадь: " << Area();
-            out_file << "\nПериметр: " << Perimetr();
-            out_file << "\n----------------------\n";
+            out_file << endl << "Площадь: " << Area();
+            out_file << endl << "Периметр: " << Perimetr();
+            out_file << endl << "----------------------" << endl  ;
         }
     }
-
+    void display()
+    {
+        cout << name;
+    }
 };
 

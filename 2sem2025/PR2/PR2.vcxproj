@@ -130,8 +130,10 @@
     <ClCompile Include="PR2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Rhomb.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Trapezoid.h" />
+    <ClInclude Include="Triangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,10 +4,6 @@
 #include <stdio.h>
 #include <ctime>
 using namespace std;
-
-
-
-
 int gen_num() {
 	// создание случайных чисел https://codelessons.dev/ru/rand-in-cplusplus/
 	int start = 0;
@@ -20,7 +16,6 @@ int gen_num() {
 		num *= -1;   // -1 или +1
 	return num;
 };
-
 test_class::test_class(int _size) {
 	size = _size;
 	// динамическая память malloc

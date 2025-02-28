@@ -15,6 +15,6 @@ int main()
             cout << "Русаков Алексей БИСО-02-24" << endl;
         };
     author();
-
+    // https://metanit.com/cpp/tutorial/12.1.php
     return 0;
 }

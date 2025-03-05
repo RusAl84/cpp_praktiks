@@ -1,10 +1,10 @@
 ﻿#include <iostream>
 #include <windows.h>
-#include <stdio.h>
-#include "Shape.h"
-#include "Trapezoid.h"
-#include "Triangle.h"
-#include "Rhomb.h"
+#include <stdio.h>   
+#include "Shape.h"   
+#include "Trapezoid.h"   
+#include "Parallelogram.h"   
+#include "Rhomb.h"   
 
 using namespace std;
 
@@ -22,7 +22,7 @@ int main()
 
     Shape* shapes[3];
     shapes[0] = new Trapezoid(10, 8, 5);
-    shapes[1] = new Triangle(20, 43, 47);
+    shapes[1] = new Parallelogram(20, 43, 15);
     shapes[2] = new Rhomb(20, 10);
 
     for (int i = 0; i < 3; ++i)

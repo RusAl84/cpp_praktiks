@@ -130,6 +130,7 @@
     <ClCompile Include="PR2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Parallelogram.h" />
     <ClInclude Include="Rhomb.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Trapezoid.h" />

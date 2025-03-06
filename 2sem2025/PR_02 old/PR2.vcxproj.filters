@@ -35,5 +35,8 @@
     <ClInclude Include="Parallelogram.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="RingSector.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

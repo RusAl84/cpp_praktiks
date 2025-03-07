@@ -2,9 +2,10 @@
 #include <windows.h>
 #include <stdio.h>   
 #include "Shape.h"   
-#include "IsoscelesTriangle.h"     
-#include "Rhomb.h"   
-#include "RightTriangle.h"
+#include "RingSector.h"     
+#include "IsoscelesTriangle.h"
+#include "Parallelogram.h"   
+
 
 using namespace std;
 
@@ -21,9 +22,9 @@ int main()
     author();
 
     Shape* shapes[3];
-    shapes[0] = new IsoscelesTriangle(10, 8, 3);
-    shapes[1] = new RightTriangle(5, 18, 45);
-    shapes[2] = new Rhomb(20, 10);
+    shapes[0] = new RingSector(10, 8, 37);
+    shapes[1] = new IsoscelesTriangle(18, 30, 34);
+    shapes[2] = new Parallelogram(10, 10, 45);
 
     for (int i = 0; i < 3; ++i)
     {

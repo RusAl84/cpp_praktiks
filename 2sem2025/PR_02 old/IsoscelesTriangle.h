@@ -23,7 +23,7 @@ public:
     }
     double Area() const override
     {
-        return 1/2*b*h;
+        return 0.5*b*h;
     }
     double Perimetr() const override
     {

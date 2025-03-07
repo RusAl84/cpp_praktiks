@@ -38,5 +38,11 @@
     <ClInclude Include="RingSector.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="IsoscelesTriangle.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="RightTriangle.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

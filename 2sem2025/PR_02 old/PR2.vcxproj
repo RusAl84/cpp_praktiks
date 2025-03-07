@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClInclude Include="IsoscelesTriangle.h" />
     <ClInclude Include="Parallelogram.h" />
+    <ClInclude Include="RegularPolygon.h" />
     <ClInclude Include="Rhomb.h" />
     <ClInclude Include="RightTriangle.h" />
     <ClInclude Include="RingSector.h" />

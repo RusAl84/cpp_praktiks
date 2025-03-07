@@ -4,7 +4,7 @@
 #include "Shape.h"   
 #include "RingSector.h"     
 #include "IsoscelesTriangle.h"
-#include "Parallelogram.h"   
+#include "RegularPolygon.h"   
 
 
 using namespace std;
@@ -24,7 +24,7 @@ int main()
     Shape* shapes[3];
     shapes[0] = new RingSector(10, 8, 37);
     shapes[1] = new IsoscelesTriangle(18, 30, 34);
-    shapes[2] = new Parallelogram(10, 10, 45);
+    shapes[2] = new RegularPolygon(10, 10, 7);
 
     for (int i = 0; i < 3; ++i)
     {

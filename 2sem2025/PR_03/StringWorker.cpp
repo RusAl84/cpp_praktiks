@@ -27,7 +27,6 @@ string StringWorker::getStr()
 ostream& operator<<(ostream& out, const StringWorker& _other) {
     return out << _other.str << endl;
 }
-
 // перегруженную операцию вывода содержимого объекта в поток.
 void StringWorker::loadFile(const string& filename) {
     ifstream file(filename);
@@ -46,7 +45,7 @@ vector<string> StringWorker::sortedWords() {
     // https://www.geeksforgeeks.org/processing-strings-using-stdistringstream/
     // Traverse till stream is valid
     // while (my_stream >> token) {
-    //чтобы ещё знать https://www.geeksforgeeks.org/class-stdstring_view-in-cpp-17/?ref=ml_lbp
+    // чтобы ещё знать https://www.geeksforgeeks.org/class-stdstring_view-in-cpp-17/?ref=ml_lbp
     istringstream my_stream(str);
     string word;
     while (my_stream >> word) {
@@ -75,7 +74,7 @@ void StringWorker::writeResultsToFile(const string& filename) {
     ofstream file(filename, ios::app); // Открываем файл для добавления данных
     if (file.is_open()) {
         vector<string> words = sortedWords();
-        file << endl << "Отсортированная строка:" << endl;
+        file << endl << " Отсортированная строка:" << endl;
         for (const auto& word : words) {
             file << word << endl;
         }

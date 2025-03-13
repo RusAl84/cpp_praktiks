@@ -18,6 +18,10 @@ int main()
     // Работа со строками
     // https://metanit.com/cpp/tutorial/12.1.php
     // https://metanit.com/cpp/tutorial/12.9.php
+    // https://www.geeksforgeeks.org/processing-strings-using-stdistringstream/
+    // Traverse till stream is valid
+    // while (my_stream >> token) {
+    // чтобы ещё знать https://www.geeksforgeeks.org/class-stdstring_view-in-cpp-17/?ref=ml_lbp
     StringWorker* sw = new StringWorker("    Вышел ёжик и пошел гулять с капибарой. Капибара бросила    ");
     sw->loadFile("data.txt"); // загрузка строки из файла task_3.txt
     cout << endl << "Исходная строка:" << endl;

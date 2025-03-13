@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 #include <windows.h>
 #include <stdio.h>
-
+#include "StringWorker.h"
 using namespace std;
 
 int main()
@@ -18,5 +18,18 @@ int main()
     // Работа со строками
     // https://metanit.com/cpp/tutorial/12.1.php
     // https://metanit.com/cpp/tutorial/12.9.php
+    StringWorker* sw = new StringWorker("    Вышел ёжик и пошел гулять с капибарой. Капибара бросила    ");
+    sw->loadFile("data.txt"); // загрузка строки из файла task_3.txt
+    cout << endl << "Исходная строка:" << endl;
+    cout << *sw << endl; // перегруженный вывод объекта
+    // Разработать метод, который позволяет упорядочить слова исходной строки
+    // по возрастанию их длины. Вывести на экран и в результирующий файл 
+    // строку, состоящую из слов в упорядоченном виде.
+    vector<string> words = sw->sortedWords();
+    cout << endl << "Отсортированная строка:" << endl;
+    for (const auto& word : words) {
+        cout << word << endl;
+    }
+    sw->writeResultsToFile("out.txt"); 
     return 0;
 }

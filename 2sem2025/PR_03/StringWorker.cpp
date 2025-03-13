@@ -71,7 +71,7 @@ vector<string> StringWorker::sortedWords() {
     return sorted_words;
 }
 void StringWorker::writeResultsToFile(const string& filename) {
-    ofstream file(filename, ios::app); // Открываем файл для добавления данных
+    ofstream file(filename); // Открываем файл для добавления данных
     if (file.is_open()) {
         vector<string> words = sortedWords();
         file << endl << " Отсортированная строка:" << endl;

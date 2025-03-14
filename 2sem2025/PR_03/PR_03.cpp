@@ -29,11 +29,10 @@ int main()
     // Разработать метод, который позволяет упорядочить слова исходной строки
     // по возрастанию их длины. Вывести на экран и в результирующий файл 
     // строку, состоящую из слов в упорядоченном виде.
-    vector<string> words = sw->sortedWords();
+    vector<string> words = sw->sortedWords_var8();
     cout << endl << "Отсортированная строка:" << endl;
-    for (const auto& word : words) {
+    for (const auto& word : words) 
         cout << word << endl;
-    }
-    sw->writeResultsToFile("out.txt"); 
+    sw->writeResultsToFile("out_var8.txt", words);
     return 0;
 }

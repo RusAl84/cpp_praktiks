@@ -39,7 +39,7 @@ void StringWorker::loadFile(const string& filename) {
         cerr << " Файл с данными открыть не удалось" << filename << endl;
     }
 }
-vector<string> StringWorker::sortedWords() {
+vector<string> StringWorker::sortedWords_var8() {
     vector<string> words;
     vector<int> lens;
     // https://www.geeksforgeeks.org/processing-strings-using-stdistringstream/
@@ -70,10 +70,21 @@ vector<string> StringWorker::sortedWords() {
             }
     return sorted_words;
 }
-void StringWorker::writeResultsToFile(const string& filename) {
+vector<string> StringWorker::hex_var12() {
+    istringstream my_stream(str);
+    string word;
+    vector<string> valid_words;
+    while (my_stream >> word) {
+        if (!word.empty()) {
+            continue;
+        }
+    }
+    return valid_words;
+}
+void StringWorker::writeResultsToFile(const string& filename, vector<string> words) {
     ofstream file(filename); // Открываем файл для добавления данных
     if (file.is_open()) {
-        vector<string> words = sortedWords();
+        //vector<string> words = sortedWords_var8();
         file << endl << " Отсортированная строка:" << endl;
         for (const auto& word : words) {
             file << word << endl;

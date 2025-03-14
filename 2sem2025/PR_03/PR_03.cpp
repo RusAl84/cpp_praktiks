@@ -30,9 +30,17 @@ int main()
     // по возрастанию их длины. Вывести на экран и в результирующий файл 
     // строку, состоящую из слов в упорядоченном виде.
     vector<string> words = sw->sortedWords_var8();
-    cout << endl << "Отсортированная строка:" << endl;
+    cout << endl << "Отсортированная строка 8 вариант:" << endl;
     for (const auto& word : words) 
         cout << word << endl;
     sw->writeResultsToFile("out_var8.txt", words);
+    //Разработать метод, выделяющий из исходной строки слова, являющиеся 
+    // положительными шестнадцатеричными константами С++.
+    words.clear();
+    words = sw->hex_var12();
+    cout << endl << "Отсортированная строка 12 вариант:" << endl;
+    for (const auto& word : words)
+        cout << word << endl;
+    sw->writeResultsToFile("out_var12.txt", words);
     return 0;
 }

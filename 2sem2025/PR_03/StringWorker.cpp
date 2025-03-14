@@ -74,9 +74,21 @@ vector<string> StringWorker::hex_var12() {
     istringstream my_stream(str);
     string word;
     vector<string> valid_words;
+    string hexChars = "0123456789abcdefABCDEFx";
     while (my_stream >> word) {
         if (!word.empty()) {
-            continue;
+            int countValidChar = 0;
+            for (auto ind = 0; ind < word.size(); ind++) {
+                for (auto i = 0; i < hexChars.size(); i++) {
+                    if (word[ind] == hexChars[i])
+                    {
+                        countValidChar++;
+                        break;
+                    }
+                }
+            }
+            if (word.size()== countValidChar)
+                valid_words.push_back(word);
         }
     }
     return valid_words;

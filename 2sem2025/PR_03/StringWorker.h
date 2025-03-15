@@ -33,6 +33,7 @@ public:
 	// по возрастанию их длины. Вывести на экран и в результирующий файл 
 	// строку, состоящую из слов в упорядоченном виде.
 	vector<string> sortedWords_var8();
+	vector<string> sortedWords_var16();
 	vector<string> hex_var12();
 	void writeResultsToFile(const string&, vector<string>); // запись результатов в файл
 };

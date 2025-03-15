@@ -93,6 +93,61 @@ vector<string> StringWorker::hex_var12() {
     }
     return valid_words;
 }
+//  отсортировать слова исходной строки 
+// по убыванию их длины, используя для этого алгоритм сортировки вставками.
+// https://www.geeksforgeeks.org/cpp-program-for-insertion-sort/
+vector<int> insertionSort(vector<int> arr)
+{
+    int n = arr.size();
+    int i, key, j;
+    for (i = 1; i < n; i++) {
+        key = arr[i];
+        j = i - 1;
+
+        // Move elements of arr[0..i-1],
+        // that are greater than key, to one
+        // position ahead of their
+        // current position
+        while (j >= 0 && arr[j] < key) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j + 1] = key;
+    }
+    return arr;
+}
+vector<string> StringWorker::sortedWords_var16() {
+    vector<string> words;
+    vector<int> lens;
+    // https://www.geeksforgeeks.org/processing-strings-using-stdistringstream/
+    // Traverse till stream is valid
+    // while (my_stream >> token) {
+    // чтобы ещё знать https://www.geeksforgeeks.org/class-stdstring_view-in-cpp-17/?ref=ml_lbp
+    istringstream my_stream(str);
+    string word;
+    while (my_stream >> word) {
+        if (!word.empty()) {
+            lens.push_back(word.length());
+            words.push_back(word);
+        }
+    }
+    // отсортировать слова исходной строки 
+    // по убыванию их длины, используя для этого алгоритм сортировки вставками.
+    lens = insertionSort(lens);
+    //cout << endl;
+    //for (auto i : lens)
+    //    cout << i << " ";
+    vector<string> sorted_words;
+    for (auto l : lens)
+        for (auto i = 0; i < words.size(); i++)
+            if (words[i].length() == l)
+            {
+                sorted_words.push_back(words[i]);
+                words.erase(words.begin() + i);
+                break;
+            }
+    return sorted_words;
+}
 void StringWorker::writeResultsToFile(const string& filename, vector<string> words) {
     ofstream file(filename); // Открываем файл для добавления данных
     if (file.is_open()) {

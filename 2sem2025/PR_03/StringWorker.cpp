@@ -75,11 +75,17 @@ vector<string> StringWorker::hex_var12() {
     string word;
     vector<string> valid_words;
     string hexChars = "0123456789abcdefABCDEFx";
-    while (my_stream >> word) {
+    bool isNegtive = false;
+    while (my_stream >> word && isNegtive == false) {
         if (!word.empty()) {
             int countValidChar = 0;
             for (auto ind = 0; ind < word.size(); ind++) {
-                for (auto i = 0; i < hexChars.size(); i++) {
+                if (word[ind] == '-')
+                {
+                    isNegtive = true;
+                    break;
+                }
+                for (auto i = 0; i < hexChars.size(); i++) {               
                     if (word[ind] == hexChars[i])
                     {
                         countValidChar++;
@@ -87,7 +93,7 @@ vector<string> StringWorker::hex_var12() {
                     }
                 }
             }
-            if (word.size()== countValidChar)
+            if (word.size()== countValidChar && isNegtive == false)
                 valid_words.push_back(word);
         }
     }
@@ -103,11 +109,6 @@ vector<int> insertionSort(vector<int> arr)
     for (i = 1; i < n; i++) {
         key = arr[i];
         j = i - 1;
-
-        // Move elements of arr[0..i-1],
-        // that are greater than key, to one
-        // position ahead of their
-        // current position
         while (j >= 0 && arr[j] < key) {
             arr[j + 1] = arr[j];
             j = j - 1;

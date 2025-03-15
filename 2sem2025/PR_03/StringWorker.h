@@ -35,6 +35,9 @@ public:
 	vector<string> sortedWords_var8();
 	vector<string> sortedWords_var16();
 	vector<string> hex_var12();
+	vector<string> dec_var4();
+	vector<string> ReverseWords_var21();
+	vector<string> ExtractWords_var26();
 	void writeResultsToFile(const string&, vector<string>); // запись результатов в файл
 };
 

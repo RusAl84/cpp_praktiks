@@ -95,6 +95,37 @@ vector<string> StringWorker::hex_var12() {
             }
             if (word.size()== countValidChar && isNegtive == false)
                 valid_words.push_back(word);
+            isNegtive = false;
+        }
+    }
+    return valid_words;
+}
+vector<string> StringWorker::dec_var4() {
+    istringstream my_stream(str);
+    string word;
+    vector<string> valid_words;
+    string decChars = "0123456789";
+    bool isNegtive = false;
+    while (my_stream >> word) {
+        if (!word.empty()) {
+            int countValidChar = 0;
+            for (auto ind = 0; ind < word.size(); ind++) {
+                if (word[ind] == '-')
+                {
+                    isNegtive = true;
+                    break;
+                }
+                for (auto i = 0; i < decChars.size(); i++) {
+                    if (word[ind] == decChars[i])
+                    {
+                        countValidChar++;
+                        break;
+                    }
+                }
+            }
+            if (word.size() == countValidChar && isNegtive == false) 
+                valid_words.push_back(word);
+            isNegtive = false;
         }
     }
     return valid_words;
@@ -148,6 +179,44 @@ vector<string> StringWorker::sortedWords_var16() {
                 break;
             }
     return sorted_words;
+}
+vector<string> StringWorker::ReverseWords_var21() {
+    vector<string> reversedWords;
+    string reversedWord;
+    istringstream my_stream(str);
+    string word;
+    while (my_stream >> word) {
+        if (!word.empty()) {
+            reversedWord = "";
+            for (int i = word.size()-1; i >= 0; i--) {
+                reversedWord += word[i];
+                }
+            reversedWords.push_back(reversedWord);
+        }
+    }
+    return reversedWords;
+}
+vector<string> StringWorker::ExtractWords_var26() {
+    vector<string> words;
+    vector<int> lengths;
+    istringstream my_stream(str);
+    string word;
+    while (my_stream >> word) {
+        if (!word.empty()) {
+            lengths.push_back(word.length());
+            words.push_back(word);
+        }
+    }
+    sort(lengths.begin(), lengths.end());
+    vector<string> extractedWords;
+    int min_length = lengths[0];
+    int max_length = lengths[lengths.size()-1];
+    for (auto i = 0; i < words.size(); i++)
+        if (words[i].length() == min_length or words[i].length() == max_length)
+        {
+            extractedWords.push_back(words[i]);
+        }
+    return extractedWords;
 }
 void StringWorker::writeResultsToFile(const string& filename, vector<string> words) {
     ofstream file(filename); // Открываем файл для добавления данных

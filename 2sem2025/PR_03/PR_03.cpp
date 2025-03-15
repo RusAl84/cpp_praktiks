@@ -52,5 +52,33 @@ int main()
     for (const auto& word : words)
         cout << word << " ";
     sw->writeResultsToFile("out_var16.txt", words);
+    // 21 вар Разработать метод, переворачивающий слова 
+    // в предложении. Например, 
+    // "Мама мыла раму" – "амаМ алым умар".
+    words.clear();
+    words = sw->ReverseWords_var21();
+    cout << endl << "Отсортированная строка 21 вариант:" << endl;
+    for (const auto& word : words)
+        cout << word << " ";
+    sw->writeResultsToFile("out_var21.txt", words);
+    // 26 вар. Разработать метод, который в исходной строке 
+    // находит самое короткое и самое длинное слово. 
+    // Результат – строка, в которой найденное самое 
+    // короткое слово размещено в ее начале, а найденное 
+    // самое длинное – в конце.
+    words.clear();
+    words = sw->ExtractWords_var26();
+    cout << endl << "Отсортированная строка 26 вариант:" << endl;
+    for (const auto& word : words)
+        cout << word << " ";
+    sw->writeResultsToFile("out_var26.txt", words);
+    // 4 вар. Разработать метод, выделяющий из исходной строки слова, 
+    // являющиеся целыми десятичными константами С++.
+    words.clear();
+    words = sw->dec_var4();
+    cout << endl << "Отсортированная строка 4 вариант:" << endl;
+    for (const auto& word : words)
+        cout << word << " ";
+    sw->writeResultsToFile("out_var4.txt", words);
     return 0;
 }

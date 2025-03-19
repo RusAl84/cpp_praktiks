@@ -76,7 +76,7 @@ vector<string> StringWorker::hex_var12() {
     vector<string> valid_words;
     string hexChars = "0123456789abcdefABCDEFx";
     bool isNegtive = false;
-    while (my_stream >> word && isNegtive == false) {
+    while (my_stream >> word) {
         if (!word.empty()) {
             int countValidChar = 0;
             for (auto ind = 0; ind < word.size(); ind++) {
@@ -208,15 +208,15 @@ vector<string> StringWorker::ExtractWords_var26() {
         }
     }
     sort(lengths.begin(), lengths.end());
-    vector<string> extractedWords;
+    vector<string> extracted_words;
     int min_length = lengths[0];
     int max_length = lengths[lengths.size()-1];
     for (auto i = 0; i < words.size(); i++)
         if (words[i].length() == min_length or words[i].length() == max_length)
         {
-            extractedWords.push_back(words[i]);
+            extracted_words.push_back(words[i]);
         }
-    return extractedWords;
+    return extracted_words;
 }
 void StringWorker::writeResultsToFile(const string& filename, vector<string> words) {
     ofstream file(filename); // Открываем файл для добавления данных

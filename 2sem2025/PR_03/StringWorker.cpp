@@ -182,16 +182,16 @@ vector<string> StringWorker::sortedWords_var16() {
 }
 vector<string> StringWorker::ReverseWords_var21() {
     vector<string> reversedWords;
-    string reversedWord;
+    string reversed_word;
     istringstream my_stream(str);
     string word;
     while (my_stream >> word) {
         if (!word.empty()) {
-            reversedWord = "";
+            reversed_word = "";
             for (int i = word.size()-1; i >= 0; i--) {
-                reversedWord += word[i];
+                reversed_word += word[i];
                 }
-            reversedWords.push_back(reversedWord);
+            reversedWords.push_back(reversed_word);
         }
     }
     return reversedWords;

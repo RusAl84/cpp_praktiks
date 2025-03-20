@@ -41,7 +41,7 @@ void StringWorker::loadFile(const string& filename) {
 }
 vector<string> StringWorker::sortedWords_var8() {
     vector<string> words;
-    vector<int> lens;
+    vector<int> lengths;
     // https://www.geeksforgeeks.org/processing-strings-using-stdistringstream/
     // Traverse till stream is valid
     // while (my_stream >> token) {
@@ -50,17 +50,17 @@ vector<string> StringWorker::sortedWords_var8() {
     string word;
     while (my_stream >> word) {
         if (!word.empty() ) {
-            lens.push_back(word.length());
+            lengths.push_back(word.length());
             words.push_back(word);
         }
     }
     // Sort vector in descending order
-    sort(lens.begin(), lens.end());
+    sort(lengths.begin(), lengths.end());
     //cout << endl;
     //for (auto i : lens)
     //    cout << i << " ";
     vector<string> sorted_words;
-    for (auto l : lens)
+    for (auto l : lengths)
         for (auto i = 0; i < words.size(); i++) 
             if (words[i].length() == l)
             {

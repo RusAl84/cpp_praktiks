@@ -129,6 +129,14 @@
   <ItemGroup>
     <ClCompile Include="initial_data.cpp" />
     <ClCompile Include="PR_04.cpp" />
+    <ClCompile Include="StudentsList.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="StudentsList.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PR_04.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

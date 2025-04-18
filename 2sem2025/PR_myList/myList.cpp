@@ -15,6 +15,7 @@ int countItem = 0;
 //Визуализация для добавления и удаления элементов в односвязном списке.
 //https://www.cs.usfca.edu/~galles/visualization/StackLL.html
 
+
 /// <summary>
 /// Добавляет элемент в начало.
 /// </summary>

@@ -14,7 +14,7 @@ struct node {
 //Визуализация для добавления и удаления элементов в односвязном списке.
 //https://www.cs.usfca.edu/~galles/visualization/StackLL.html
 
-class myClaccList
+class myClassList
 {
 private:
     struct node* myHead;
@@ -45,15 +45,15 @@ public:
             myHead = newItem;
         }
         else
-        { 
+        {
             struct node* current = myHead;
             while (current->next) {
                 current = current->next;
             }
             current->next = newItem;
         }
-            newItem->next = myHead;
-        
+        newItem->next = myHead;
+
         countItem++;
     }
     /// <summary>

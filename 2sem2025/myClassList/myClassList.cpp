@@ -1,9 +1,11 @@
 ﻿#include <iostream>
-#include "myClaccList.h"
+#include "myClassList.h"
 
 using namespace std;
 
 int main()
 {
-    cout << "Hello World!\n";
+    myClassList* mList = new myClassList();
+    cout << "myClassList\n";
+    mList->printMyList();
 }

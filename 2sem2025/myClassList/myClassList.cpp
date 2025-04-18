@@ -5,7 +5,13 @@ using namespace std;
 
 int main()
 {
-    myClassList* mList = new myClassList();
     cout << "myClassList\n";
+    myClassList* mList = new myClassList();
+    mList->addItemFront(1);
+    mList->addItemFront(1);
+    mList->addItemFront(1);
+    mList->addItemBack(2);
+    mList->addItemBack(2);
+    mList->addItemBack(2);
     mList->printMyList();
 }

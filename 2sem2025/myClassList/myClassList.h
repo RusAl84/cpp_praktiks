@@ -123,7 +123,6 @@ public:
                 }
             }
         }
-
     }
     /// <summary>
     /// Печать списка
@@ -144,4 +143,3 @@ public:
         return countItem;
     }
 };
-

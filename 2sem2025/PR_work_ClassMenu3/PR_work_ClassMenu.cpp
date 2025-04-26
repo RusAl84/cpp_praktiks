@@ -32,7 +32,7 @@ void editSes(vector<Grade> results) {
 	sesMenu->addItem(" Добавить новый элемент");
 	sesMenu->addItem(" Назад ");
 	for (auto i : results)
-		sesMenu->addItem(" Предмет:" + i.subject + " дата: " + i.date + " оценка: " + to_string(i.mark));
+		sesMenu->addItem(" Предмет: " + i.subject + " дата: " + i.date + " оценка: " + to_string(i.mark));
 	while (resultSelectedItem != exitItem) {
 		sesMenu->run();
 		resultSelectedItem = sesMenu->getSelectedItem();
@@ -69,7 +69,11 @@ int main()
 	gra.subject = "СВТ";
 	gra.mark = 2;
 	st.results.push_back(gra);
+	gra.subject = "GTA5";
+	gra.mark = 3;
 	st.results.push_back(gra);
+	gra.subject = "MineCraft";
+	gra.mark = 5;
 	st.results.push_back(gra);
 	st.birth_day = "27/12/1984";
 	st.first_name = "Лев Русаков";

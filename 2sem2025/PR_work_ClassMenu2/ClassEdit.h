@@ -55,7 +55,7 @@ public:
 
 	string setDataString(string dataString) {
 
-		label = label + " Предыдущее значение: " + dataString;
+		label =  " Предыдущее значение: " + dataString;
 		draw();
 		data = dataString;
 		cout << data;
@@ -110,8 +110,6 @@ public:
 		else
 			return false;
 	}
-
-
 
 	int setDataInt(int startRange, int endRange, int dataInt) {
 		label = label + " Предыдущее значение: " + to_string(dataInt);

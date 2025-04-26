@@ -34,17 +34,21 @@ int main()
 	st.number = "2498";
 
     ClassMenu* mainMenu = new ClassMenu();
+    ClassEdit* ed = new ClassEdit();
 	int resultSelectedItem = 1;
-	const int exitItem = 4;
+	const int exitItem = 5;
+	int capacity=0;
 	mainMenu->addTitleItem("Добавление/изменение данных о студенте: ");
 	mainMenu->addTitleItem("фамилия студента: " + st.first_name);
 	mainMenu->addTitleItem("дата рождения студента: " + st.birth_day);
 	mainMenu->addTitleItem("номер группы: " + st.group);
 	mainMenu->addTitleItem("номер студ.билета: " + st.number);
-	mainMenu->addItem("номер студ. билета");
+	mainMenu->addTitleItem("Студент выпил матем.: " + to_string(capacity) + " г.");
 	mainMenu->addItem("фамилия студента");
 	mainMenu->addItem("дата рождения студента");
 	mainMenu->addItem("номер группы");
+	mainMenu->addItem("номер студ. билета");
+	mainMenu->addItem("напоить сутдента математикой");
 	mainMenu->addItem("выход");
 	while (resultSelectedItem != exitItem) {
 		mainMenu->run();
@@ -52,29 +56,38 @@ int main()
 		switch (resultSelectedItem) {
 		case 0:
 			system("cls");
-			cout << "клубничное";
-			_getch();
+			st.first_name=ed->setDataString(st.first_name);
 			break;		
 		case 1:
 			system("cls");
-			cout << "вынильное";
-			_getch();
+			st.birth_day = ed->setDataString(st.birth_day);
 			break;
 		case 2:
 			system("cls");
-			cout << "шоколадное";
-			_getch();
+			st.group = ed->setDataString(st.group);
 			break;
 		case 3:
 			system("cls");
-			cout << "фисташковое";
-			_getch();
+			st.number = ed->setDataString(st.number);
 			break;
 		case 4:
+			system("cls");
+			capacity = ed->setDataInt(100, 500, 250);
+			cout << "Вы выбрали: " + to_string(capacity) + " г.";
+			_getch();
+			break;
+		case 5:
 			resultSelectedItem = exitItem;
 			break;
 		default:
 			break;
 		}
+		mainMenu->eraseTitle();
+		mainMenu->addTitleItem("Добавление/изменение данных о студенте: ");
+		mainMenu->addTitleItem("фамилия студента: " + st.first_name);
+		mainMenu->addTitleItem("дата рождения студента: " + st.birth_day);
+		mainMenu->addTitleItem("номер группы: " + st.group);
+		mainMenu->addTitleItem("номер студ.билета: " + st.number);
+		mainMenu->addTitleItem("Студент выпил матем.: " + to_string(capacity) + " г.");
 	}
 }

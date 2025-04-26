@@ -39,17 +39,17 @@ int main()
 	const int exitItem = 5;
 	int capacity=0;
 	mainMenu->addTitleItem("Добавление/изменение данных о студенте: ");
-	mainMenu->addTitleItem("фамилия студента: " + st.first_name);
-	mainMenu->addTitleItem("дата рождения студента: " + st.birth_day);
-	mainMenu->addTitleItem("номер группы: " + st.group);
-	mainMenu->addTitleItem("номер студ.билета: " + st.number);
-	mainMenu->addTitleItem("Студент выпил матем.: " + to_string(capacity) + " г.");
-	mainMenu->addItem("фамилия студента");
-	mainMenu->addItem("дата рождения студента");
-	mainMenu->addItem("номер группы");
-	mainMenu->addItem("номер студ. билета");
-	mainMenu->addItem("напоить сутдента математикой");
-	mainMenu->addItem("выход");
+	mainMenu->addTitleItem(" Фамилия студента: " + st.first_name);
+	mainMenu->addTitleItem(" Дата рождения студента: " + st.birth_day);
+	mainMenu->addTitleItem(" Номер группы: " + st.group);
+	mainMenu->addTitleItem(" Номер студ.билета: " + st.number);
+	mainMenu->addTitleItem(" Студент выпил матем.: " + to_string(capacity) + " г.");
+	mainMenu->addItem("Фамилия студента");
+	mainMenu->addItem("Дата рождения студента");
+	mainMenu->addItem("Номер группы");
+	mainMenu->addItem("Номер студ. билета");
+	mainMenu->addItem("Напоить сутдента математикой");
+	mainMenu->addItem("Применить изменения");
 	while (resultSelectedItem != exitItem) {
 		mainMenu->run();
 		resultSelectedItem = mainMenu->getSelectedItem();
@@ -84,10 +84,10 @@ int main()
 		}
 		mainMenu->eraseTitle();
 		mainMenu->addTitleItem("Добавление/изменение данных о студенте: ");
-		mainMenu->addTitleItem("фамилия студента: " + st.first_name);
-		mainMenu->addTitleItem("дата рождения студента: " + st.birth_day);
-		mainMenu->addTitleItem("номер группы: " + st.group);
-		mainMenu->addTitleItem("номер студ.билета: " + st.number);
-		mainMenu->addTitleItem("Студент выпил матем.: " + to_string(capacity) + " г.");
+		mainMenu->addTitleItem(" Фамилия студента: " + st.first_name);
+		mainMenu->addTitleItem(" Дата рождения студента: " + st.birth_day);
+		mainMenu->addTitleItem(" Номер группы: " + st.group);
+		mainMenu->addTitleItem(" Номер студ.билета: " + st.number);
+		mainMenu->addTitleItem(" Студент выпил матем.: " + to_string(capacity) + " г.");
 	}
 }

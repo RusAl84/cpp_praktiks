@@ -29,11 +29,25 @@ void editSes(vector<Grade> results) {
 	const int exitItem = 2;
 	int capacity = 0;
 	sesMenu->addTitleItem("Добавление/изменение данных о студенте: ");
+	sesMenu->addItem(" Добавить новый элемент");
+	sesMenu->addItem(" Назад ");
 	for (auto i : results)
-		sesMenu->addTitleItem("Добавить данные");
-		
-	sesMenu->addTitleItem(" Назад ");
-
+		sesMenu->addItem(" Предмет:" + i.subject + " дата: " + i.date + " оценка: " + to_string(i.mark));
+	while (resultSelectedItem != exitItem) {
+		sesMenu->run();
+		resultSelectedItem = sesMenu->getSelectedItem();
+		switch (resultSelectedItem) {
+		case 0:
+			system("cls");
+			_getch();
+			break;
+		case 1:
+			resultSelectedItem = exitItem;
+			break;
+		default:
+			break;
+		}
+	}
 };
 
 
@@ -53,7 +67,7 @@ int main()
 	struct Grade gra;
 	gra.date = "15/06/2025";
 	gra.subject = "СВТ";
-	gra.subject = 2;
+	gra.mark = 2;
 	st.results.push_back(gra);
 	st.results.push_back(gra);
 	st.results.push_back(gra);
@@ -72,12 +86,11 @@ int main()
 	mainMenu->addTitleItem(" Дата рождения студента: " + st.birth_day);
 	mainMenu->addTitleItem(" Номер группы: " + st.group);
 	mainMenu->addTitleItem(" Номер студ.билета: " + st.number);
-	mainMenu->addTitleItem(" Проставить студенту сессию");
 	mainMenu->addItem("Фамилия студента");
 	mainMenu->addItem("Дата рождения студента");
 	mainMenu->addItem("Номер группы");
 	mainMenu->addItem("Номер студ. билета");
-	mainMenu->addItem("Напоить сутдента математикой");
+	mainMenu->addItem("Проставить сессию");
 	mainMenu->addItem("Применить изменения");
 	while (resultSelectedItem != exitItem) {
 		mainMenu->run();
@@ -102,7 +115,6 @@ int main()
 		case 4:
 			system("cls");
 			editSes(st.results);
-			//		mainMenu->addTitleItem(" Проставить студенту сессию");
 			break;
 		case 5:
 			resultSelectedItem = exitItem;
@@ -116,6 +128,5 @@ int main()
 		mainMenu->addTitleItem(" Дата рождения студента: " + st.birth_day);
 		mainMenu->addTitleItem(" Номер группы: " + st.group);
 		mainMenu->addTitleItem(" Номер студ.билета: " + st.number);
-		mainMenu->addTitleItem(" Проставить студенту сессию");
 	}
 }

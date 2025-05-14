@@ -1,8 +1,13 @@
 ﻿
 #include <iostream>
 #include <windows.h>
+#include <string>
+#include <stdio.h>
+#include <fstream>
 #include "initial_data.h"
 #include "StudentsList.h"
+
+
 
 struct Student* genDataStud() {
 	// Генерация данных студента
@@ -50,23 +55,26 @@ int main()
 
 	StudentsList* sl = new StudentsList();
 	struct Student* st = genDataStud();
+	st->number = "0001";
 	st->first_name = "Русаков Алексей 1";
 	sl->addItem(st);
 	st = genDataStud();
+	st->number = "0002";
 	st->first_name = "Русаков Алексей 2";
 	sl->addItem(st);
 	st = genDataStud();
+	st->number = "0003";
 	st->first_name = "Русаков Алексей 3";
 	sl->addItem(st);
 	st = genDataStud();
+	st->number = "0004";
 	st->first_name = "Русаков Алексей 4";
 	sl->addItem(st);
 	st = genDataStud();
+	st->number = "0005";
 	st->first_name = "Русаков Алексей 5";
 	sl->addItem(st);
 	sl->printMyList();
     //cout << "Hello World!\n";
-
-
 }
 

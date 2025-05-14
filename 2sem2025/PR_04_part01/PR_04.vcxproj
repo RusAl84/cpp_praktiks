@@ -127,7 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="initial_data.cpp" />
+    <ClCompile Include="initial_data.h" />
     <ClCompile Include="PR_04.cpp" />
     <ClCompile Include="StudentsList.cpp" />
   </ItemGroup>

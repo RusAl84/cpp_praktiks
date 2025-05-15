@@ -34,26 +34,20 @@ struct Student* genDataStud() {
 	gr->mark = 3;
 	gr->subject = "История";
 	st->results.push_back(*gr);
+	gr->date = "19/05/2025";
+	gr->mark = 5;
+	gr->subject = "Навыки игры в MineCraft";
+	st->results.push_back(*gr);
+	delete gr;
 	//cout << st->results[0].subject << endl;
 	//cout << st->results[1].subject << endl;
 	//cout << st->results[2].subject << endl;
 	//cout << st->results[3].subject << endl;
+	//cout << st->results[4].subject << endl;
 	return st;
 }
 
-int main()
-{
-	setlocale(LC_ALL, "Russian");
-	SetConsoleCP(1251);
-	SetConsoleOutputCP(1251);
-	cout << "Практическая работа 4\n";
-	auto author = []()
-		{
-			cout << "Русаков Алексей БИСО-02-24" << endl;
-		};
-	author();
-
-	StudentsList* sl = new StudentsList();
+void genDefaultDataFile(StudentsList* sl){
 	struct Student* st = genDataStud();
 	st->number = "0001";
 	st->first_name = "Русаков Алексей 1";
@@ -72,15 +66,28 @@ int main()
 	sl->addItem(st);
 	st = genDataStud();
 	st->number = "0005";
-	st->first_name = "Русаков Алексей 5";
+	st->first_name = "Русаков Алексей 5111";
 	sl->addItem(st);
-	sl->printMyList();
+}
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	cout << "Практическая работа 4\n";
+	auto author = []()
+		{
+			cout << "Русаков Алексей БИСО-02-24" << endl;
+		};
+	author();
+
+	StudentsList* sl = new StudentsList();
+	//genDefaultDataFile(sl);
+	//sl->printMyList();
     //cout << "Hello World!\n";
-<<<<<<< Updated upstream
-
-
-=======
-	sl->saveData();
->>>>>>> Stashed changes
+	//sl->saveData();
+	sl->loadData();
+	sl->Dislay();
 }
 

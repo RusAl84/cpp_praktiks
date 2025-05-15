@@ -1,5 +1,10 @@
 #pragma once
 #include "initial_data.h"
+#include <iostream>
+#include <fstream>
+#include <string>     // для std::getline
+
+
 struct node {
     struct Student *data;
     struct node* next;
@@ -147,7 +152,6 @@ public:
                 sNumStud.c_str(), \
                 sCountGrade.c_str() \
             ); 
-
             for (int i = 0; i < countGrade; i++) {
                 string sMark = to_string(current->data->results[i].mark);
                 fprintf(gradesTextFile, "%s\n%s\n%s\n", \
@@ -161,6 +165,63 @@ public:
         fclose(studTextFile);
         fclose(indexStudTextFile);
         fclose(gradesTextFile);
+    }
+
+    void Dislay() {
+        struct node* current = myHead;
+        while (current) {
+            cout << endl << current->data->number.c_str() << "  ";
+            cout << current->data->first_name.c_str() << "  ";
+            cout << current->data->birth_day.c_str() << "  ";
+            cout << current->data->group.c_str() << endl;
+            int countgrade = current->data->results.size();
+            for (int i = 0; i < countgrade; i++) {
+                cout  << current->data->results[i].subject.c_str() << "  ";
+                    cout << current->data->results[i].date.c_str() << "  ";
+                    cout << current->data->results[i].mark << endl;
+            }
+            current = current->next;
+        }
+    }
+
+    /// <summary>
+    /// Загрузить из файла
+    /// </summary>
+    void loadData() {
+        int numStud = 0;
+        string line;
+        ifstream studTextFile("studTextFile.txt"); // https://metanit.com/cpp/tutorial/8.3.php?ysclid=mapbi2t0z3124686952
+        ifstream indexStudTextFile("indexStudTextFile.txt");
+        ifstream gradesTextFile("gradesTextFile.txt");
+        struct Student* tmpSt = new Student();
+        struct Grade* gr = new Grade();
+        while (getline(studTextFile, line)) {
+            tmpSt = new Student();
+            tmpSt->number = line;
+            getline(studTextFile, line);
+            tmpSt->first_name = line;
+            getline(studTextFile, line);
+            tmpSt->birth_day = line;
+            getline(studTextFile, line);
+            tmpSt->group = line;
+            numStud++;
+            getline(indexStudTextFile, line);
+            getline(indexStudTextFile, line);
+            int countGrade = atoi(line.c_str());
+            for (int i = 0; i < countGrade; i++) {
+                getline(gradesTextFile, line);
+                gr->subject = line;
+                getline(gradesTextFile, line);
+                gr->date = line;
+                getline(gradesTextFile, line);
+                gr->mark = atoi(line.c_str());
+                tmpSt->results.push_back(*gr);
+            }
+            addItem(tmpSt);
+        }
+       studTextFile.close();
+       indexStudTextFile.close();
+       gradesTextFile.close();
     }
 };
 

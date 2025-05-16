@@ -13,9 +13,9 @@ struct Student* genDataStud() {
 	// Генерация данных студента
 	struct Student* st = new Student();
 	st->number = "0086";			// номер студ. билета
-	st->first_name = "Русаков Алексей";		// фамилия студента
-	st->birth_day = "27/12/1984";		// дата рождения студента
-	st->group = "БИСО-01-24";			// номер группы
+	st->first_name = "Дуся Ксеневна";		// фамилия студента
+	st->birth_day = "11.12.2007";		// дата рождения студента
+	st->group = "БСБО-01-24";			// номер группы
 	struct Grade* gr = new Grade();
 	//struct Grade gr;
 	gr->date = "14/05/2025";
@@ -28,11 +28,11 @@ struct Student* genDataStud() {
 	st->results.push_back(*gr);
 	gr->date = "16/05/2025";
 	gr->mark = 5;
-	gr->subject = "Физику 2";
+	gr->subject = "СВТ";
 	st->results.push_back(*gr);
 	gr->date = "17/05/2025";
-	gr->mark = 3;
-	gr->subject = "История";
+	gr->mark = 6;
+	gr->subject = "Физику 2";
 	st->results.push_back(*gr);
 	//cout << st->results[0].subject << endl;
 	//cout << st->results[1].subject << endl;
@@ -56,15 +56,15 @@ int main()
 	StudentsList* sl = new StudentsList();
 	struct Student* st = genDataStud();
 	st->number = "0001";
-	st->first_name = "Русаков Алексей 1";
+	st->first_name = "Стефания";
 	sl->addItem(st);
 	st = genDataStud();
 	st->number = "0002";
-	st->first_name = "Русаков Алексей 2";
+	st->first_name = "Ульяна";
 	sl->addItem(st);
 	st = genDataStud();
 	st->number = "0003";
-	st->first_name = "Русаков Алексей 3";
+	st->first_name = "Валера";
 	sl->addItem(st);
 	st = genDataStud();
 	st->number = "0004";
@@ -75,6 +75,7 @@ int main()
 	st->first_name = "Русаков Алексей 5";
 	sl->addItem(st);
 	sl->printMyList();
+	sl->saveData();
     //cout << "Hello World!\n";
 }
 

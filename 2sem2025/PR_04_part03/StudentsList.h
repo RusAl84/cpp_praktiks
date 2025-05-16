@@ -125,9 +125,6 @@ public:
     /// Сохранить в файл
     /// </summary>
     void saveData() {
-        struct Student* st = new Student();
-        struct indexStud* indS = new indexStud();
-        struct Grade* grades = new Grade();
         struct node* current = myHead;
         int numStud = 0;
         FILE* studTextFile;

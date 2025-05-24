@@ -90,19 +90,25 @@ int main()
 	sl->loadData();
 	//sl->Dislay();
 	//sl->calcAvgMark();
-	sl->calcVar8();
 
-	//Вариант 8 
+
+	/*Вариант 8 */
 	//Операции со списком :
 	// добавление узла в конец списка;
 	struct Student* st = genDataStud();
 	st->number = "0001";
 	st->first_name = "Русаков конец";
 	sl->addItemBack(st);
-	//sl->Dislay();
-	// удаление N узлов, начиная с указанного индекса.
-	sl->deleteItemAfterInd(6);
 	sl->Dislay();
+	//// удаление N узлов, начиная с указанного индекса.
+	sl->deleteItemAfterInd(6); //6 4 
+	cout << endl << "удаление N узлов, начиная с указанного индекса."<< endl;
+	sl->Dislay();
+
+
+
+	sl->calcVar8();
+
 
 }
 

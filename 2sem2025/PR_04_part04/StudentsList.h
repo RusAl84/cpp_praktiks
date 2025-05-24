@@ -24,7 +24,7 @@ public:
     //https://www.cs.usfca.edu/~galles/visualization/StackLL.html
 
     /// <summary>
-    /// Добавляет элемент в начало.
+    /// Добавляет элемент в начало списка
     /// </summary>
     /// <param name="data"> данные элемента</param>
     void addItem(struct Student *data)
@@ -39,7 +39,7 @@ public:
         countItem++;
     }
     /// <summary>
-    /// Добавляет элемент в конец.
+    /// Добавляет элемент в конец списка
     /// </summary>
     /// <param name="data"> данные элемента</param>
         void addItemBack(struct Student* data)
@@ -143,7 +143,6 @@ public:
             current = current->next;
         }
     }
-
     /// <summary>
     /// Сохранить в файл
     /// </summary>
@@ -274,20 +273,26 @@ public:
         cout << endl << "Поиск узлов по дате проведения занятия: " + foundDate;
         while (current) {
             cout << endl << current->data->first_name << endl;
+            bool existDate = false;
             for (int i = 0; i < current->data->results.size(); i++)
                 if (foundDate == current->data->results[i].date) {
                     cout << current->data->results[i].subject.c_str() << "  ";
                     cout << current->data->results[i].date.c_str() << "  ";
                     cout << current->data->results[i].mark << endl;
-                    dateSL.addItem(current->data);
+                    existDate = true;
                 }
+            if (existDate)
+                dateSL.addItem(current->data);
             current = current->next;
         }
+        cout << endl << "Поиск узлов по дате проведения занятия: " + foundDate;
+        dateSL.Dislay();
+        //dateSL.saveData();
         //    Расчетная операция :
         // расчет количества студентов, обучающихся в определенной группе.
         current = myHead;
         class StudentsList countSL;//поиск узлов по дате проведения занятия.
-        string foundGroup = "БСБО-02-24";
+        string foundGroup = "ББСО-02-24";
         cout << endl << "Расчет количества студентов, обучающихся в определенной группе: " + foundGroup << endl;
         int countStud = 0;
         while (current) {

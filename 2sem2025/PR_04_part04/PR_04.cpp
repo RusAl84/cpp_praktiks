@@ -92,7 +92,7 @@ int main()
 	//sl->calcAvgMark();
 
 
-	/*Вариант 8 */
+	//Вариант 8
 	//Операции со списком :
 	// добавление узла в конец списка;
 	struct Student* st = genDataStud();
@@ -105,10 +105,23 @@ int main()
 	cout << endl << "удаление N узлов, начиная с указанного индекса."<< endl;
 	sl->Dislay();
 
-
-
 	sl->calcVar8();
 
+
+	//Вариант 26
+	//	Операции со списком :
+	// добавление узла в конец списка;
+	
+	st = genDataStud();
+	st->number = "0777";
+	st->first_name = "Русаков конец";
+	sl->addItemBack(st);
+	sl->Dislay();
+	// удаление N узлов с начала списка.
+	sl->deleteItemBeforeInd(2);  
+	cout << endl << "удаление N узлов, начиная с указанного индекса." << endl;
+	sl->Dislay();
+	sl->calcVar26();
 
 }
 

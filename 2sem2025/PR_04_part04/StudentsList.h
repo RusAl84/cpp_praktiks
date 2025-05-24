@@ -313,5 +313,56 @@ public:
         for(int i=0; i< countDeleteItem;i++)
             deleteItem(countItem-1);
     }
+
+
+    void deleteItemBeforeInd(int index) {
+        for (int i = 0; i < index; i++)
+            deleteItem(0);
+    }
+
+    void calcVar26() {
+        // 26 вариант 
+        //Поисковая операция :
+        // поиск узлов по дате рождения.
+        struct node* current = myHead;
+        class StudentsList dateSL2;//поиск узлов по дате рождения.
+        string foundBirthDay = "27/12/1984";
+        cout << endl << "Поиск узлов по дате рождения: " + foundBirthDay;
+        while (current) {
+            
+            if (foundBirthDay == current->data->birth_day ) {
+                    cout << endl << current->data->first_name;
+                    cout << " дата рождения: " << current->data->birth_day << "  ";
+                    dateSL2.addItem(current->data);
+                }
+            current = current->next;
+        }
+        cout << endl << endl << "Поиск узлов по дате рождения: " + foundBirthDay;
+        dateSL2.Dislay();
+        //Расчетная операция :
+        // расчет количества студентов, имеющих определенную оценку по некоторой дисциплине.
+         current = myHead;
+        class StudentsList dateSL3;//поиск узлов по дате проведения занятия.
+        string foundSubject = "СВТ";
+        int foundMark = 5;
+        cout << endl << "Расчет количества студентов, имеющих определенную оценку по некоторой дисциплине: " ;
+        cout << endl << " оценку " << foundMark << " по  дисциплине: " << foundSubject;
+        int count = 0;
+        while (current) {
+            for (int i = 0; i < current->data->results.size(); i++)
+                if ((foundSubject == current->data->results[i].subject) and (foundMark == current->data->results[i].mark)) {
+                    cout << endl << current->data->first_name << endl;
+                    cout << current->data->results[i].subject.c_str() << "  ";
+                    cout << current->data->results[i].date.c_str() << "  ";
+                    cout << current->data->results[i].mark << endl;
+                    dateSL3.addItem(current->data);
+                    count++;
+                }     
+            current = current->next;
+        }
+        cout << endl << "Количество студентов, имеющих определенную оценку по некоторой дисциплине: " << count;
+        dateSL3.Dislay();
+
+    }
 };
 

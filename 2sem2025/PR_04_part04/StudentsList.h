@@ -1,8 +1,8 @@
-#pragma once
+п»ї#pragma once
 #include "initial_data.h"
 #include <iostream>
 #include <fstream>
-#include <string>     // для std::getline
+#include <string>     // РґР»СЏ std::getline
 
 
 struct node {
@@ -10,23 +10,23 @@ struct node {
     struct node* next;
 };
 
-class StudentsList	// класс "линейный односвязный список
+class StudentsList	// РєР»Р°СЃСЃ "Р»РёРЅРµР№РЅС‹Р№ РѕРґРЅРѕСЃРІСЏР·РЅС‹Р№ СЃРїРёСЃРѕРє
 {
-	Node* first;	// указатель на первый узел списка
-	Node* last;	// указатель на последний узел списка
+	Node* first;	// СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РїРµСЂРІС‹Р№ СѓР·РµР» СЃРїРёСЃРєР°
+	Node* last;	// СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РїРѕСЃР»РµРґРЅРёР№ СѓР·РµР» СЃРїРёСЃРєР°
 public:
-	StudentsList();	// прототип конструктора
-	// методы и функции, реализующие вариативную часть задания
+	StudentsList();	// РїСЂРѕС‚РѕС‚РёРї РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°
+	// РјРµС‚РѕРґС‹ Рё С„СѓРЅРєС†РёРё, СЂРµР°Р»РёР·СѓСЋС‰РёРµ РІР°СЂРёР°С‚РёРІРЅСѓСЋ С‡Р°СЃС‚СЊ Р·Р°РґР°РЅРёСЏ
     struct node* myHead;
     int countItem = 0;
 
-    //Визуализация для добавления и удаления элементов в односвязном списке.
+    //Р’РёР·СѓР°Р»РёР·Р°С†РёСЏ РґР»СЏ РґРѕР±Р°РІР»РµРЅРёСЏ Рё СѓРґР°Р»РµРЅРёСЏ СЌР»РµРјРµРЅС‚РѕРІ РІ РѕРґРЅРѕСЃРІСЏР·РЅРѕРј СЃРїРёСЃРєРµ.
     //https://www.cs.usfca.edu/~galles/visualization/StackLL.html
 
     /// <summary>
-    /// Добавляет элемент в начало.
+    /// Р”РѕР±Р°РІР»СЏРµС‚ СЌР»РµРјРµРЅС‚ РІ РЅР°С‡Р°Р»Рѕ.
     /// </summary>
-    /// <param name="data"> данные элемента</param>
+    /// <param name="data"> РґР°РЅРЅС‹Рµ СЌР»РµРјРµРЅС‚Р°</param>
     void addItem(struct Student *data)
     {
         struct node* newItem = new node();
@@ -39,10 +39,33 @@ public:
         countItem++;
     }
     /// <summary>
-    /// Вставка элемента в список
+    /// Р”РѕР±Р°РІР»СЏРµС‚ СЌР»РµРјРµРЅС‚ РІ РєРѕРЅРµС†.
     /// </summary>
-    /// <param name="index">индекс после которого вставить</param>
-    /// <param name="data">значение которое необходимо вставить</param>
+    /// <param name="data"> РґР°РЅРЅС‹Рµ СЌР»РµРјРµРЅС‚Р°</param>
+        void addItemBack(struct Student* data)
+        {
+            struct node* newItem = new node();
+            newItem->next = NULL;
+            newItem->data = data;
+            if (countItem == 0){
+                myHead = newItem;
+            }
+            else
+            {
+                struct node* current = myHead;
+                while (current->next) {
+                    current = current->next;
+                }
+                current->next = newItem;
+            }
+            countItem++;
+        }
+
+    /// <summary>
+    /// Р’СЃС‚Р°РІРєР° СЌР»РµРјРµРЅС‚Р° РІ СЃРїРёСЃРѕРє
+    /// </summary>
+    /// <param name="index">РёРЅРґРµРєСЃ РїРѕСЃР»Рµ РєРѕС‚РѕСЂРѕРіРѕ РІСЃС‚Р°РІРёС‚СЊ</param>
+    /// <param name="data">Р·РЅР°С‡РµРЅРёРµ РєРѕС‚РѕСЂРѕРµ РЅРµРѕР±С…РѕРґРёРјРѕ РІСЃС‚Р°РІРёС‚СЊ</param>
     void insertItem(int index, struct Student* data) {
         if (not (index >= 0 and index <= countItem and countItem >= 0))
             return;
@@ -61,10 +84,10 @@ public:
         }
     }
     /// <summary>
-    /// Изменить элемент списка
+    /// РР·РјРµРЅРёС‚СЊ СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР°
     /// </summary>
-    /// <param name="index">индекс изменяемого элемента</param>
-    /// <param name="data">значение на которое нужно изменить</param>
+    /// <param name="index">РёРЅРґРµРєСЃ РёР·РјРµРЅСЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°</param>
+    /// <param name="data">Р·РЅР°С‡РµРЅРёРµ РЅР° РєРѕС‚РѕСЂРѕРµ РЅСѓР¶РЅРѕ РёР·РјРµРЅРёС‚СЊ</param>
     void editItem(int index, struct Student* data) {
         if (index >= 0 and index < countItem and countItem>0) {
             struct node* current = myHead;
@@ -75,13 +98,13 @@ public:
             current->data = data;
         }
         else {
-            cout << endl << "Ошибка индекс не в диапазоне";
+            cout << endl << "РћС€РёР±РєР° РёРЅРґРµРєСЃ РЅРµ РІ РґРёР°РїР°Р·РѕРЅРµ";
         }
     }
     /// <summary>
-    /// Функция для удаления элемента из динамического списка
+    /// Р¤СѓРЅРєС†РёСЏ РґР»СЏ СѓРґР°Р»РµРЅРёСЏ СЌР»РµРјРµРЅС‚Р° РёР· РґРёРЅР°РјРёС‡РµСЃРєРѕРіРѕ СЃРїРёСЃРєР°
     /// </summary>
-    /// <param name="index">индекс удаляемого элемента</param>
+    /// <param name="index">РёРЅРґРµРєСЃ СѓРґР°Р»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°</param>
     void deleteItem(int index) {
         if (index >= 0 and index < countItem and countItem>0) {
             struct node* current = myHead;
@@ -110,7 +133,7 @@ public:
 
     }
     /// <summary>
-    /// Печать списка
+    /// РџРµС‡Р°С‚СЊ СЃРїРёСЃРєР°
     /// </summary>
     void printMyList() {
         struct node* current = myHead;
@@ -122,7 +145,7 @@ public:
     }
 
     /// <summary>
-    /// Сохранить в файл
+    /// РЎРѕС…СЂР°РЅРёС‚СЊ РІ С„Р°Р№Р»
     /// </summary>
     void saveData() {
         struct node* current = myHead;
@@ -182,7 +205,7 @@ public:
     }
 
     /// <summary>
-    /// Загрузить из файла
+    /// Р—Р°РіСЂСѓР·РёС‚СЊ РёР· С„Р°Р№Р»Р°
     /// </summary>
     void loadData() {
         int numStud = 0;
@@ -222,7 +245,7 @@ public:
     }
 
     /// <summary>
-    /// Печать списка - пример задания
+    /// РџРµС‡Р°С‚СЊ СЃРїРёСЃРєР° - РїСЂРёРјРµСЂ Р·Р°РґР°РЅРёСЏ
     /// </summary>
     void calcAvgMark() {
         struct node* current = myHead;
@@ -233,9 +256,57 @@ public:
                 avg_mark += current->data->results[i].mark;
             avg_mark /= current->data->results.size();
             current->data->avg_mark = avg_mark;
-            cout << " средний балл: " << avg_mark;
+            cout << " СЃСЂРµРґРЅРёР№ Р±Р°Р»Р»: " << avg_mark;
             current = current->next;
         }
+    }
+
+    /// <summary>
+    /// var8
+    /// </summary>
+    void calcVar8() {
+        // 8 РІР°СЂРёР°РЅС‚ 
+        // РџРѕРёСЃРєРѕРІР°СЏ РѕРїРµСЂР°С†РёСЏ :
+        //п‚· РїРѕРёСЃРє СѓР·Р»РѕРІ РїРѕ РґР°С‚Рµ РїСЂРѕРІРµРґРµРЅРёСЏ Р·Р°РЅСЏС‚РёСЏ.
+        struct node* current = myHead;
+        class StudentsList dateSL;//РїРѕРёСЃРє СѓР·Р»РѕРІ РїРѕ РґР°С‚Рµ РїСЂРѕРІРµРґРµРЅРёСЏ Р·Р°РЅСЏС‚РёСЏ.
+        string foundDate = "16/05/2025";
+        cout << endl << "РџРѕРёСЃРє СѓР·Р»РѕРІ РїРѕ РґР°С‚Рµ РїСЂРѕРІРµРґРµРЅРёСЏ Р·Р°РЅСЏС‚РёСЏ: " + foundDate;
+        while (current) {
+            cout << endl << current->data->first_name << endl;
+            for (int i = 0; i < current->data->results.size(); i++)
+                if (foundDate == current->data->results[i].date) {
+                    cout << current->data->results[i].subject.c_str() << "  ";
+                    cout << current->data->results[i].date.c_str() << "  ";
+                    cout << current->data->results[i].mark << endl;
+                    dateSL.addItem(current->data);
+                }
+            current = current->next;
+        }
+        //    Р Р°СЃС‡РµС‚РЅР°СЏ РѕРїРµСЂР°С†РёСЏ :
+        //п‚· СЂР°СЃС‡РµС‚ РєРѕР»РёС‡РµСЃС‚РІР° СЃС‚СѓРґРµРЅС‚РѕРІ, РѕР±СѓС‡Р°СЋС‰РёС…СЃСЏ РІ РѕРїСЂРµРґРµР»РµРЅРЅРѕР№ РіСЂСѓРїРїРµ.
+        current = myHead;
+        class StudentsList countSL;//РїРѕРёСЃРє СѓР·Р»РѕРІ РїРѕ РґР°С‚Рµ РїСЂРѕРІРµРґРµРЅРёСЏ Р·Р°РЅСЏС‚РёСЏ.
+        string foundGroup = "Р‘РЎР‘Рћ-02-24";
+        cout << endl << "Р Р°СЃС‡РµС‚ РєРѕР»РёС‡РµСЃС‚РІР° СЃС‚СѓРґРµРЅС‚РѕРІ, РѕР±СѓС‡Р°СЋС‰РёС…СЃСЏ РІ РѕРїСЂРµРґРµР»РµРЅРЅРѕР№ РіСЂСѓРїРїРµ: " + foundGroup << endl;
+        int countStud = 0;
+        while (current) {
+                if (foundGroup == current->data->group) {
+                    cout << current->data->first_name ;
+                    cout << " РіСЂСѓРїРїР°: " << current->data->group << endl;
+                    countSL.addItem(current->data);
+                    countStud++;
+                }
+            current = current->next;
+        }
+        cout << "РљРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СѓРґРµРЅС‚РѕРІ, РѕР±СѓС‡Р°СЋС‰РёС…СЃСЏ РІ РѕРїСЂРµРґРµР»РµРЅРЅРѕР№ РіСЂСѓРїРїРµ: " + foundGroup;
+        cout << " СЂР°РІРЅРѕ: " << countStud << endl;
+    }
+
+    void deleteItemAfterInd(int index) {
+        int countDeleteItem = countItem - index;
+        for(int i=0; i< countDeleteItem;i++)
+            deleteItem(countItem-1);
     }
 };
 

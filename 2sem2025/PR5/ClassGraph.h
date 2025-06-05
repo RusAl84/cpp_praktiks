@@ -72,7 +72,6 @@ public:
             }
             if (minIndex == -1) break;
             visited[minIndex] = true;
-
             for (int v = 0; v < vertexCount; ++v) {
                 if (!visited[v] && adjacencyMatrix[minIndex][v] != 0 &&
                     distances[minIndex] != INT_MAX &&

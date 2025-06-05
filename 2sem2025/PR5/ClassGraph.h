@@ -5,62 +5,61 @@
 #include <climits>
 #include <stdexcept>
 
-class ClassGraph {
-public:
-    std::vector<std::vector<int>> adjacencyMatrix;
+using namespace std;
 
+class ClassGraph {
+private:
+    vector<vector<int>> adjacencyMatrix;
+public:
     ClassGraph() : vertexCount(0) {}
     ~ClassGraph() = default;
-
     int vertexCount;
 
-    void DFSRecursive(int vertex, std::vector<bool>& visited, std::vector<int>& traversalOrder)
-    {
-        visited[vertex] = true;
-        traversalOrder.push_back(vertex);
-
-        for (int i = 0; i < vertexCount; ++i) {
-            if (adjacencyMatrix[vertex][i] != 0 && !visited[i]) {
-                DFSRecursive(i, visited, traversalOrder);
-            }
-        }
-    };
-
-    void loadFromAdjacencyMatrix(const std::string& filename) {
-        std::ifstream file(filename);
+    void loadFromAdjacencyMatrix(const string& filename) {
+        ifstream file(filename);
         if (!file) {
-            throw std::runtime_error("Unable to open file: " + filename);
+            throw runtime_error("Файл не найдет: " + filename);
         }
-
         file >> vertexCount;
-        adjacencyMatrix.resize(vertexCount, std::vector<int>(vertexCount));
-
+        adjacencyMatrix.resize(vertexCount, vector<int>(vertexCount));
         for (int i = 0; i < vertexCount; ++i) {
             for (int j = 0; j < vertexCount; ++j) {
                 file >> adjacencyMatrix[i][j];
             }
         }
     };
-    void printGraph(std::ostream& os)
-    {
-        std::vector<bool> visited(vertexCount, false);
-        std::vector<int> traversalOrder;
 
+    void DFS(int vertex, vector<bool>& visited, vector<int>& traversalOrder)
+    {
+        visited[vertex] = true;
+        traversalOrder.push_back(vertex);
         for (int i = 0; i < vertexCount; ++i) {
-            if (!visited[i]) {
-                const_cast<ClassGraph*>(this)->DFSRecursive(i, visited, traversalOrder);
+            if (adjacencyMatrix[vertex][i] != 0 && !visited[i]) {
+                DFS(i, visited, traversalOrder);
             }
         }
-        os << "Graph traversal (DFS recursive): ";
+    };
+
+
+    void printGraph(ostream& os)
+    {
+        vector<bool> visited(vertexCount, false);
+        vector<int> traversalOrder;
+        for (int i = 0; i < vertexCount; ++i) {
+            if (!visited[i]) {
+                const_cast<ClassGraph*>(this)->DFS(i, visited, traversalOrder);
+            }
+        }
+        os << "Обход графа алгоритмом поиск в глубину (DFS): ";
         for (int v : traversalOrder) {
             os << v << " ";
         }
         os << "\n";
     };
-    void findShortestPaths(int startVertex, const std::string& outputFilename)
+    void findShortestPaths(int startVertex, const string& outputFilename)
     {
-        std::vector<int> distances(vertexCount, INT_MAX);
-        std::vector<bool> visited(vertexCount, false);
+        vector<int> distances(vertexCount, INT_MAX);
+        vector<bool> visited(vertexCount, false);
         distances[startVertex] = 0;
         for (int count = 0; count < vertexCount - 1; ++count) {
             int min = INT_MAX, minIndex = -1;
@@ -82,17 +81,15 @@ public:
                 }
             }
         }
-
-        std::ofstream outFile(outputFilename);
+        ofstream outFile(outputFilename);
         if (!outFile) {
-            throw std::runtime_error("Unable to create output file: " + outputFilename);
+            throw runtime_error("Не могу создать файл: " + outputFilename);
         }
-
-        outFile << "Shortest paths from vertex " << startVertex << ":\n";
+        outFile << "Кратчайший путь из вершины " << startVertex << ":\n";
         for (int i = 0; i < vertexCount; ++i) {
-            outFile << "To vertex " << i << ": ";
+            outFile << " к вершине " << i << ": ";
             if (distances[i] == INT_MAX) {
-                outFile << "No path";
+                outFile << "пути нет";
             }
             else {
                 outFile << distances[i];
@@ -101,11 +98,12 @@ public:
         }
     };
 
-    friend std::ostream& operator<<(std::ostream& os,  ClassGraph& graph) 
+    friend ostream& operator<<(ostream& os,  ClassGraph& graph) 
     {
         graph.printGraph(os);
         return os;
     };
+
     ClassGraph& operator=(const ClassGraph& other) {
         if (this != &other) {
             adjacencyMatrix = other.adjacencyMatrix;

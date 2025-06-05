@@ -1,0 +1,5 @@
+Shortest paths from vertex 0:
+To vertex 0: 0
+To vertex 1: 1
+To vertex 2: 2
+To vertex 3: 2

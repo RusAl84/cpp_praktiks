@@ -3,14 +3,14 @@
 using namespace std;
 void display_byte(char  data) {
     char mas[9] = "00000000";
-    if ((data) & 128)  mas[0] = '1';
-    if ((data) & 64)  mas[1] = '1';
-    if ((data) & 32)  mas[2] = '1';
-    if ((data) & 16)  mas[3] = '1';
-    if ((data) & 8)  mas[4] = '1';
-    if ((data) & 4)  mas[5] = '1';
-    if ((data) & 2)  mas[6] = '1';
-    if ((data) & 1)  mas[7] = '1';
+    if ((data) & 128)  mas[0] = '1';      //1й - бит
+    if ((data) & 64)  mas[1] = '1';      //2й - бит
+    if ((data) & 32)  mas[2] = '1';      //3й - бит
+    if ((data) & 16)  mas[3] = '1';      //4й - бит
+    if ((data) & 8)  mas[4] = '1';      //5й - бит
+    if ((data) & 4)  mas[5] = '1';      //6й - бит
+    if ((data) & 2)  mas[6] = '1';      //7й - бит
+    if ((data) & 1)  mas[7] = '1';      //8й - бит
     printf("%s", mas);
 }
 int main()
@@ -31,10 +31,10 @@ int main()
     short* var1 = new short;     // тип short занимает в памяти 2 байта (16 бит)
     short* var2 = new short;
     unsigned char b1, b2, b3, b4;
-    b1 = *(char*)&data;
-    b2 = *((char*)&data+1);
-    b3 = *((char*)&data+2);
-    b4 = *((char*)&data+3);
+    b1 = *(char*)&data;      // получение байтов
+    b2 = *((char*)&data+1);      // получение байтов
+    b3 = *((char*)&data+2);      // получение байтов
+    b4 = *((char*)&data+3);      // получение байтов
     *var1 = b1;
     *((char*)var1+1) = b4;
     short N = 3;  

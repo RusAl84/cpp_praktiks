@@ -19,15 +19,16 @@ public:
         count=0;
     };
     void Add(int element) {
-        node* tPoint = head;
-        head = new node;
         if (count == 0) {
+            head = new node;
             head->data = element;
             head->next = nullptr;
             
         }
         else {
-            head->next = tPoint;
+            node* tmpPoint = head;
+            head = new node;
+            head->next = tmpPoint;
             head->data = element;
         }
         count++;
@@ -61,6 +62,7 @@ public:
                     {
                         element = current->data;
                         //cout << element;
+                        break;
                     }
                     current = current->next;
                     ind++;
@@ -68,7 +70,32 @@ public:
             }
         return element;
     }
-    void del(int pos);
+    void Del(int pos) {
+        if (count > 0)
+            if ((pos >= 0) and (pos < count))
+            {
+                int ind = 0;
+                node* current = head;
+                node* prev_current = nullptr;
+                if (count>1)
+                    while (current) {
+                        if (ind == pos) {
+                            node* tmpPoint = current;
+                            prev_current->next = current->next;
+                            delete tmpPoint;
+                            break;
+                        }
+                        prev_current = current;
+                        current = current->next;
+                        ind++;
+                    }
+                else {
+                    delete head;
+                    head = nullptr;
+                }
+                count--;
+            }
+    }
     void display() {
         node* current = head;
         cout << endl << "__Display";

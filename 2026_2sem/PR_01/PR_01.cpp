@@ -17,5 +17,6 @@ int main()
     d1->Add(8);
     d1->Add(4);
     d1->display();
+    cout << endl << "Елемент 0 = " << d1->getElement(0);
 }
 

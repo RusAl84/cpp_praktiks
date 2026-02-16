@@ -21,5 +21,6 @@ int main()
     d1->Edit(2, 777);
     cout << endl << "Елемент 2 = " << d1->getElement(2);
     d1->display();
+    delete d1;
 }
 

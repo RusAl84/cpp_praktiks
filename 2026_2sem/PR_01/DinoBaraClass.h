@@ -32,7 +32,21 @@ public:
         }
         count++;
     };
-    void Edit(int pos);
+    void Edit(int pos, int data) {
+        if (count > 0)
+            if ((pos >= 0) and (pos < count))
+            {
+                node* current = head;
+                //cout << endl << "__Element:  ";
+                int ind = 0;
+                while (current) {
+                    if (ind == pos)
+                        current->data = data;
+                    current = current->next;
+                    ind++;
+                }
+            }
+    }
     int getElement(int pos)                        
     {
         int element = 0;                        

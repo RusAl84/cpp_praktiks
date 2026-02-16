@@ -18,5 +18,8 @@ int main()
     d1->Add(4);
     d1->display();
     cout << endl << "Елемент 0 = " << d1->getElement(0);
+    d1->Edit(2, 777);
+    cout << endl << "Елемент 2 = " << d1->getElement(2);
+    d1->display();
 }
 

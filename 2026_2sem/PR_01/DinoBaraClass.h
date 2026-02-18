@@ -5,25 +5,71 @@
 
 using namespace std;
 
+//Структура для организации линейного списка
 struct node {
 public:
-    int data;
-    node* next;
+    int data; // данные (целое число)
+    node* next; // указатель на следующее значение
 };
 
+//Формат компонентных данных класса должен обеспечить возможность 
+//создания объекта произвольного размера 
+// (т.е. моделировать динамический массив). 
+
+// класс динамического массива
 class DinoBaraClass
 {
 public:
-    DinoBaraClass() {
+    // Класс должен содержать конструктор по умолчанию, 
+        DinoBaraClass() {
         head=nullptr;
         count=0;
     };
-    void Add(int element) {
+    // конструктор с параметром (параметр конструктора 
+    // – количество элементов компонентного массива), 
+    DinoBaraClass(int size) {
+        head = nullptr;
+        count = 0;
+
+     };
+    // конструктор копирования. 
+
+ 
+    // Кроме того в состав компонентных функций 
+    // класса должен входить деструктор.
+    ~DinoBaraClass() {
+        node* current = head;
+        while (current) {
+            node* prevCurrent = current;
+            current = current->next;
+            delete prevCurrent;
+        }
+    };
+    void author() {
+        cout << endl << "Русаков А.М.";
+    }
+    int genNum() {
+        // генерация целых чисел https://codelessons.dev/ru/rand-in-cplusplus/
+        int start = 0;
+        int end = 100;
+        int num = rand() % (end - start + 1) + start;  // формула  0..100
+        start = 0;
+        end = 1;
+        int x = rand() % (end - start + 1) + start; //смена знака -100..100
+        if (x == 0)
+            num *= -1;   // -1 или +1
+        return num;
+    };
+    /// <summary>
+    /// Функция добавления элемента (в начало списка)
+    /// </summary>
+    /// <param name="element">значение (целое числое)</param>
+    void addElement(int element) 
+    {
         if (count == 0) {
             head = new node;
             head->data = element;
             head->next = nullptr;
-            
         }
         else {
             node* tmpPoint = head;
@@ -32,8 +78,8 @@ public:
             head->data = element;
         }
         count++;
-    };
-    void Edit(int pos, int data) {
+    }
+    void setElement(int pos, int data) {
         if (count > 0)
             if ((pos >= 0) and (pos < count))
             {
@@ -70,7 +116,7 @@ public:
             }
         return element;
     }
-    void Del(int pos) {
+    void delElement(int pos) {
         if (count > 0)
             if ((pos >= 0) and (pos < count))
             {
@@ -96,6 +142,7 @@ public:
                 count--;
             }
     }
+    // компонентную функцию для вывода на экран содержимого объекта;
     void display() {
         node* current = head;
         cout << endl << "__Display";
@@ -104,8 +151,13 @@ public:
             current = current->next;
         }
     }
+    int getSize() {
+        return count;
+    }
 private:
+    // Компонентные данные класса 
+    // должны быть размещены в закрытой части класса.
     node* head;
-    int count;
+    int count;  // количество элементов
 };
 

@@ -30,11 +30,17 @@ public:
     DinoBaraClass(int size) {
         head = nullptr;
         count = 0;
-
+        for (int i = 0; i < size; i++)
+            addElement(genNum());
      };
     // конструктор копирования. 
-
- 
+    DinoBaraClass( DinoBaraClass &_other)
+    {
+        head = nullptr;
+        count = 0;
+        for (int i = 0; i < _other.count; i++)
+            addElement(_other.getElement(i));
+    }
     // Кроме того в состав компонентных функций 
     // класса должен входить деструктор.
     ~DinoBaraClass() {
@@ -49,16 +55,15 @@ public:
         cout << endl << "Русаков А.М.";
     }
     int genNum() {
-        // генерация целых чисел https://codelessons.dev/ru/rand-in-cplusplus/
-        int start = 0;
-        int end = 100;
-        int num = rand() % (end - start + 1) + start;  // формула  0..100
-        start = 0;
-        end = 1;
-        int x = rand() % (end - start + 1) + start; //смена знака -100..100
-        if (x == 0)
-            num *= -1;   // -1 или +1
-        return num;
+        // генерация целых чисел 
+        // https://learn.microsoft.com/ru-ru/cpp/c-runtime-library/reference/rand
+        // fail числа одинаковые ;(
+        //srand(time(NULL)); // !!! не помогло
+        int range_min = -101;
+        int range_max = 101;
+        //int num = rand() % (end - start + 1) + start;  // формула  0..100
+        int num = ((double)rand() / RAND_MAX) * (range_max - range_min) + range_min;
+        return num;  // -100..100
     };
     /// <summary>
     /// Функция добавления элемента (в начало списка)
@@ -160,4 +165,3 @@ private:
     node* head;
     int count;  // количество элементов
 };
-

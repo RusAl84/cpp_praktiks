@@ -28,26 +28,36 @@ int main()
     cout << "Практическая работа 1\n";
     //Разработать класс, моделирующий 
     //динамический массив целых чисел и его обработку
-    DinoBaraClass* d1 = new DinoBaraClass();
-    d1->addElement(1);            
-    d1->addElement(9);
-    d1->addElement(8);
-    d1->addElement(4);
-    d1->display();
-    d1->delElement(3);
-    d1->display();
-    d1->delElement(2);
-    d1->display();
-    d1->delElement(1);
-    d1->display();
-    d1->delElement(0);
-    d1->display();
+    //DinoBaraClass* d1 = new DinoBaraClass();
+    //d1->addElement(1);            
+    //d1->addElement(9);
+    //d1->addElement(8);
+    //d1->addElement(4);
+    //d1->display();
+    //d1->delElement(3);
+    //d1->display();
+    //d1->delElement(2);
+    //d1->display();
+    //d1->delElement(1);
+    //d1->display();
+    //d1->delElement(0);
+    //d1->display();
     //cout << endl << "Елемент 0 = " << d1->getElement(0);
     //d1->Edit(2, 777);
     //cout << endl << "Елемент 2 = " << d1->getElement(2);
     //d1->display();
 
+    //проверка записи в файл
+    DinoBaraClass* d1 = new DinoBaraClass();
+    write2file(d1);
 
-    delete d1;
+    //проверка конструктора копирования
+    DinoBaraClass* d2 = new DinoBaraClass(23);
+    DinoBaraClass d3 = *d2;
+    d3.display();
+
+
+    
+    delete d2;
 }
 

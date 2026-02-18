@@ -28,27 +28,27 @@ int main()
     cout << "Практическая работа 1\n";
     //Разработать класс, моделирующий 
     //динамический массив целых чисел и его обработку
-    //DinoBaraClass* d1 = new DinoBaraClass();
-    //d1->addElement(1);            
-    //d1->addElement(9);
-    //d1->addElement(8);
-    //d1->addElement(4);
-    //d1->display();
-    //d1->delElement(3);
-    //d1->display();
-    //d1->delElement(2);
-    //d1->display();
-    //d1->delElement(1);
-    //d1->display();
-    //d1->delElement(0);
-    //d1->display();
-    //cout << endl << "Елемент 0 = " << d1->getElement(0);
-    //d1->Edit(2, 777);
-    //cout << endl << "Елемент 2 = " << d1->getElement(2);
-    //d1->display();
+    DinoBaraClass* d0 = new DinoBaraClass();
+    d0->addElement(1);            
+    d0->addElement(9);
+    d0->addElement(8);
+    d0->addElement(4);
+    d0->display();
+    d0->delElement(3);
+    d0->display();
+    d0->delElement(2);
+    d0->display();
+    d0->delElement(1);
+    d0->display();
+    d0->delElement(0);
+    d0->display();
+    cout << endl << "Елемент 0 = " << d0->getElement(0);
+    d0->setElement(2, 777);
+    cout << endl << "Елемент 2 = " << d0->getElement(2);
+    d0->display();
 
     //проверка записи в файл
-    DinoBaraClass* d1 = new DinoBaraClass();
+    DinoBaraClass* d1 = new DinoBaraClass(33);
     write2file(d1);
 
     //проверка конструктора копирования

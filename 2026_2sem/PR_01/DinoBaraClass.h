@@ -21,7 +21,7 @@ class DinoBaraClass
 {
 public:
     // Класс должен содержать конструктор по умолчанию, 
-        DinoBaraClass() {
+    DinoBaraClass() {
         head=nullptr;
         count=0;
     };
@@ -68,21 +68,69 @@ public:
     /// <summary>
     /// Функция добавления элемента (в начало списка)
     /// </summary>
-    /// <param name="element">значение (целое числое)</param>
-    void addElement(int element) 
+    /// <param name="data">значение (целое числое)</param>
+    void addElement(int data)
     {
         if (count == 0) {
             head = new node;
-            head->data = element;
+            head->data = data;
             head->next = nullptr;
         }
         else {
             node* tmpPoint = head;
             head = new node;
             head->next = tmpPoint;
-            head->data = element;
+            head->data = data;
         }
         count++;
+    }
+    /// <summary>
+    /// Вставить элемент в дин. массив
+    /// </summary>
+    /// <param name="pos">позиция</param>
+    /// <param name="data">значение</param>
+    void insertElement(int pos, int data) {
+        if (count > 0)
+            if ((pos >= 0) and (pos <= count))
+            {
+                if (pos == 0) {
+                    node* tmpPoint = head;
+                    head = new node;
+                    head->next = tmpPoint;
+                    head->data = data;
+                }
+                if ((pos > 0) and (pos < count)) {
+                    int ind = 0;
+                    node* current = head;
+                    node* prev = nullptr;
+                    while(current) {
+                        if (ind == pos) {
+                            node* tmpPoint = new node;
+                            tmpPoint->next = current;
+                            tmpPoint->data = data;
+                            prev->next = tmpPoint;
+                            break;
+                        }
+                        prev = current;
+                        current = current->next;
+                        ind++;
+                    }
+                }
+                if (pos == count) {
+                    node* current = head;
+                    node* prev = nullptr;
+                    while (current) {
+                        prev = current;
+                        current = current->next;
+                    }
+                    node* tmpPoint = new node;
+                    tmpPoint->next = nullptr;
+                    tmpPoint->data = data;
+                    prev->next = tmpPoint;
+                }
+                count++;
+            }
+
     }
     void setElement(int pos, int data) {
         if (count > 0)

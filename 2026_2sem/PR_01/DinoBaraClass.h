@@ -19,6 +19,11 @@ public:
 // класс динамического массива
 class DinoBaraClass
 {
+private:
+    // Компонентные данные класса 
+    // должны быть размещены в закрытой части класса.
+    node* head;
+    int count;  // количество элементов
 public:
     // Класс должен содержать конструктор по умолчанию, 
     DinoBaraClass() {
@@ -31,7 +36,7 @@ public:
         head = nullptr;
         count = 0;
         for (int i = 0; i < size; i++)
-            addElement(genNum());
+            addElementFront(genNum());
      };
     // конструктор копирования. 
     DinoBaraClass( DinoBaraClass &_other)
@@ -39,7 +44,7 @@ public:
         head = nullptr;
         count = 0;
         for (int i = 0; i < _other.count; i++)
-            addElement(_other.getElement(i));
+            addElementFront(_other.getElement(i));
     }
     // Кроме того в состав компонентных функций 
     // класса должен входить деструктор.
@@ -69,7 +74,7 @@ public:
     /// Функция добавления элемента (в начало списка)
     /// </summary>
     /// <param name="data">значение (целое числое)</param>
-    void addElement(int data)
+    void addElementFront(int data)
     {
         if (count == 0) {
             head = new node;
@@ -84,6 +89,27 @@ public:
         }
         count++;
     }
+    void addElementRear(int data) {
+        if (count == 0) {
+            head = new node;
+            head->data = data;
+            head->next = nullptr;
+        }
+        else {
+        node* current = head;
+        node* prev = nullptr;
+        while (current) {
+            prev = current;
+            current = current->next;
+        }
+        node* tmpPoint = new node;
+        tmpPoint->next = nullptr;
+        tmpPoint->data = data;
+        prev->next = tmpPoint;
+        }
+        count++;
+    }
+
     /// <summary>
     /// Вставить элемент в дин. массив
     /// </summary>
@@ -94,10 +120,7 @@ public:
             if ((pos >= 0) and (pos <= count))
             {
                 if (pos == 0) {
-                    node* tmpPoint = head;
-                    head = new node;
-                    head->next = tmpPoint;
-                    head->data = data;
+                    addElementFront(data);
                 }
                 if ((pos > 0) and (pos < count)) {
                     int ind = 0;
@@ -115,20 +138,12 @@ public:
                         current = current->next;
                         ind++;
                     }
+                    count++;
                 }
                 if (pos == count) {
-                    node* current = head;
-                    node* prev = nullptr;
-                    while (current) {
-                        prev = current;
-                        current = current->next;
-                    }
-                    node* tmpPoint = new node;
-                    tmpPoint->next = nullptr;
-                    tmpPoint->data = data;
-                    prev->next = tmpPoint;
+                    addElementRear(data);
                 }
-                count++;
+                
             }
 
     }
@@ -207,9 +222,4 @@ public:
     int getSize() {
         return count;
     }
-private:
-    // Компонентные данные класса 
-    // должны быть размещены в закрытой части класса.
-    node* head;
-    int count;  // количество элементов
 };

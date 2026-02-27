@@ -22,8 +22,8 @@ class DinoBaraClass
 private:
     // Компонентные данные класса 
     // должны быть размещены в закрытой части класса.
-    node* head;
-    int count;  // количество элементов
+    node* head; // указатель на первый элемент
+    int count;  // счетчик - количество элементов
 public:
     // Класс должен содержать конструктор по умолчанию, 
     DinoBaraClass() {
@@ -44,16 +44,18 @@ public:
         head = nullptr;
         count = 0;
         for (int i = 0; i < _other.count; i++)
-            addElementFront(_other.getElement(i));
+            addElementRear(_other.getElement(i));
+            //addElementFront(genNum());
     }
     // Кроме того в состав компонентных функций 
     // класса должен входить деструктор.
     ~DinoBaraClass() {
         node* current = head;
+        node* prev = nullptr;
         while (current) {
-            node* prevCurrent = current;
+            prev = current;
             current = current->next;
-            delete prevCurrent;
+            delete prev;
         }
     };
     /// <summary>
@@ -109,10 +111,10 @@ public:
             prev = current;
             current = current->next;
         }
-        node* tmpPoint = new node;
-        tmpPoint->next = nullptr;
-        tmpPoint->data = _data;
-        prev->next = tmpPoint;
+        node* tmpNode = new node; // создаю временный узел
+        tmpNode->next = nullptr;
+        tmpNode->data = _data;
+        prev->next = tmpNode;
         }
         count++;
     }

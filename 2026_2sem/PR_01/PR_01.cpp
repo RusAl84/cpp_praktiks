@@ -28,7 +28,13 @@ int main()
     cout << "Практическая работа 1\n";
     //Разработать класс, моделирующий 
     //динамический массив целых чисел и его обработку
-
+    DinoBaraClass* dino0 = new DinoBaraClass();
+    DinoBaraClass dino1;
+    DinoBaraClass dino2(5);
+    dino2.setElement(0, 888);
+    dino2.display();
+    DinoBaraClass dino8 = dino2;
+    dino8.display();
     //DinoBaraClass* d0 = new DinoBaraClass();
     //d0->addElement(1);            
     //d0->addElement(9);
@@ -57,17 +63,17 @@ int main()
     //DinoBaraClass d3 = *d2;
     //d3.display();
 
-    DinoBaraClass* d4 = new DinoBaraClass(5);
-    d4->display();
-    d4->insertElement(0, 0);
-    d4->insertElement(3, 333);
-    d4->insertElement(5, 666);
-    d4->display();
-    cout << endl << "d4->getSize() =  " << d4->getSize();
-    d4->insertElement(8, 777);
-    d4->insertElement(9, 888);
+    //DinoBaraClass* d4 = new DinoBaraClass(5);
+    //d4->display();
+    //d4->insertElement(0, 0);
+    //d4->insertElement(3, 333);
+    //d4->insertElement(5, 666);
+    //d4->display();
+    //cout << endl << "d4->getSize() =  " << d4->getSize();
+    //d4->insertElement(8, 777);
+    //d4->insertElement(9, 888);
 
-    d4->display();
+    //d4->display();
 
 
     //delete d2;

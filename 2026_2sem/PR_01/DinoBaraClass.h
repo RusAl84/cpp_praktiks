@@ -231,4 +231,40 @@ public:
     int getSize() {
         return count;
     }
+    bool operator=(const DinoBaraClass& _other) 
+    {
+        // очистка текущего массива ( this->)
+        node* current = this->head;
+        node* prev = nullptr;
+        while (current) {
+            prev = current;
+            current = current->next;
+            delete prev;
+        }
+        this->count = 0;
+        // копирование элементов
+        current = _other.head;
+        while (current) {
+            this->addElementRear(current->data);
+            current = current->next;
+        }
+        return true; //return head == other.head && count == other.count;
+    }
+    DinoBaraClass operator^(int _stepen) {
+        cout << endl<< endl<<"NIKA i NINA i LENA (belosnezhka tozhe) ne s'eli KAPI";
+        node* current = this->head;
+        int index = 0;
+        while (current) {
+            if (index % 2 == 1)
+            {
+                int tmp = current->data;
+                current->data = pow(tmp, _stepen);
+            }
+            current = current->next;
+            index++;
+        }
+        return *this;
+    }
+    
+
 };

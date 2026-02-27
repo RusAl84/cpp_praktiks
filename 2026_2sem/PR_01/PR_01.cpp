@@ -28,13 +28,14 @@ int main()
     cout << "Практическая работа 1\n";
     //Разработать класс, моделирующий 
     //динамический массив целых чисел и его обработку
-    DinoBaraClass* dino0 = new DinoBaraClass();
-    DinoBaraClass dino1;
-    DinoBaraClass dino2(5);
-    dino2.setElement(0, 888);
-    dino2.display();
-    DinoBaraClass dino8 = dino2;
-    dino8.display();
+            //DinoBaraClass* dino0 = new DinoBaraClass();
+            //DinoBaraClass dino1;
+            //DinoBaraClass dino2(5);
+            //dino2.setElement(0, 888);
+            //dino2.display();
+            //DinoBaraClass dino8 = dino2;
+            //dino8.display();
+
     //DinoBaraClass* d0 = new DinoBaraClass();
     //d0->addElement(1);            
     //d0->addElement(9);
@@ -75,7 +76,28 @@ int main()
 
     //d4->display();
 
+    // проверка 
+    // перегруженную операцию присваивания operator=();
+    //DinoBaraClass d71(3);
+    //DinoBaraClass d72(4);
+    //cout << "d1";
+    //d71.display();
+    //cout << endl << "d2";
+    //d72.display();
+    //d71 = d72;
+    //cout << endl << "--------- d71 = d72" << endl << "d1";
+    //d71.display();
+    //cout << endl << "d2";
+    //d72.display();
+    
+    // проверка 
+    // перегруженную операцию  Вариант 25
+    // 2 ^  Возведение в степень нечетных элементов 
+    // компонентного массива. Показатель степени – правый операнд
 
-    //delete d2;
+    DinoBaraClass d88(19);
+    d88.display();
+    d88 ^ 3;
+    d88.display();
 }
 

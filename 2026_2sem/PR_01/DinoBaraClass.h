@@ -32,14 +32,14 @@ public:
     };
     // конструктор с параметром (параметр конструктора 
     // – количество элементов компонентного массива), 
-    DinoBaraClass(int size) {
+    DinoBaraClass(int _size) {
         head = nullptr;
         count = 0;
-        for (int i = 0; i < size; i++)
+        for (int i = 0; i < _size; i++)
             addElementFront(genNum());
      };
     // конструктор копирования. 
-    DinoBaraClass( DinoBaraClass &_other)
+    DinoBaraClass(DinoBaraClass &_other)
     {
         head = nullptr;
         count = 0;
@@ -56,18 +56,25 @@ public:
             delete prevCurrent;
         }
     };
+    /// <summary>
+    /// Информация об авторе
+    /// </summary>
     void author() {
         cout << endl << "Русаков А.М.";
     }
+    /// <summary>
+    /// Генерация целых чисел
+    /// </summary>
+    /// <returns>Целое число -100..100</returns>
     int genNum() {
         // генерация целых чисел 
         // https://learn.microsoft.com/ru-ru/cpp/c-runtime-library/reference/rand
         // fail числа одинаковые ;(
         //srand(time(NULL)); // !!! не помогло
-        int range_min = -101;
-        int range_max = 101;
+        int rangeMin = -101;
+        int rangeMax = 101;
         //int num = rand() % (end - start + 1) + start;  // формула  0..100
-        int num = ((double)rand() / RAND_MAX) * (range_max - range_min) + range_min;
+        int num = ((double)rand() / RAND_MAX) * (rangeMax - rangeMin) + rangeMin;
         return num;  // -100..100
     };
     /// <summary>
@@ -89,10 +96,10 @@ public:
         }
         count++;
     }
-    void addElementRear(int data) {
+    void addElementRear(int _data) {
         if (count == 0) {
             head = new node;
-            head->data = data;
+            head->data = _data;
             head->next = nullptr;
         }
         else {
@@ -104,7 +111,7 @@ public:
         }
         node* tmpPoint = new node;
         tmpPoint->next = nullptr;
-        tmpPoint->data = data;
+        tmpPoint->data = _data;
         prev->next = tmpPoint;
         }
         count++;
@@ -162,17 +169,17 @@ public:
                 }
             }
     }
-    int getElement(int pos)                        
+    int getElement(int _pos)                        
     {
-        int element = 0;                        
+        int element = -1;                        
         if (count>0)                        
-            if ((pos >= 0) and (pos < count))                        
+            if ((_pos >= 0) and (_pos < count))                        
             {                        
                 node* current = head;
                 //cout << endl << "__Element:  ";
                 int ind = 0;
                 while (current) {
-                    if (ind==pos)
+                    if (ind==_pos)
                     {
                         element = current->data;
                         //cout << element;
@@ -184,22 +191,22 @@ public:
             }
         return element;
     }
-    void delElement(int pos) {
+    void delElement(int _pos) {
         if (count > 0)
-            if ((pos >= 0) and (pos < count))
+            if ((_pos >= 0) and (_pos < count))
             {
                 int ind = 0;
                 node* current = head;
-                node* prev_current = nullptr;
+                node* prev = nullptr;
                 if (count>1)
                     while (current) {
-                        if (ind == pos) {
+                        if (ind == _pos) {
                             node* tmpPoint = current;
-                            prev_current->next = current->next;
+                            prev->next = current->next;
                             delete tmpPoint;
                             break;
                         }
-                        prev_current = current;
+                        prev  = current;
                         current = current->next;
                         ind++;
                     }

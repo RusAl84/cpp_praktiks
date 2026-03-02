@@ -125,7 +125,7 @@ public:
     /// <param name="pos">позиция</param>
     /// <param name="data">значение</param>
     void insertElement(int pos, int data) {
-        if (count > 0)
+        if (count > 0) // if (head)
             if ((pos >= 0) and (pos <= count))
             {
                 if (pos == 0) {
@@ -265,6 +265,96 @@ public:
         }
         return *this;
     }
-    
+    // 24 вариант 
+    bool operator<(const DinoBaraClass& _other)
+    {
+        node *curent  = this->head;
+        int _count = 0;
+        int sum = 0;
+        //d91 = -61, 12, -100
+        while (curent) {
+            _count++;
+            sum += curent->data;
+            curent = curent->next;
+        }
+        float _average1 = sum / _count;
 
+        curent = _other.head;
+        _count = 0;
+        sum = 0;
+        //d91 = -61, 12, -100
+        while (curent) {
+            _count++;
+            sum += curent->data;
+            curent = curent->next;
+        }
+        float _average2 = sum / _count;
+        if (_average1 < _average2)
+            return true;
+        else
+            return false;
+    }
+
+    // 18 вариант
+    // Поэлементное деление элементов 
+    // компонентных массивов c четными номерами
+    DinoBaraClass operator/( DinoBaraClass& _other) {
+        cout << endl <<"MegaKate Alpha SIGAMA";
+        node* current = this->head;
+        int index = 0;
+        while (current) {
+            if (index % 2 == 0)  // четные
+            {
+                int tmp = _other.getElement(index);
+                current->data = current->data / tmp;
+            }
+            current = current->next;
+            index++;
+        }
+        return *this;
+    }
+    // 23
+    // Сортировка элементов компонентного массива по убыванию
+    void sortDesc() {
+        int n = getSize();
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                //    v[j] = v[j + 1]
+                //    v[j + 1] = tmp;
+                if (getElement(j)< getElement(j+1)){  //if (v[j] > v[j + 1])
+                    int tmp = getElement(j); //    int tmp = v[j];
+                    setElement(j, getElement(j + 1));//    v[j] = v[j + 1]
+                    setElement(j+1, tmp);//    v[j + 1] = tmp;
+                    }
+            }
+        }
+    }
+    void sortAsc() {
+        int n = getSize();
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                //    v[j] = v[j + 1]
+                //    v[j + 1] = tmp;
+                if (getElement(j) > getElement(j + 1)) {  //if (v[j] > v[j + 1])
+                    int tmp = getElement(j); //    int tmp = v[j];
+                    setElement(j, getElement(j + 1));//    v[j] = v[j + 1]
+                    setElement(j + 1, tmp);//    v[j + 1] = tmp;
+                }
+            }
+        }
+    }
+    // 3 
+    // Поэлементное про-изведение элементов компонентных 
+    // массивов с нечетными номерами
+    DinoBaraClass operator*(DinoBaraClass& _other) {
+        node* current = this->head;
+        int index = 0;
+        while (current) {
+            int tmp = _other.getElement(index);
+            current->data = current->data * tmp;
+            current = current->next;
+            index++;
+        }
+        return *this;
+    }
 };

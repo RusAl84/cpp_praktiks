@@ -95,9 +95,42 @@ int main()
     // 2 ^  Возведение в степень нечетных элементов 
     // компонентного массива. Показатель степени – правый операнд
 
-    DinoBaraClass d88(19);
-    d88.display();
-    d88 ^ 3;
-    d88.display();
+    //DinoBaraClass d88(19);
+    //d88.display();
+    //d88 ^ 3;
+    //d88.display();
+   
+    // 24 
+    //DinoBaraClass d91(3);
+    //d91.display();
+    //DinoBaraClass d92(3);
+    //d92.display();
+    ////DinoBaraClass *d93 = new DinoBaraClass(4);
+    ////d93->display();
+    //cout << "Mega Ira ne s'ela Ezhika = ";
+    //bool b1 = d91 < d92;
+    //cout << b1;
+
+    // 18
+    //DinoBaraClass d991(3);
+    //d991.display();
+    //DinoBaraClass d992(3);
+    //d992.display();
+    //DinoBaraClass d993 = d991 / d992;
+    //d993.display();
+
+    // 23
+    DinoBaraClass d995(7);
+    d995.display();
+    d995.sortDesc();
+    d995.display();
+
+    // 3
+    DinoBaraClass d996(7);
+    d996.display();
+    DinoBaraClass d997(7);
+    d997.display();
+    DinoBaraClass d998 = d996 * d997;
+    d998.display();
 }
 

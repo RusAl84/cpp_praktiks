@@ -346,14 +346,64 @@ public:
     // 3 
     // Поэлементное про-изведение элементов компонентных 
     // массивов с нечетными номерами
-    DinoBaraClass operator*(DinoBaraClass& _other) {
+    //DinoBaraClass operator*(DinoBaraClass& _other) {
+    //    node* current = this->head;
+    //    int index = 0;
+    //    while (current) {
+    //        int tmp = _other.getElement(index);
+    //        current->data = current->data * tmp;
+    //        current = current->next;
+    //        index++;
+    //    }
+    //    return *this;
+    //}
+    // 16
+    // Изменение знака минимального элемента 
+    // компонентного массива на противоположный
+    DinoBaraClass operator!() {
+        if (count>1){
+            cout << endl << "MegaAngelina Sigma!!!" << endl;
+            int min = this->head->data;
+            node* current = this->head;
+            while (current) {
+                if (current->data < min)
+                    min = current->data;
+                current = current->next;
+            }
+            cout << "Minimalniy element = " << min;
+            current = this->head;
+            while (current) {
+                if (current->data == min)
+                    current->data=(-1)* current->data;
+                current = current->next;
+            }
+        }
+            return *this;
+    }
+    // 2
+    // Произведение положительных 
+    // элементов компонентного массива
+    //float operator*() {
+    //    float _multiplication = 1;
+    //    if (count > 1) {
+    //        cout << endl << "MegaPolina THe BEST!!!" << endl;
+    //        node* current = this->head;
+    //        while (current) {
+    //            if (current->data > 0)
+    //                _multiplication *= current->data;
+    //            current = current->next;
+    //        }
+    //    }
+    //    return _multiplication;
+    //}
+    // 5
+    // Изменение знака элементов компонентного 
+    // массива на противоположный
+    DinoBaraClass operator*() {
         node* current = this->head;
-        int index = 0;
         while (current) {
-            int tmp = _other.getElement(index);
-            current->data = current->data * tmp;
+            current->data = current->data * (-1);
             current = current->next;
-            index++;
         }
         return *this;
     }

@@ -120,17 +120,33 @@ int main()
     //d993.display();
 
     // 23
-    DinoBaraClass d995(7);
-    d995.display();
-    d995.sortDesc();
-    d995.display();
+    //DinoBaraClass d995(7);
+    //d995.display();
+    //d995.sortDesc();
+    //d995.display();
 
     // 3
-    DinoBaraClass d996(7);
-    d996.display();
-    DinoBaraClass d997(7);
-    d997.display();
-    DinoBaraClass d998 = d996 * d997;
-    d998.display();
+    //DinoBaraClass d996(7);
+    //d996.display();
+    //DinoBaraClass d997(7);
+    //d997.display();
+    //DinoBaraClass d998 = d996 * d997;
+    //d998.display();
+
+    //16
+    //DinoBaraClass d999(7);
+    //d999.display();
+    //DinoBaraClass d900=!d999;
+    //d900.display();
+    //2
+    //DinoBaraClass d9990(7);
+    //d9990.display();
+    //float _multiplication = *d9990;
+    //cout <<endl<< "Произведение " << _multiplication;
+    //5
+    DinoBaraClass d2002(7);
+    d2002.display();
+    *d2002;
+    d2002.display();
 }
 

@@ -18,8 +18,6 @@ void write2file(DinoBaraClass* dMas) {
     }
 }
 
-
-
 int main()
 {
     setlocale(LC_ALL, "Russian");
@@ -144,9 +142,19 @@ int main()
     //float _multiplication = *d9990;
     //cout <<endl<< "Произведение " << _multiplication;
     //5
-    DinoBaraClass d2002(7);
-    d2002.display();
-    *d2002;
-    d2002.display();
+    //DinoBaraClass d2002(7);
+    //d2002.display();
+    //*d2002;
+    //d2002.display();
+    //16 friend
+    //DinoBaraClass d2003(7);
+    //d2003.display();
+    //d2003 / 8;
+    //d2003.display();
+    //2 fiend
+    DinoBaraClass d2004(7);
+    d2004.display();
+    ~d2004;
+    d2004.display();
 }
 

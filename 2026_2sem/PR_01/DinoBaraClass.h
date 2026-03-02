@@ -75,8 +75,9 @@ public:
         //srand(time(NULL)); // !!! не помогло
         int rangeMin = -101;
         int rangeMax = 101;
+        double r = rand();
         //int num = rand() % (end - start + 1) + start;  // формула  0..100
-        int num = ((double)rand() / RAND_MAX) * (rangeMax - rangeMin) + rangeMin;
+        int num = ((double) r / RAND_MAX) * (rangeMax - rangeMin) + rangeMin;
         return num;  // -100..100
     };
     /// <summary>
@@ -407,4 +408,30 @@ public:
         }
         return *this;
     }
+    //16
+    friend void operator/(DinoBaraClass& _other, int num);
+    //16
+    friend void operator~(DinoBaraClass& _other);
 };
+
+
+//16
+// Целочисленное деление отрицательных 
+// элементов компонентного массива на число
+ void operator/(DinoBaraClass& _other, int num) {
+     node* current = _other.head;
+     while (current) {
+         current->data /= num;
+         current = current->next;
+     }
+ };
+ // 2
+ // Изменение порядка следования элементов 
+ // компонентного массива на противоположный     
+ void operator~(DinoBaraClass& _other) {
+     for (int i = 0; i < _other.count / 2; i++) {
+         int tmp = _other.getElement(i);
+         _other.setElement(i, _other.getElement(_other.count - i - 1));
+         _other.setElement(_other.count - i - 1, tmp);
+     }
+ };

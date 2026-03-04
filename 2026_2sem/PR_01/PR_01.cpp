@@ -186,12 +186,21 @@ int main()
     //13
     // Изменение знака элементов компонентного 
     // массива с нечетными номерами на противоположный
-    DinoBaraClass megaVarvara(7);
-    megaVarvara.display();
-    !megaVarvara;
-    megaVarvara.display();
-    megaVarvara*2;
-    megaVarvara.display();
+    //DinoBaraClass megaVarvara(7);
+    //megaVarvara.display();
+    //!megaVarvara;
+    //megaVarvara.display();
+    //megaVarvara*8;
+    //megaVarvara.display();
+
+    // 5
+    //Изменение знака элементов 
+    // компонентного массива на противоположный
+    DinoBaraClass yarik(3);
+    yarik.display();
+    - yarik;
+    yarik.display();
+
 
 }
 

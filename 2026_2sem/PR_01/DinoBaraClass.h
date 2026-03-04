@@ -470,7 +470,18 @@ public:
         }
         return *this;
     }
-
+    // 5
+    // Изменение знака элементов компонентного 
+    // массива на противоположный
+    DinoBaraClass operator-() {
+        cout << "Yarik samec!";
+        node* curent = head;
+        while (curent) {
+                curent->data = curent->data * (-1);
+                curent = curent->next;
+        }
+        return *this;
+    }
 
 
     //16
@@ -479,9 +490,9 @@ public:
     friend void operator~(DinoBaraClass& _other);
     //9 -
     // Поэлементное вычитание числа из компонентного массива
-    friend void operator-(DinoBaraClass& _other, int num);
+    //friend void operator-(DinoBaraClass& _other, int num);
     //13 
-    friend void operator*(DinoBaraClass& _other, int num);
+    //friend void operator*(DinoBaraClass& _other, int num);
 };
 
 
@@ -507,19 +518,19 @@ public:
  };
  //9 -
 // Поэлементное вычитание числа из компонентного массива
- void operator-(DinoBaraClass& _other, int num) {
-     node* current = _other.head;
-     while (current) {
-         current->data -= num;
-         current = current->next;
-     }
- };
+ //void operator-(DinoBaraClass& _other, int num) {
+ //    node* current = _other.head;
+ //    while (current) {
+ //        current->data -= num;
+ //        current = current->next;
+ //    }
+ //};
  //13 *
 // Поэлементное умножение компонентного массива на число
- void operator*(DinoBaraClass& _other, int num) {
-     node* current = _other.head;
-     while (current) {
-         current->data *= num;
-         current = current->next;
-     }
- };
+ //void operator*(DinoBaraClass& _other, int num) {
+ //    node* current = _other.head;
+ //    while (current) {
+ //        current->data *= num;
+ //        current = current->next;
+ //    }
+ //};

@@ -177,19 +177,21 @@ int main()
     //d1001.display();
     // 9
     // Инкремент элементов компонентного массива с нечетны-ми номерами
-    DinoBaraClass megaAlisa(7);
-    megaAlisa.display();
-    megaAlisa++;
-    megaAlisa.display();
-    megaAlisa-500;
-    megaAlisa.display();
+    //DinoBaraClass megaAlisa(7);
+    //megaAlisa.display();
+    //megaAlisa++;
+    //megaAlisa.display();
+    //megaAlisa-500;
+    //megaAlisa.display();
     //13
     // Изменение знака элементов компонентного 
     // массива с нечетными номерами на противоположный
-    //DinoBaraClass megaVarvara(7);
-    //megaVarvara.display();
-    //!megaVarvara;
-    //megaVarvara.display();
+    DinoBaraClass megaVarvara(7);
+    megaVarvara.display();
+    !megaVarvara;
+    megaVarvara.display();
+    megaVarvara*2;
+    megaVarvara.display();
 
 }
 

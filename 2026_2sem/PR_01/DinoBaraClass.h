@@ -480,6 +480,8 @@ public:
     //9 -
     // Поэлементное вычитание числа из компонентного массива
     friend void operator-(DinoBaraClass& _other, int num);
+    //13 
+    friend void operator*(DinoBaraClass& _other, int num);
 };
 
 
@@ -509,6 +511,15 @@ public:
      node* current = _other.head;
      while (current) {
          current->data -= num;
+         current = current->next;
+     }
+ };
+ //13 *
+// Поэлементное умножение компонентного массива на число
+ void operator*(DinoBaraClass& _other, int num) {
+     node* current = _other.head;
+     while (current) {
+         current->data *= num;
          current = current->next;
      }
  };

@@ -414,18 +414,18 @@ public:
     //10
     // Поэлементное вычитание элементов 
     // компонентных массивов с нечетными номерами
-    DinoBaraClass operator-(int _deductible) {
-        cout << endl << endl << "MegaNastya THE BEST!";
-        node* current = this->head;
-        int index = 0;
-        while (current) {
-            if (index % 2 == 1) // нечетный элемент
-                current->data = current->data - _deductible;
-            current = current->next;
-            index++;
-        }
-        return *this;
-    }
+    //DinoBaraClass operator-(int _deductible) {
+    //    cout << endl << endl << "MegaNastya THE BEST!";
+    //    node* current = this->head;
+    //    int index = 0;
+    //    while (current) {
+    //        if (index % 2 == 1) // нечетный элемент
+    //            current->data = current->data - _deductible;
+    //        current = current->next;
+    //        index++;
+    //    }
+    //    return *this;
+    //}
     //20
     // Изменение знака элементов 
     // компонентного массива с нечетными 
@@ -443,7 +443,7 @@ public:
     //    return *this;
     //}
     // 9
-    DinoBaraClass operator++(int) {
+    DinoBaraClass operator++(int num) {
         cout << "megaAlisa Alpha the BEST";
         node* curent = head;
         int index = 0;
@@ -477,6 +477,9 @@ public:
     friend void operator/(DinoBaraClass& _other, int num);
     //2
     friend void operator~(DinoBaraClass& _other);
+    //9 -
+    // Поэлементное вычитание числа из компонентного массива
+    friend void operator-(DinoBaraClass& _other, int num);
 };
 
 
@@ -498,5 +501,14 @@ public:
          int tmp = _other.getElement(i);
          _other.setElement(i, _other.getElement(_other.count - i - 1));
          _other.setElement(_other.count - i - 1, tmp);
+     }
+ };
+ //9 -
+// Поэлементное вычитание числа из компонентного массива
+ void operator-(DinoBaraClass& _other, int num) {
+     node* current = _other.head;
+     while (current) {
+         current->data -= num;
+         current = current->next;
      }
  };

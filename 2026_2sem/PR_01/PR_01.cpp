@@ -181,13 +181,15 @@ int main()
     megaAlisa.display();
     megaAlisa++;
     megaAlisa.display();
+    megaAlisa-500;
+    megaAlisa.display();
     //13
     // Изменение знака элементов компонентного 
     // массива с нечетными номерами на противоположный
-    DinoBaraClass megaVarvara = megaAlisa;
-    megaVarvara.display();
-    !megaVarvara;
-    megaVarvara.display();
+    //DinoBaraClass megaVarvara(7);
+    //megaVarvara.display();
+    //!megaVarvara;
+    //megaVarvara.display();
 
 }
 

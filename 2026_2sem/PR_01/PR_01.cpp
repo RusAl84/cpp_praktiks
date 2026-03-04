@@ -92,8 +92,7 @@ int main()
     // перегруженную операцию  Вариант 25
     // 2 ^  Возведение в степень нечетных элементов 
     // компонентного массива. Показатель степени – правый операнд
-
-    //DinoBaraClass d88(19);
+    //DinoBaraClass d88(15);
     //d88.display();
     //d88 ^ 3;
     //d88.display();
@@ -152,9 +151,21 @@ int main()
     //d2003 / 8;
     //d2003.display();
     //2 fiend
-    DinoBaraClass d2004(7);
-    d2004.display();
-    ~d2004;
-    d2004.display();
+    //DinoBaraClass d2004(7);
+    //d2004.display();
+    //~d2004;
+    //d2004.display();
+
+    // Настя проверка конструктора копирования
+    //DinoBaraClass d10(5);
+    //DinoBaraClass d11=d10;
+    //d10.display();
+    //d11.display();
+    
+    // Настя 10 вариант
+    DinoBaraClass d1000(10);
+    d1000.display();
+    d1000=d1000 - 200;
+    d1000.display();
 }
 

@@ -7,7 +7,6 @@ using namespace std;
 
 //Структура для организации линейного списка
 struct node {
-public:
     int data; // данные (целое число)
     node* next; // указатель на следующее значение
 };
@@ -251,12 +250,14 @@ public:
         }
         return true; //return head == other.head && count == other.count;
     }
+    // 25
     DinoBaraClass operator^(int _stepen) {
         cout << endl<< endl<<"NIKA i NINA i LENA (belosnezhka tozhe) ne s'eli KAPI";
+        cout << endl<< endl<<"MegaNatasha Rulez ALPHACH SIGmA";
         node* current = this->head;
         int index = 0;
         while (current) {
-            if (index % 2 == 1)
+            if (index % 2 == 1) // нечетный элемент
             {
                 int tmp = current->data;
                 current->data = pow(tmp, _stepen);
@@ -408,6 +409,22 @@ public:
         }
         return *this;
     }
+    //10
+    // Поэлементное вычитание элементов 
+    // компонентных массивов с нечетными номерами
+    DinoBaraClass operator-(int _deductible) {
+        cout << endl << endl << "MegaNastya THE BEST!";
+        node* current = this->head;
+        int index = 0;
+        while (current) {
+            if (index % 2 == 1) // нечетный элемент
+                current->data = current->data - _deductible;
+            current = current->next;
+            index++;
+        }
+        return *this;
+    }
+
     //16
     friend void operator/(DinoBaraClass& _other, int num);
     //16

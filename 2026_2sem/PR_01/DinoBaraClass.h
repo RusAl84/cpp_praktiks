@@ -249,11 +249,13 @@ public:
             current = current->next;
         }
         return true; //return head == other.head && count == other.count;
-    }
-    // 25
+    } 
+    // 25  11
     DinoBaraClass operator^(int _stepen) {
         cout << endl<< endl<<"NIKA i NINA i LENA (belosnezhka tozhe) ne s'eli KAPI";
         cout << endl<< endl<<"MegaNatasha Rulez ALPHACH SIGmA";
+        cout << endl<< endl<<"MegaMasha love SVT forever";
+
         node* current = this->head;
         int index = 0;
         while (current) {
@@ -362,26 +364,26 @@ public:
     // 16
     // Изменение знака минимального элемента 
     // компонентного массива на противоположный
-    DinoBaraClass operator!() {
-        if (count>1){
-            cout << endl << "MegaAngelina Sigma!!!" << endl;
-            int min = this->head->data;
-            node* current = this->head;
-            while (current) {
-                if (current->data < min)
-                    min = current->data;
-                current = current->next;
-            }
-            cout << "Minimalniy element = " << min;
-            current = this->head;
-            while (current) {
-                if (current->data == min)
-                    current->data=(-1)* current->data;
-                current = current->next;
-            }
-        }
-            return *this;
-    }
+    //DinoBaraClass operator!() {
+    //    if (count>1){
+    //        cout << endl << "MegaAngelina Sigma!!!" << endl;
+    //        int min = this->head->data;
+    //        node* current = this->head;
+    //        while (current) {
+    //            if (current->data < min)
+    //                min = current->data;
+    //            current = current->next;
+    //        }
+    //        cout << "Minimalniy element = " << min;
+    //        current = this->head;
+    //        while (current) {
+    //            if (current->data == min)
+    //                current->data=(-1)* current->data;
+    //            current = current->next;
+    //        }
+    //    }
+    //        return *this;
+    //}
     // 2
     // Произведение положительных 
     // элементов компонентного массива
@@ -424,10 +426,56 @@ public:
         }
         return *this;
     }
+    //20
+    // Изменение знака элементов 
+    // компонентного массива с нечетными 
+    // номерами на противоположный
+    //DinoBaraClass operator!() {
+    //    cout << endl << endl << "MegaSashen'ka mili!";
+    //    node* current = head;
+    //    int index = 0;
+    //    while (current) {
+    //        if (index % 2 == 1) // нечетный элемент
+    //            current->data = current->data *(-1);
+    //        current = current->next;
+    //        index++;
+    //    }
+    //    return *this;
+    //}
+    // 9
+    DinoBaraClass operator++(int) {
+        cout << "megaAlisa Alpha the BEST";
+        node* curent = head;
+        int index = 0;
+        while (curent) {
+            if (index % 2 == 1)
+                curent->data = curent->data + 1;
+            curent = curent->next;
+            index++;
+        }
+        return *this;
+    }
+    // 13
+    // Изменение знака элементов компонентного 
+    // массива с нечетными номерами на противоположный
+    DinoBaraClass operator!() {
+        cout << "megaVarvara topchik i mili$)";
+        node* curent = head;
+        int index = 0;
+        while (curent) {
+            if (index % 2 == 1)
+                curent->data = curent->data *(- 1);
+            curent = curent->next;
+            index++;
+        }
+        return *this;
+    }
+
+
 
     //16
     friend void operator/(DinoBaraClass& _other, int num);
-    //16
+    //2
     friend void operator~(DinoBaraClass& _other);
 };
 

@@ -92,6 +92,8 @@ int main()
     // перегруженную операцию  Вариант 25
     // 2 ^  Возведение в степень нечетных элементов 
     // компонентного массива. Показатель степени – правый операнд
+    // 25
+    // 11
     //DinoBaraClass d88(15);
     //d88.display();
     //d88 ^ 3;
@@ -163,9 +165,30 @@ int main()
     //d11.display();
     
     // Настя 10 вариант
-    DinoBaraClass d1000(10);
-    d1000.display();
-    d1000=d1000 - 200;
-    d1000.display();
+    //DinoBaraClass d1000(10);
+    //d1000.display();
+    //d1000=d1000 - 200;
+    //d1000.display();
+
+    // Александра 20 Вариант
+    //DinoBaraClass d1001(11);
+    //d1001.display();
+    //!d1001;
+    //d1001.display();
+    // 9
+    // Инкремент элементов компонентного массива с нечетны-ми номерами
+    DinoBaraClass megaAlisa(7);
+    megaAlisa.display();
+    megaAlisa++;
+    megaAlisa.display();
+    //13
+    // Изменение знака элементов компонентного 
+    // массива с нечетными номерами на противоположный
+    DinoBaraClass megaVarvara = megaAlisa;
+    megaVarvara.display();
+    !megaVarvara;
+    megaVarvara.display();
+
 }
+
 

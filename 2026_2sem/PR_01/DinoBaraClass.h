@@ -251,102 +251,102 @@ public:
         return true; //return head == other.head && count == other.count;
     } 
     // 25  11
-    DinoBaraClass operator^(int _stepen) {
-        cout << endl<< endl<<"NIKA i NINA i LENA (belosnezhka tozhe) ne s'eli KAPI";
-        cout << endl<< endl<<"MegaNatasha Rulez ALPHACH SIGmA";
-        cout << endl<< endl<<"MegaMasha love SVT forever";
+    //DinoBaraClass operator^(int _stepen) {
+    //    cout << endl<< endl<<"NIKA i NINA i LENA (belosnezhka tozhe) ne s'eli KAPI";
+    //    cout << endl<< endl<<"MegaNatasha Rulez ALPHACH SIGmA";
+    //    cout << endl<< endl<<"MegaMasha love SVT forever";
 
-        node* current = this->head;
-        int index = 0;
-        while (current) {
-            if (index % 2 == 1) // нечетный элемент
-            {
-                int tmp = current->data;
-                current->data = pow(tmp, _stepen);
-            }
-            current = current->next;
-            index++;
-        }
-        return *this;
-    }
+    //    node* current = this->head;
+    //    int index = 0;
+    //    while (current) {
+    //        if (index % 2 == 1) // нечетный элемент
+    //        {
+    //            int tmp = current->data;
+    //            current->data = pow(tmp, _stepen);
+    //        }
+    //        current = current->next;
+    //        index++;
+    //    }
+    //    return *this;
+    //}
     // 24 вариант 
-    bool operator<(const DinoBaraClass& _other)
-    {
-        node *curent  = this->head;
-        int _count = 0;
-        int sum = 0;
-        //d91 = -61, 12, -100
-        while (curent) {
-            _count++;
-            sum += curent->data;
-            curent = curent->next;
-        }
-        float _average1 = sum / _count;
+    //bool operator<(const DinoBaraClass& _other)
+    //{
+    //    node *curent  = this->head;
+    //    int _count = 0;
+    //    int sum = 0;
+    //    //d91 = -61, 12, -100
+    //    while (curent) {
+    //        _count++;
+    //        sum += curent->data;
+    //        curent = curent->next;
+    //    }
+    //    float _average1 = sum / _count;
 
-        curent = _other.head;
-        _count = 0;
-        sum = 0;
-        //d91 = -61, 12, -100
-        while (curent) {
-            _count++;
-            sum += curent->data;
-            curent = curent->next;
-        }
-        float _average2 = sum / _count;
-        if (_average1 < _average2)
-            return true;
-        else
-            return false;
-    }
+    //    curent = _other.head;
+    //    _count = 0;
+    //    sum = 0;
+    //    //d91 = -61, 12, -100
+    //    while (curent) {
+    //        _count++;
+    //        sum += curent->data;
+    //        curent = curent->next;
+    //    }
+    //    float _average2 = sum / _count;
+    //    if (_average1 < _average2)
+    //        return true;
+    //    else
+    //        return false;
+    //}
 
     // 18 вариант
     // Поэлементное деление элементов 
     // компонентных массивов c четными номерами
-    DinoBaraClass operator/( DinoBaraClass& _other) {
-        cout << endl <<"MegaKate Alpha SIGAMA";
-        node* current = this->head;
-        int index = 0;
-        while (current) {
-            if (index % 2 == 0)  // четные
-            {
-                int tmp = _other.getElement(index);
-                current->data = current->data / tmp;
-            }
-            current = current->next;
-            index++;
-        }
-        return *this;
-    }
+    //DinoBaraClass operator/( DinoBaraClass& _other) {
+    //    cout << endl <<"MegaKate Alpha SIGAMA";
+    //    node* current = this->head;
+    //    int index = 0;
+    //    while (current) {
+    //        if (index % 2 == 0)  // четные
+    //        {
+    //            int tmp = _other.getElement(index);
+    //            current->data = current->data / tmp;
+    //        }
+    //        current = current->next;
+    //        index++;
+    //    }
+    //    return *this;
+    //}
     // 23
     // Сортировка элементов компонентного массива по убыванию
-    void sortDesc() {
-        int n = getSize();
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                //    v[j] = v[j + 1]
-                //    v[j + 1] = tmp;
-                if (getElement(j)< getElement(j+1)){  //if (v[j] > v[j + 1])
-                    int tmp = getElement(j); //    int tmp = v[j];
-                    setElement(j, getElement(j + 1));//    v[j] = v[j + 1]
-                    setElement(j+1, tmp);//    v[j + 1] = tmp;
-                    }
-            }
-        }
-    }
-    void sortAsc() {
-        int n = getSize();
-        for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                //    v[j] = v[j + 1]
-                //    v[j + 1] = tmp;
-                if (getElement(j) > getElement(j + 1)) {  //if (v[j] > v[j + 1])
-                    int tmp = getElement(j); //    int tmp = v[j];
-                    setElement(j, getElement(j + 1));//    v[j] = v[j + 1]
-                    setElement(j + 1, tmp);//    v[j + 1] = tmp;
-                }
-            }
-        }
-    }
+    //void sortDesc() {
+    //    int n = getSize();
+    //    for (int i = 0; i < n - 1; i++) {
+    //        for (int j = 0; j < n - i - 1; j++) {
+    //            //    v[j] = v[j + 1]
+    //            //    v[j + 1] = tmp;
+    //            if (getElement(j)< getElement(j+1)){  //if (v[j] > v[j + 1])
+    //                int tmp = getElement(j); //    int tmp = v[j];
+    //                setElement(j, getElement(j + 1));//    v[j] = v[j + 1]
+    //                setElement(j+1, tmp);//    v[j + 1] = tmp;
+    //                }
+    //        }
+    //    }
+    //}
+    //void sortAsc() {
+    //    int n = getSize();
+    //    for (int i = 0; i < n - 1; i++) {
+    //        for (int j = 0; j < n - i - 1; j++) {
+    //            //    v[j] = v[j + 1]
+    //            //    v[j + 1] = tmp;
+    //            if (getElement(j) > getElement(j + 1)) {  //if (v[j] > v[j + 1])
+    //                int tmp = getElement(j); //    int tmp = v[j];
+    //                setElement(j, getElement(j + 1));//    v[j] = v[j + 1]
+    //                setElement(j + 1, tmp);//    v[j + 1] = tmp;
+    //            }
+    //        }
+    //    }
+    //}
     // 3 
     // Поэлементное про-изведение элементов компонентных 
     // массивов с нечетными номерами
@@ -403,14 +403,14 @@ public:
     // 5
     // Изменение знака элементов компонентного 
     // массива на противоположный
-    DinoBaraClass operator*() {
-        node* current = this->head;
-        while (current) {
-            current->data = current->data * (-1);
-            current = current->next;
-        }
-        return *this;
-    }
+    //DinoBaraClass operator*() {
+    //    node* current = this->head;
+    //    while (current) {
+    //        current->data = current->data * (-1);
+    //        current = current->next;
+    //    }
+    //    return *this;
+    //}
     //10
     // Поэлементное вычитание элементов 
     // компонентных массивов с нечетными номерами
@@ -443,42 +443,59 @@ public:
     //    return *this;
     //}
     // 9
-    DinoBaraClass operator++(int num) {
-        cout << "megaAlisa Alpha the BEST";
-        node* curent = head;
-        int index = 0;
-        while (curent) {
-            if (index % 2 == 1)
-                curent->data = curent->data + 1;
-            curent = curent->next;
-            index++;
-        }
-        return *this;
-    }
+    //DinoBaraClass operator++(int num) {
+    //    cout << "megaAlisa Alpha the BEST";
+    //    node* curent = head;
+    //    int index = 0;
+    //    while (curent) {
+    //        if (index % 2 == 1)
+    //            curent->data = curent->data + 1;
+    //        curent = curent->next;
+    //        index++;
+    //    }
+    //    return *this;
+    //}
     // 13
     // Изменение знака элементов компонентного 
     // массива с нечетными номерами на противоположный
-    DinoBaraClass operator!() {
-        cout << "megaVarvara topchik i mili$)";
-        node* curent = head;
-        int index = 0;
-        while (curent) {
-            if (index % 2 == 1)
-                curent->data = curent->data *(- 1);
-            curent = curent->next;
-            index++;
-        }
-        return *this;
-    }
+    //DinoBaraClass operator!() {
+    //    cout << "megaVarvara topchik i mili$)";
+    //    node* curent = head;
+    //    int index = 0;
+    //    while (curent) {
+    //        if (index % 2 == 1)
+    //            curent->data = curent->data *(- 1);
+    //        curent = curent->next;
+    //        index++;
+    //    }
+    //    return *this;
+    //}
     // 5
     // Изменение знака элементов компонентного 
     // массива на противоположный
-    DinoBaraClass operator-() {
-        cout << "Yarik samec!";
-        node* curent = head;
-        while (curent) {
-                curent->data = curent->data * (-1);
-                curent = curent->next;
+    //DinoBaraClass operator-() {
+    //    cout << "Yarik samec!";
+    //    node* curent = head;
+    //    while (curent) {
+    //            curent->data = curent->data * (-1);
+    //            curent = curent->next;
+    //    }
+    //    return *this;
+    //}
+    // 22
+    // Возведение в степень элементов компонентного массива с нечетными 
+    // номерами. Показатель степени – правый операнд
+    DinoBaraClass  operator^( int _power) {
+        cout << endl << "MegaKate svetilo nauk! sigma x" << _power;
+        cout << " MegaGanira alphach!!!";
+        node* current = head;
+        int index = 0;
+        while (current) {
+            if (index % 2 == 1) {
+                current->data = pow(current->data, _power);
+            }
+            current=current->next;
+            index++;
         }
         return *this;
     }

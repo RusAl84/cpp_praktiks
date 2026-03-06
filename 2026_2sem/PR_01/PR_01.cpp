@@ -196,11 +196,18 @@ int main()
     // 5
     //Изменение знака элементов 
     // компонентного массива на противоположный
-    DinoBaraClass yarik(3);
-    yarik.display();
-    - yarik;
-    yarik.display();
+    //DinoBaraClass yarik(3);
+    //yarik.display();
+    //- yarik;
+    //yarik.display();
 
+    // 22
+    DinoBaraClass megaKate(13);
+    megaKate.display();
+    megaKate ^ 7;
+    megaKate.display();
+    //DinoBaraClass *megaGanira = new DinoBaraClass(13);
+    //megaGanira->display();
 
 }
 

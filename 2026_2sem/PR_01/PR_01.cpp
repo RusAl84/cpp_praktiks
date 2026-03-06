@@ -206,8 +206,12 @@ int main()
     megaKate.display();
     megaKate ^ 7;
     megaKate.display();
-    //DinoBaraClass *megaGanira = new DinoBaraClass(13);
-    //megaGanira->display();
+    DinoBaraClass megaGanira1(3);
+    DinoBaraClass megaGanira2(3);
+    megaGanira1.display();
+    megaGanira2.display();
+    megaGanira1= megaGanira1 * megaGanira2;
+    megaGanira1.display();
 
 }
 

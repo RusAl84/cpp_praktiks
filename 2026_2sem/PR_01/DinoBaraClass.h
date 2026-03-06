@@ -502,37 +502,39 @@ public:
 
 
     //16
-    friend void operator/(DinoBaraClass& _other, int num);
+    //friend void operator/(DinoBaraClass& _other, int num);
     //2
-    friend void operator~(DinoBaraClass& _other);
+    //friend void operator~(DinoBaraClass& _other);
     //9 -
     // Поэлементное вычитание числа из компонентного массива
     //friend void operator-(DinoBaraClass& _other, int num);
     //13 
     //friend void operator*(DinoBaraClass& _other, int num);
+    //22 
+    friend DinoBaraClass operator*(DinoBaraClass& _other1, DinoBaraClass& _other2);
 };
 
 
 //16
 // Целочисленное деление отрицательных 
 // элементов компонентного массива на число
- void operator/(DinoBaraClass& _other, int num) {
-     node* current = _other.head;
-     while (current) {
-         current->data /= num;
-         current = current->next;
-     }
- };
+ //void operator/(DinoBaraClass& _other, int num) {
+ //    node* current = _other.head;
+ //    while (current) {
+ //        current->data /= num;
+ //        current = current->next;
+ //    }
+ //};
  // 2
  // Изменение порядка следования элементов 
  // компонентного массива на противоположный     
- void operator~(DinoBaraClass& _other) {
-     for (int i = 0; i < _other.count / 2; i++) {
-         int tmp = _other.getElement(i);
-         _other.setElement(i, _other.getElement(_other.count - i - 1));
-         _other.setElement(_other.count - i - 1, tmp);
-     }
- };
+ //void operator~(DinoBaraClass& _other) {
+ //    for (int i = 0; i < _other.count / 2; i++) {
+ //        int tmp = _other.getElement(i);
+ //        _other.setElement(i, _other.getElement(_other.count - i - 1));
+ //        _other.setElement(_other.count - i - 1, tmp);
+ //    }
+ //};
  //9 -
 // Поэлементное вычитание числа из компонентного массива
  //void operator-(DinoBaraClass& _other, int num) {
@@ -551,3 +553,15 @@ public:
  //        current = current->next;
  //    }
  //};
+ //
+ DinoBaraClass operator*(DinoBaraClass& _other1, DinoBaraClass& _other2) {
+     cout << endl << " megaKsenya = Maymi bich + 5 detey ot Seregi";
+         node* current = _other1.head;
+         int index = 0;
+         while (current) {
+             current->data *= _other2.getElement(index);
+             current = current->next;
+             index++;
+         }
+         return  _other1;
+ }

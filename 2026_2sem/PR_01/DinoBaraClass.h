@@ -485,20 +485,31 @@ public:
     // 22
     // Возведение в степень элементов компонентного массива с нечетными 
     // номерами. Показатель степени – правый операнд
-    DinoBaraClass  operator^( int _power) {
-        cout << endl << "MegaKate svetilo nauk! sigma x" << _power;
-        cout << " MegaGanira alphach!!!";
-        node* current = head;
-        int index = 0;
-        while (current) {
-            if (index % 2 == 1) {
-                current->data = pow(current->data, _power);
-            }
-            current=current->next;
-            index++;
+    //DinoBaraClass  operator^( int _power) {
+    //    cout << endl << "MegaKate svetilo nauk! sigma x" << _power;
+    //    cout << " MegaGanira alphach!!!";
+    //    node* current = head;
+    //    int index = 0;
+    //    while (current) {
+    //        if (index % 2 == 1) {
+    //            current->data = pow(current->data, _power);
+    //        }
+    //        current=current->next;
+    //        index++;
+    //    }
+    //    return *this;
+    //}
+    // 5 вариант
+    DinoBaraClass operator-() {
+        cout << "Kira  =  Egeyskoe more + honda moto + 5 detey ot Dani P";
+        node* curent = this->head;
+        while (curent) {
+                curent->data = curent->data * (-1);
+                curent = curent->next;
         }
         return *this;
     }
+
 
 
     //16
@@ -511,7 +522,10 @@ public:
     //13 
     //friend void operator*(DinoBaraClass& _other, int num);
     //22 
-    friend DinoBaraClass operator*(DinoBaraClass& _other1, DinoBaraClass& _other2);
+    //friend DinoBaraClass operator*(DinoBaraClass& _other1, DinoBaraClass& _other2);
+    //5
+    friend bool operator<(DinoBaraClass& _other1, DinoBaraClass& _other2);
+
 };
 
 
@@ -554,14 +568,35 @@ public:
  //    }
  //};
  //
- DinoBaraClass operator*(DinoBaraClass& _other1, DinoBaraClass& _other2) {
-     cout << endl << " megaKsenya = Maymi bich + 5 detey ot Seregi";
-         node* current = _other1.head;
-         int index = 0;
-         while (current) {
-             current->data *= _other2.getElement(index);
-             current = current->next;
-             index++;
-         }
-         return  _other1;
- }
+//22
+ //DinoBaraClass operator*(DinoBaraClass& _other1, DinoBaraClass& _other2) {
+ //    cout << endl << " megaKsenya = Maymi bich + 5 detey ot Seregi";
+ //        node* current = _other1.head;
+ //        int index = 0;
+ //        while (current) {
+ //            current->data *= _other2.getElement(index);
+ //            current = current->next;
+ //            index++;
+ //        }
+ //        return  _other1;
+ //}
+
+// 5
+bool operator<(DinoBaraClass& _other1, DinoBaraClass& _other2) {
+    int sum1=0;
+    node* current = _other1.head;
+    while (current) {
+        sum1 = current->data;
+        current = current->next;
+    }
+    int sum2=0;
+    current = _other2.head;
+    while (current) {
+        sum2 = current->data;
+        current = current->next;
+    }
+    if (sum1 < sum2)
+        return true;
+    else
+        return false;
+};

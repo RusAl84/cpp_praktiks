@@ -202,17 +202,29 @@ int main()
     //yarik.display();
 
     // 22
-    DinoBaraClass megaKate(13);
-    megaKate.display();
-    megaKate ^ 7;
-    megaKate.display();
-    DinoBaraClass megaGanira1(3);
-    DinoBaraClass megaGanira2(3);
-    megaGanira1.display();
-    megaGanira2.display();
-    megaGanira1= megaGanira1 * megaGanira2;
-    megaGanira1.display();
+    //DinoBaraClass megaKate(13);
+    //megaKate.display();
+    //megaKate ^ 7;
+    //megaKate.display();
+    //DinoBaraClass megaGanira1(3);
+    //DinoBaraClass megaGanira2(3);
+    //megaGanira1.display();
+    //megaGanira2.display();
+    //megaGanira1= megaGanira1 * megaGanira2;
+    //megaGanira1.display();
 
+
+    // 5 вариант для Киры с любовью
+    // 1 - Изменение знака элементов компонентного 
+    // массива на противоположный
+    DinoBaraClass megaKira(7);
+    megaKira.display();
+    -megaKira;
+    megaKira.display();
+    // 2 < Сравнение по сумме элементов компонентных массивов
+    DinoBaraClass megaLia(7);
+    bool forwardSasha = megaKira < megaLia;
+    cout << endl << " Lena kupila lambu (Nina tozhe)?  " << forwardSasha;
 }
 
 

@@ -5,14 +5,16 @@
 
 using namespace std;
 
-abstract class DinoBaraVirtClass
+class DinoBaraVirtClass
 {
+public:
 	virtual void run() {};
 };
 
 class A:DinoBaraVirtClass
 {
-	 void o  run() {};
+public:
+	  override   run() {};
 };
 
 class B :DinoBaraVirtClass

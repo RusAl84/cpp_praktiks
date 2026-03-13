@@ -5,7 +5,20 @@
 
 using namespace std;
 
-class DinoBaraVirtClass
+abstract class DinoBaraVirtClass
+{
+	virtual void run() {};
+};
+
+class A:DinoBaraVirtClass
+{
+	 void o  run() {};
+};
+
+class B :DinoBaraVirtClass
 {
 };
 
+class C :DinoBaraVirtClass
+{
+};

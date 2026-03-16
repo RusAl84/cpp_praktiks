@@ -25,6 +25,14 @@ int main()
     a1.display();
     a1.calculate();
 
+    // Для второго варианта
+    //A a1;
+    //a1.display();
+    //cout << endl << "Введите r: ";
+    //int r=0;
+    //cin >> r;
+    //a1.calculate(r);
+
     B b1;
     b1.display();
     b1.calculate();

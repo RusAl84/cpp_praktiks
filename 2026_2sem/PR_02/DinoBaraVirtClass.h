@@ -96,18 +96,55 @@ public:
 	//Вариант 23
 	void calculate() override {
 		cout << endl << "  Variant 23";
-		// номер и значение минимального по модулю элемента массива;
-		int min = abs(data[0]);
+		// сумму положительных элементов массива, расположенных до минимального элемента;
+		int min = data[0];
 		int index = 0;
 		for (int i = 0; i <= size; i++)
-			if (abs(data[i]) < min) {
+			if (data[i] < min) {
 				min = abs(data[i]);
 				index = i;
 			}
 		cout << endl << "Index = " << index;
 		cout << endl << "Znachenie = " << min;
+		int positeveSum = 0;
+		for (int i = 0; i < index; i++)
+			if (data[i] << min > 0)
+				positeveSum += data[i];
+		cout << endl << "positeveSum = " << positeveSum;
 	};
 };
-//class C :DinoBaraVirtClass
-//{
-//};
+
+class C : public DinoBaraVirtClass
+{
+public:
+	//Вариант 24
+	void calculate() override {
+		cout << endl << "  Variant 24";
+		// преобразовать массив таким образом, чтобы сначала располагались 
+		// все нулевые элементы, потом все положительные, 
+		// а потом – все отрицательные.
+		int countZero=0;
+		int *positiveData = new int[size + 1];
+		int positiveIndex = 0;
+		int *negativeData = new int[size + 1];
+		int negativeIndex = 0;
+		for (int i = 0; i <= size; i++) {
+			if (data[i] == 0)
+				countZero++;
+			if (data[i] > 0) {
+				positiveData[positiveIndex] = data[i];
+				positiveIndex++;
+			}
+			if (data[i] < 0) {
+				negativeData[negativeIndex] = data[i];
+				negativeIndex++;
+			}
+		}
+		for (int i = 0; i < countZero; i++)
+			data[i] = 0;
+		for (int i = 0; i < positiveIndex; i++)
+			data[countZero+ i] = positiveData[i];
+		for (int i = 0; i < negativeIndex; i++)
+			data[countZero + positiveIndex +i] = negativeData[i];
+	};
+};

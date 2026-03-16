@@ -24,4 +24,13 @@ int main()
     A a1;
     a1.display();
     a1.calculate();
+
+    B b1;
+    b1.display();
+    b1.calculate();
+
+    C c1;
+    c1.display();
+    c1.calculate();
+    c1.display();
 }

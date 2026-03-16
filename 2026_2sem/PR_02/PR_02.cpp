@@ -11,5 +11,9 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     cout << "Практическая работа 2" << endl;
-    //DinoBaraVirtClass d1;
+    DinoBaraVirtClass d1(10);
+    d1.display();
+    DinoBaraVirtClass megaKate=d1;
+    //megaKate = d1;
+    megaKate.display();
 }

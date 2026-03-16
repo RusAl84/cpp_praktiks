@@ -68,18 +68,46 @@ public:
 		}
 		return *this;
 	}
+	virtual void calculate() {  };
 };
 
-//class A:DinoBaraVirtClass
-//{
-//public:
-//	  override   run() {};
-//};
-//
-//class B :DinoBaraVirtClass
-//{
-//};
-//
+class A: public DinoBaraVirtClass
+{
+public:
+	//Вариант 18
+	void calculate() override {
+		cout << endl << "  Variant 18";
+		// номер и значение минимального по модулю элемента массива;
+		int min = abs(data[0]);
+		int index = 0;
+		for (int i = 0; i <= size; i++)
+			if (abs(data[i]) < min){
+				min = abs(data[i]);
+				index = i;
+			}
+		cout << endl << "Index = " << index;
+		cout << endl << "Znachenie = " << min;
+	};
+};
+
+class B : public DinoBaraVirtClass
+{
+public:
+	//Вариант 23
+	void calculate() override {
+		cout << endl << "  Variant 23";
+		// номер и значение минимального по модулю элемента массива;
+		int min = abs(data[0]);
+		int index = 0;
+		for (int i = 0; i <= size; i++)
+			if (abs(data[i]) < min) {
+				min = abs(data[i]);
+				index = i;
+			}
+		cout << endl << "Index = " << index;
+		cout << endl << "Znachenie = " << min;
+	};
+};
 //class C :DinoBaraVirtClass
 //{
 //};

@@ -13,7 +13,15 @@ int main()
     cout << "Практическая работа 2" << endl;
     DinoBaraVirtClass d1(10);
     d1.display();
-    DinoBaraVirtClass megaKate=d1;
-    //megaKate = d1;
-    megaKate.display();
+    // проверка конструктора копирования 
+    DinoBaraVirtClass d2=d1;
+    DinoBaraVirtClass d3;
+    // проверка переопределения оператора присваивания
+    d3 = d1;
+    d2.display();
+    d3.display();
+
+    A a1;
+    a1.display();
+    a1.calculate();
 }

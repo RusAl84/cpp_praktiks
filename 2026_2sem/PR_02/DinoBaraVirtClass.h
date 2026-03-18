@@ -11,8 +11,6 @@ protected:
 	int* data;
 	int size;
 public:
-	//virtual void calculate() {};
-
 	DinoBaraVirtClass() {
 		size = 17;
 		data = new int[size+1];
@@ -122,15 +120,15 @@ public:
 	//	cout << endl << "indexMax - indexMin = " << count;
 	//};
 	void calculate() override {
-		cout << endl << "  Variant 16";
+		cout << endl << "  Variant 16 and 7";
 		// сумму элементов массива с нечетными номерами
 		int _sum = 0;
 		for (int i = 0; i <= size; i++) 
-			if (data[i] % 2 == 1)
-				if (data[i] >0)
-					_sum += data[i];
+			if (data[i] % 2 == 1)  //нечетное
+				_sum += data[i];
 		cout << endl << "Sum = " << _sum;
 	};
+
 };
 
 class B : public DinoBaraVirtClass

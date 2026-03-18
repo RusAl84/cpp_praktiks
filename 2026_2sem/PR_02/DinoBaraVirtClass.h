@@ -138,23 +138,53 @@ public:
 	//		}
 	//	cout << endl << "min znachenie = " << min;
 	//};
-	void calculate() override {
-		cout << endl << "  Variant 24";
-		// сумму минимального по модулю и максимального 
-		// по модулю элементов массива;
-		int min = abs(data[0]);
-		for (int i = 0; i <= size; i++)
-			if (abs(data[i]) < min) {
-				min = abs(data[i]);
-			}
-		int max = abs(data[0]);
-		for (int i = 0; i <= size; i++)
-			if (abs(data[i]) > max) {
-				max = abs(data[i]);
-			}
-		int _sum = min + max;
+	//void calculate() override {
+	//	cout << endl << "  Variant 24";
+	//	// сумму минимального по модулю и максимального 
+	//	// по модулю элементов массива;
+	//	int min = abs(data[0]);
+	//	for (int i = 0; i <= size; i++)
+	//		if (abs(data[i]) < min) {
+	//			min = abs(data[i]);
+	//		}
+	//	int max = abs(data[0]);
+	//	for (int i = 0; i <= size; i++)
+	//		if (abs(data[i]) > max) {
+	//			max = abs(data[i]);
+	//		}
+	//	int _sum = min + max;
 
-		cout << endl << "sum = min + max " << _sum;
+	//	cout << endl << "sum = min + max " << _sum;
+	//};
+	//void calculate() override {
+	//	cout << endl << "  Variant 13";
+	//	// максимальный элемент массива;
+	//	int max = data[0];
+	//	for (int i = 0; i <= size; i++)
+	//		if (data[i] > max) 
+	//			max = data[i];
+	//	cout << endl << " Max  = " << max;
+	//};
+	//void calculate() override {
+	//	cout << endl << "  Variant 9";
+	//	// номер максимального элемента массива;;
+	//	int max = data[0];
+	//	int indexMax = 0;
+	//	for (int i = 0; i <= size; i++)
+	//		if (data[i] > max) {
+	//			max = data[i];
+	//			indexMax = i;
+	//		}
+	//	cout << endl << " indexMax  = " << indexMax;
+	//};
+	void calculate() override {
+		cout << endl << "  Variant 1";
+		// произведение положительных элементов массива;
+		int _multiplication = 1;
+		for (int i = 0; i <= size; i++)
+			if (data[i] > 0) 
+				_multiplication *= data[i];
+		cout << endl << " multiplication  = " << _multiplication;
 	};
 };
 

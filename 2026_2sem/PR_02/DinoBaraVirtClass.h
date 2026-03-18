@@ -119,16 +119,43 @@ public:
 	//	int count = indexMax - indexMin;
 	//	cout << endl << "indexMax - indexMin = " << count;
 	//};
+	//void calculate() override {
+	//	cout << endl << "  Variant 16 and 7";
+	//	// сумму элементов массива с нечетными номерами
+	//	int _sum = 0;
+	//	for (int i = 0; i <= size; i++) 
+	//		if (data[i] % 2 == 1)  //нечетное
+	//			_sum += data[i];
+	//	cout << endl << "Sum = " << _sum;
+	//};
+	//void calculate() override {
+	//	cout << endl << "  Variant 6";
+	//	// значение минимального по модулю элемента массива;
+	//	int min = abs(data[0]);
+	//	for (int i = 0; i <= size; i++)
+	//		if (abs(data[i]) < min){
+	//			min = abs(data[i]);
+	//		}
+	//	cout << endl << "min znachenie = " << min;
+	//};
 	void calculate() override {
-		cout << endl << "  Variant 16 and 7";
-		// сумму элементов массива с нечетными номерами
-		int _sum = 0;
-		for (int i = 0; i <= size; i++) 
-			if (data[i] % 2 == 1)  //нечетное
-				_sum += data[i];
-		cout << endl << "Sum = " << _sum;
-	};
+		cout << endl << "  Variant 24";
+		// сумму минимального по модулю и максимального 
+		// по модулю элементов массива;
+		int min = abs(data[0]);
+		for (int i = 0; i <= size; i++)
+			if (abs(data[i]) < min) {
+				min = abs(data[i]);
+			}
+		int max = abs(data[0]);
+		for (int i = 0; i <= size; i++)
+			if (abs(data[i]) > max) {
+				max = abs(data[i]);
+			}
+		int _sum = min + max;
 
+		cout << endl << "sum = min + max " << _sum;
+	};
 };
 
 class B : public DinoBaraVirtClass

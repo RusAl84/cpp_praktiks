@@ -47,6 +47,7 @@ int main()
     B b1;
     b1.display();
     b1.calculate();
+    b1.display();
 
     C c1;
     c1.display();

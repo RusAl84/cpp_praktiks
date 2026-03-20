@@ -68,6 +68,7 @@ public:
 	}
 	virtual void calculate() {  };
 	//virtual void calculate(int r) {  };
+	//virtual void calculate(int A, int B) {};
 
 };
 
@@ -98,27 +99,27 @@ public:
 	//			count ++;
 	//	cout << endl << "Kolichestvo: " << count;
 	//};
-	//void calculate() override {
-	//	cout << endl << "  Variant 5";
-	//	// количество элементов, расположенных между 
-	//	// максимальным и минимальным элементами;
-	//	int min = data[0];
-	//	int max = data[0];
-	//	int indexMin = 0;
-	//	int indexMax = 0;
-	//	for (int i = 0; i <= size; i++){
-	//		if (data[i] < min){
-	//			min = data[i];
-	//			indexMin = i;
-	//		}
-	//		if (data[i] > max) {
-	//			max = data[i];
-	//			indexMax = i;
-	//		}
-	//	}
-	//	int count = indexMax - indexMin;
-	//	cout << endl << "indexMax - indexMin = " << count;
-	//};
+	void calculate() override {
+		cout << endl << "  Variant 5";
+		// количество элементов, расположенных между 
+		// максимальным и минимальным элементами;
+		int min = data[0];
+		int max = data[0];
+		int indexMin = 0;
+		int indexMax = 0;
+		for (int i = 0; i <= size; i++){
+			if (data[i] < min){
+				min = data[i];
+				indexMin = i;
+			}
+			if (data[i] > max) {
+				max = data[i];
+				indexMax = i;
+			}
+		}
+		int count = indexMax - indexMin;
+		cout << endl << "indexMax - indexMin = " << count;
+	};
 	//void calculate() override {
 	//	cout << endl << "  Variant 16 and 7";
 	//	// сумму элементов массива с нечетными номерами
@@ -177,15 +178,41 @@ public:
 	//		}
 	//	cout << endl << " indexMax  = " << indexMax;
 	//};
-	void calculate() override {
-		cout << endl << "  Variant 1";
-		// произведение положительных элементов массива;
-		int _multiplication = 1;
-		for (int i = 0; i <= size; i++)
-			if (data[i] > 0) 
-				_multiplication *= data[i];
-		cout << endl << " multiplication  = " << _multiplication;
-	};
+	//void calculate() override {
+	//	cout << endl << "  Variant 1";
+	//	// произведение положительных элементов массива;
+	//	int _multiplication = 1;
+	//	for (int i = 0; i <= size; i++)
+	//		if (data[i] > 0) 
+	//			_multiplication *= data[i];
+	//	cout << endl << " multiplication  = " << _multiplication;
+	//};
+	//void calculate() override {
+	//	cout << endl << "  Variant 21";
+	//	// сумму отрицательных элементов массива;
+	//	int _sum_negative = 0;
+	//	for (int i = 0; i <= size; i++)
+	//		if (data[i] < 0) 
+	//			_sum_negative += data[i];
+	//	cout << endl << " _sum_negative  = " << _sum_negative;
+	//};
+	//void calculate() override {
+	//	cout << endl << "  Variant 3";
+	//	// сумму положительных элементов массива;
+	//	int _sum_positive = 0;
+	//	for (int i = 0; i <= size; i++)
+	//		if (data[i] > 0)
+	//			_sum_positive += data[i];
+	//	cout << endl << " _sum_positive  = " << _sum_positive;
+	//};
+	//void calculate(int A, int B) override {
+	//	cout << endl << "  Variant 14";
+	//	// количество элементов массива, лежащих в интервале 
+	//	// от A до B (значения A и B вводятся с клавиатуры 
+	//	// и передаются в разрабатываемую функцию как параметры);
+	//	int _count = B-A;
+	//	cout << endl << " _count  = " << _count;
+	//};
 };
 
 class B : public DinoBaraVirtClass

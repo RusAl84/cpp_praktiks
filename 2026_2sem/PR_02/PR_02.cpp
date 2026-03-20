@@ -33,6 +33,17 @@ int main()
     //cin >> r;
     //a1.calculate(r);
 
+    // Для 14 варианта
+    //A a1;
+    //a1.display();
+    //cout << endl << "Введите A: ";
+    //int A=0;
+    //cin >> A;
+    //cout << endl << "Введите B: ";
+    //int b = 0;
+    //cin >> b;
+    //a1.calculate(A, b);
+
     B b1;
     b1.display();
     b1.calculate();

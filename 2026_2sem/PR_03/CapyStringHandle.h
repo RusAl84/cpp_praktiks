@@ -19,6 +19,7 @@ public:
 	// создающий объект с пустой строкой
 	CapyStringHandle() {
 		originalString = "";
+		words.clear();
 	};
 	// конструктор копирования
 	CapyStringHandle(const CapyStringHandle& other) {
@@ -35,18 +36,32 @@ public:
 	}
 	// перегруженную операцию вывода содержимого объекта в поток
 	void display() {
-		cout << endl << "Исходная строка : " << originalString.c_str();
+		cout << endl << "originalString: " << originalString.c_str();
 	}
 	// 
 	void ReadFromFile(const char* filename) {
-		ifstream inFIle(filename);
-		if (inFIle.is_open()) {
-			getline(inFIle, originalString);
-			inFIle.close();
+		ifstream inFile(filename);
+		if (inFile.is_open()) {
+			getline(inFile, originalString);
+			inFile.close();
 		}
 		else {
 			cout << endl << "ERROR: Не удалось открыть файл " << filename;
 		}
+	}
+
+	void extractWords() {
+		// istringstream — это класс входных потоков в языке программирования C++.
+		// https://www.geeksforgeeks.org/cpp/vector-of-strings-in-cpp/
+		istringstream iss(originalString);
+		string word;
+		words.clear();
+		while (iss >> word) {
+			words.push_back(word);
+		}
+	}
+	void wordsCount() {
+		cout<< endl<< "Количество слов в массиве: " << words.size();
 	}
 
 };

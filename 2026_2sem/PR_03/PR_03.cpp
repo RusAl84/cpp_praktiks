@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 #include <windows.h>
 #include <stdio.h>
-
+#include "CapyStringHandle.h"
 
 using namespace std;
 
@@ -12,5 +12,6 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     cout << "Практическая работа 3" << endl;
-    //DinoBaraVirtClass d1(10);
+    CapyStringHandle sh1;
+    sh1.ReadFromFile("data.txt");
 }

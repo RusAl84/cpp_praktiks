@@ -5,7 +5,6 @@
 
 using namespace std;
 
-
 int main()
 {
     setlocale(LC_ALL, "Russian");
@@ -20,4 +19,8 @@ int main()
     //string s1 = "АндромедА";
     //if (s1.starts_with(s1[s1.size()-1]))
     //    cout << "ок";
+    sh1.WriteToFile("decision.txt");
+    sh1.var3();
+    sh1.var18();
+    sh1.var24();
 }

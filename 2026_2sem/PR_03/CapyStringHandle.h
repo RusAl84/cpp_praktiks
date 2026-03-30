@@ -62,7 +62,7 @@ public:
 		}
 	}
 	void wordsCount() {
-		cout << endl << "Количество слов в массиве: " << words.size();
+		cout << endl << "Kolichestvo slov v massive: " << words.size();
 	}
 	void WriteToFile(const char* filename) {
 		FILE* file;
@@ -89,18 +89,22 @@ public:
 			return;
 		}
 		//https://learn.microsoft.com/ru-ru/cpp/cpp/identifiers-cpp?view=msvc-170
-		string validChar = "_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";	
+		string validChar = "_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";	
 		vector<string> validWords;
 		int count = 0;
 		for (const auto& word : words) {
 			if (not isdigit(word[0])) {
 				bool isID = true;
-				for (int i=0; i< validChar.length();i++)
-					if (word.find(validChar[i]) == std::string::npos) {
-
+				for (int i=0; i< word.length();i++){
+					if (validChar.find(word[i]) == std::string::npos) {
+						isID = false;
+						break;
 					}
-				validWords.push_back(word);
-				count++;
+				}
+				if (isID){
+					validWords.push_back(word);
+					count++;
+				}
 			}
 		}
 		printf("Naydennie slova: ");

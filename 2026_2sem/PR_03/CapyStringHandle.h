@@ -232,6 +232,42 @@ public:
 			}
 		}
 	}
+	// Вариант 12: Разработать метод, выделяющий из исходной строки слова,
+	// являющиеся положительными шестнадцатеричными константами С++.
+	void var12() {
+		printf("\n=== Variant 12 ===\n");
+		if (words.empty()) {
+			printf("Masiv slov pust!\n");
+			return;
+		}
+		string validChar = "abcdefABCDEF1234567890";
+		vector<string> validWords;
+		int count = 0;
+		for (const auto& word : words) {
+			int startPos = 0;
+			if (word[0] == '+') {
+				startPos = 1;
+			}
+			bool isID = true;
+			for (int i = startPos; i < word.length(); i++) {
+				if (validChar.find(word[i]) == std::string::npos) {
+					isID = false;
+					break;
+				}
+			}
+			if (isID) {
+				validWords.push_back(word);
+				count++;
+			}
+		}
+		printf("Naydennie slova: ");
+		for (const auto& word : validWords) {
+			printf("%s ", word.c_str());
+		}
+		printf("\n Kolichestvo: %d", count);
+	}
+
+
 	// Вариант 18: Разработать метод, который выделяет слова, 
 	// в которых встречается введенная с клавиатуры подстрока 
 	// и подсчитывает их количество.

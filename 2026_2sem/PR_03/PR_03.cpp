@@ -22,6 +22,7 @@ int main()
     sh1.WriteToFile("decision.txt");
     sh1.var2();
     sh1.var3();
+    sh1.var12();
     sh1.var18();
     sh1.var24();
     //CapyStringHandle << sh1;

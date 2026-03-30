@@ -1,8 +1,9 @@
-Ishodnaya stroka: 1Pashenka var1 k1!  varTigran69  FranciscoPomenyal Lenolium
+Ishodnaya stroka: FWD FE 01 03 4853EF +FF VANECHKA
 Massiv slov:
-1Pashenka
-var1
-k1!
-varTigran69
-FranciscoPomenyal
-Lenolium
+FWD
+FE
+01
+03
+4853EF
++FF
+VANECHKA

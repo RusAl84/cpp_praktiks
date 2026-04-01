@@ -330,9 +330,8 @@ public:
 			int l1 = checkBrackets(word, '(', ')');
 			int l2 = checkBrackets(word, '[', ']');
 			int l3 = checkBrackets(word, '{', '}');
-			if ((l1 >= 0) and (l2 >= 0) and (l3 >= 0)) and 
-				()
-				)
+			if (((l1 >= 0) and (l2 >= 0) and (l3 >= 0)) and 
+				not ((l1 == 0) and (l2 == 0) and (l3 == 0)))
 				filteredWords.push_back(word);
 		}
 		printf("filteredWords: ");

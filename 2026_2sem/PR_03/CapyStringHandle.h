@@ -294,8 +294,50 @@ public:
 		}
 		printf("\n Kolichestvo: %d", count);
 	}
-
-
+	// 17 Разработать метод, проверяющий имеются ли в исходной строке 
+	// отдельные слова, заключенные в скобки ( ), [ ], { }. 
+	// Результатом являются слова, заклю-ченные в скобки с 
+	// ненарушенным балансом парности. Вложенность скобок 
+	// отсутствует.
+	bool checkBrackets(string word, char ld, char rd) {
+		int numBrackets = 0;
+		if ((word.find(ld) < std::string::npos) and
+			(word.find(rd) < std::string::npos)) {
+			for (auto i = 0; i < word.length(); i++) {
+				if (word[i] == ld)
+					numBrackets++;
+				if (word[i] == rd)
+					numBrackets--;
+			}
+			if (numBrackets == 0)
+				return true;
+			else
+				return false;
+		}
+		else
+			return false;
+	}
+	void var17() {
+		printf("\n=== Variant 17 ===\n");
+		if (words.empty()) {
+			printf("Masiv slov pust!\n");
+			return;
+		}
+		vector<string> filteredWords;
+		for (const auto& word : words) {
+			if ((checkBrackets(word,'(',')')) or
+				(checkBrackets(word, '[', ']')) or
+					(checkBrackets(word, '{', '}')))
+				filteredWords.push_back(word);
+		}
+		printf("filteredWords: ");
+		for (const auto& word : filteredWords) {
+			printf("%s ", word.c_str());
+		}
+		//	shortestWord.c_str(), shortestWord.length());
+		//printf("Samoe korotkoe slovo: \"%s\" (dlina: %lu simvolov)\n",
+		//	longestWord.c_str(), longestWord.length());
+	}
 	// Вариант 18: Разработать метод, который выделяет слова, 
 	// в которых встречается введенная с клавиатуры подстрока 
 	// и подсчитывает их количество.

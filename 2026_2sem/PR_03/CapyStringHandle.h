@@ -233,6 +233,33 @@ public:
 			}
 		}
 	}
+	// 10 Разработать метод, определяющий в исходной строке 
+	// самое длинное слово и выполняющий его реверс 
+	// (первая буква меняется местами с последней, 
+	// вторая – с предпоследней и т.д.). 
+	// Результат – найденное слово с учетом реверса.
+	void var10() {
+		printf("\n=== Variant 10 ===\n");
+		if (words.empty()) {
+			printf("Masiv slov pust!\n");
+			return;
+		}
+		string longestWord = words[0];
+		for (const auto& word : words) {
+			if (word.length() > longestWord.length()) {
+				longestWord = word;
+			}
+		}
+		printf("Samoe dlinnoe slovo: \"%s\" (dlina: %lu simvolov)\n",
+			longestWord.c_str(), longestWord.length());
+		string reversedStr;
+		for (int i = longestWord.length() - 1; i >= 0; --i) {
+			reversedStr += longestWord[i];
+		}
+		printf("reversedStr: \"%s\" ",
+			reversedStr.c_str());
+	}
+
 	// Вариант 12: Разработать метод, выделяющий из исходной строки слова,
 	// являющиеся положительными шестнадцатеричными константами С++.
 	void var12() {

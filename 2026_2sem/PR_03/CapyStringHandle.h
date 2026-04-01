@@ -299,23 +299,25 @@ public:
 	// Результатом являются слова, заклю-ченные в скобки с 
 	// ненарушенным балансом парности. Вложенность скобок 
 	// отсутствует.
-	bool checkBrackets(string word, char ld, char rd) {
-		int numBrackets = 0;
-		if ((word.find(ld) < std::string::npos) and
+	int checkBrackets(string word, char ld, char rd) {
+		
+		if ((word.find(ld) < std::string::npos) or
 			(word.find(rd) < std::string::npos)) {
-			for (auto i = 0; i < word.length(); i++) {
+			int numBrackets = 0;
+			for (int i = 0; i < word.length(); i++) {
 				if (word[i] == ld)
 					numBrackets++;
 				if (word[i] == rd)
 					numBrackets--;
 			}
+			//printf("\n ---- %i \n", numBrackets);
 			if (numBrackets == 0)
-				return true;
+				return 1;  // скобки есть и сбалансированны
 			else
-				return false;
+				return -1; // скобки есть и не сбалансированны
 		}
 		else
-			return false;
+			return 0; // скобок нет
 	}
 	void var17() {
 		printf("\n=== Variant 17 ===\n");
@@ -325,9 +327,12 @@ public:
 		}
 		vector<string> filteredWords;
 		for (const auto& word : words) {
-			if ((checkBrackets(word,'(',')')) or
-				(checkBrackets(word, '[', ']')) or
-					(checkBrackets(word, '{', '}')))
+			int l1 = checkBrackets(word, '(', ')');
+			int l2 = checkBrackets(word, '[', ']');
+			int l3 = checkBrackets(word, '{', '}');
+			if ((l1 >= 0) and (l2 >= 0) and (l3 >= 0)) and 
+				()
+				)
 				filteredWords.push_back(word);
 		}
 		printf("filteredWords: ");

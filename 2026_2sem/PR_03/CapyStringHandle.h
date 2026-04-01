@@ -233,6 +233,40 @@ public:
 			}
 		}
 	}
+	// 7 Разработать метод, выделяющий из исходной строки слова, 
+	// содержащие не менее N вхождений некоторого символа. 
+	// Количество вхождений N и изображение искомого символа 
+	// вводятся с клавиатуры.
+	int checkCharCount(string word, char ch) {
+		int count = 0;
+		for (int i = 0; i < word.length(); i++) {
+			if (word[i] == ch)
+				count++;
+		}
+		return count;
+	}
+	void var7() {
+		printf("\n=== Variant 7 ===\n");
+		if (words.empty()) {
+			printf("Masiv slov pust!\n");
+			return;
+		}
+		int count = 2;
+		char ch = 'a';
+		vector<string> filteredWords;
+		for (const auto& word : words) {
+			if (checkCharCount(word, ch)== count)
+				filteredWords.push_back(word);
+		}
+		printf("filteredWords: ");
+		for (const auto& word : filteredWords) {
+			printf("%s ", word.c_str());
+		}
+		//	shortestWord.c_str(), shortestWord.length());
+		//printf("Samoe korotkoe slovo: \"%s\" (dlina: %lu simvolov)\n",
+		//	longestWord.c_str(), longestWord.length());
+	}
+
 	// 10 Разработать метод, определяющий в исходной строке 
 	// самое длинное слово и выполняющий его реверс 
 	// (первая буква меняется местами с последней, 

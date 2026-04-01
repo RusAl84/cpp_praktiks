@@ -24,9 +24,10 @@ int main()
     //sh1.var3();
     //sh1.var4();
     //sh1.var5();
+    sh1.var7();
     //sh1.var10();
     //sh1.var12();
-    sh1.var17();
+    //sh1.var17();
     //sh1.var18();
     //sh1.var24();
     //CapyStringHandle << sh1;

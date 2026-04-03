@@ -1,49 +1,23 @@
 ﻿#include <iostream>
 using namespace std;
-
+void capyFunc(string* data) {
+    (*data) += "PustovoytvTheBest";
+    (*data)[0]='P';
+    (*data).clear();
+    data->clear();
+}
 int main()
 {
-    // 1 Бинарная операция-функция, первым (левым) операндом которой предполагается предопределенный тип, не может быть
-        //простой функцией
-        //* компонентной функцией
-        //дружественной функцией
-
-    //2 Необходимо заполнить массив X значениями : 0 4 8 12 16 20. 
-    // Какой оператор  нужно поместить в тело цикла вместо многоточия ?
-        //for (int k = 0; k < 6; k++) {
-        //    ...
-        //}
-    //*X[k] = 3 * k + k;
-    //X[k] = 3 * (k + k);
-    //X[k] = 3 * (k + 1);
-    //X[k] = 3 * k + 1;
-    //for (int k = 0; k < 6; k++) {
-    //    printf("%i ", 3 * k + k);
-    //}
-    // 3 
-    int n = 0x11223344;
-    char* p = (char*)&n + 2;
-    //printf("%x",*(p-1) + *(p+1));
-    //4 Что будет выведено на экран?
-    int m[]{ 2,4,6,8,10,8,6,4,2 };
-    printf("%i", ++m[*(m + 3)] - m[*(m + 2)]);
-    //5 Сколько байтов будет выделено для массива m,
-    // определенного следующим образом:
-    //struct data { int count[20]; short size[10]; double* temp; };
-    //data* m = new data[100]; 
-    // 120 * 100 = 12000
-    // 6 Определён объект Z класса MyClass. 
-    // Какая синтаксическая конструкция для 
-    // обращения к компоненту х этого класса является правильной:
-    //MyClass::x.Z;
-    //Z::x;
-    //* Z->x;
-    //Z.MyClass::x;
-    class MyClass {
-    public:
-        int x;
-    };
-    MyClass Z;
-    printf("\n %i ", Z.MyClass::x);
-    
+    string  data1 = "Liza i Vika ne s'eli Serezhu";
+    for (int i = 0; i < 100; i++)
+        data1 += " capy plachet,";
+    data1[data1.length() -1] = '!';
+    cout << data1.c_str() << endl;
+    capyFunc(&data1);
+    cout << data1.c_str() << endl;
+    string  *data2  = new string("Capy love Nina!");
+    cout << data2->c_str() << endl;
+    capyFunc(data2);
+    cout << data2->c_str() << endl;
+    cout << (*data2).c_str() << endl;
 }

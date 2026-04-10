@@ -1,7 +1,14 @@
-﻿
-#include <iostream>
+﻿#include <iostream>
+#include <windows.h>
+#include <stdio.h>
+
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    setlocale(LC_ALL, "Russian");
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    cout << "Практическая работа 4" << endl;
+
 }

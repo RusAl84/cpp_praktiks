@@ -66,7 +66,7 @@ void genDefaultDataFile(StudentsList* sl) {
 	sl->addItem(st);
 	st = genDataStud();
 	st->number = "0005";
-	st->first_name = "Русаков Алексей 5111";
+	st->first_name = "Русаков Алексей 5";
 	sl->addItem(st);
 }
 
@@ -80,15 +80,14 @@ int main()
     cout << "Практическая работа 4" << endl;
     auto author = []()
         {
-            cout << "Русаков Алексей БИСО-02-25" << endl;
+            cout << "Русаков Алексей БИСО-01-25" << endl;
         };
     author();
 
     StudentsList* sl = new StudentsList();
     genDefaultDataFile(sl);
-    //sl->printMyList();
-    //cout << "Hello World!\n";
-    //sl->saveData();
+    sl->printMyList();
+    sl->saveData();
     //sl->loadData();
     //sl->Dislay();
     //sl->calcAvgMark();

@@ -305,10 +305,10 @@ public:
         // расчет количества студентов, имеющих определенную оценку по некоторой дисциплине.
         current = first;
         class StudentsList dateSL3;//поиск узлов по дате проведения занятия.
-        string foundSubject = "СВТ";
+        string foundSubject = "SVT";
         int foundMark = 5;
         cout << endl << "Raschet kolichestva studentov, imeyushchih opredelennuyu ocenku po nekotoroj discipline: ";
-        cout << endl << " ocenku " << foundMark << " po discipline: " << foundSubject << " SVT";
+        cout << endl << " ocenku " << foundMark << " po discipline: " << foundSubject ;
         int count = 0;
         while (current) {
             for (int i = 0; i < current->item->results.size(); i++)

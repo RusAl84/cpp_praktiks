@@ -10,12 +10,12 @@
 
 
 struct Student* genDataStud() {
-	// Генерация данных студента
+	// Генерация данных студента - стандартные значения
 	struct Student* st = new Student();
-	st->number = "0086";			// номер студ. билета
-	st->first_name = "Русаков Алексей";		// фамилия студента
-	st->birth_day = "27/12/1984";		// дата рождения студента
-	st->group = "БИСО-01-25";			// номер группы
+	st->number = "0086"; // номер студ. билета
+	st->first_name = "Русаков Алексей";	// фамилия студента
+	st->birth_day = "27/12/1984";	// дата рождения студента
+	st->group = "БИСО-01-25"; // номер группы
 	struct Grade* gr = new Grade();
 	//struct Grade gr;
 	gr->date = "14/04/2026";
@@ -85,12 +85,48 @@ int main()
     author();
 
     StudentsList* sl = new StudentsList();
-    genDefaultDataFile(sl);
-    sl->printMyList();
-    sl->saveData();
-    //sl->loadData();
-    //sl->Dislay();
-    //sl->calcAvgMark();
+    //genDefaultDataFile(sl);
+    //sl->printMyList();
+    //sl->saveData();
+    sl->loadData();
+    sl->Dislay();
+    sl->calcAvgMark();
+
+	sl->loadData();
+	//sl->Dislay();
+	//sl->calcAvgMark();
+
+
+	//Вариант 8
+	//Операции со списком :
+	// добавление узла в конец списка;
+	struct Student* st = genDataStud();
+	st->number = "0001";
+	st->first_name = "Русаков конец";
+	sl->addItemBack(st);
+	sl->Dislay();
+	//// удаление N узлов, начиная с указанного индекса.
+	sl->deleteItemAfterInd(6); //6 4 
+	cout << endl << "удаление N узлов, начиная с указанного индекса." << endl;
+	sl->Dislay();
+
+	sl->calcVar8();
+
+
+	//Вариант 26
+	//	Операции со списком :
+	// добавление узла в конец списка;
+
+	st = genDataStud();
+	st->number = "0777";
+	st->first_name = "Русаков конец списка";
+	sl->addItemBack(st);
+	sl->Dislay();
+	// удаление N узлов с начала списка.
+	sl->deleteItemBeforeInd(2);
+	cout << endl << "удаление N узлов, начиная с указанного индекса." << endl;
+	sl->Dislay();
+	sl->calcVar26();
 
 
 }

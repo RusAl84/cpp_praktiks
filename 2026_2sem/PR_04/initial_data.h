@@ -19,6 +19,7 @@ struct Student // структура "студент"
 	string birth_day;		// дата рождения студента
 	string group;			// номер группы
 	vector<Grade> results;	// результаты успеваемости
+	float avg_mark;
 };
 
 struct Node // структура "узел списка"
